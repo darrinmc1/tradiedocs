@@ -33,13 +33,15 @@ A Safe Work Method Statement (SWMS) is a document that describes the high-risk c
 
 ### When Is a SWMS Legally Required?
 
-Under the WHS Regulations, a SWMS is required before any **high-risk construction work** begins. The regulations list 18 categories of high-risk work, including:
+Under the WHS Regulations, a SWMS is required before any **high-risk construction work** begins. The regulations list the categories of high-risk construction work that require a SWMS, including:
 
-- Working at heights (2 metres or more)
+- Working at height (above the height set in the WHS Regulations)
 - Working near live electrical installations
 - Demolition
-- Excavation to a depth of 1.5 metres or more
+- Excavation (below the depth set in the WHS Regulations)
 - Work in or near confined spaces
+
+Exact thresholds and the full list vary by jurisdiction — check Safe Work Australia and your state WHS regulator.
 
 ### Who Prepares It?
 
@@ -51,7 +53,7 @@ A principal contractor can direct you to stop work. WorkSafe inspectors can issu
 
 ### The Short Answer
 
-If you're doing any of the 18 high-risk construction activities listed in the WHS Regulations, yes — you need a SWMS. No exceptions.`,
+If you're doing any of the high-risk construction activities listed in the WHS Regulations, yes — you need a SWMS. No exceptions.`,
     duration: "4 min",
     durationMinutes: 4,
     learningOutcomes: [
@@ -77,7 +79,7 @@ These three documents overlap but serve different purposes. Here's when you use 
 ### SWMS (Safe Work Method Statement)
 
 - **When:** Before any high-risk construction work
-- **Legal status:** Mandatory under WHS Regulations for the 18 listed high-risk activities
+- **Legal status:** Mandatory under WHS Regulations for the listed high-risk construction activities
 - **What it covers:** Specific steps of the work, hazards at each step, and controls
 - **Who prepares it:** The PCBU doing the high-risk work
 
@@ -198,13 +200,15 @@ Most states have a tiered structure:
 | NT | NT WorkSafe | Licensed Electrical Worker + Electrical Contractor |
 | ACT | Access Canberra | Electrician Licence + Electrical Contractor Licence |
 
+> Regulator names and structures change over time. Confirm the current licensing body and requirements with your state regulator before applying.
+
 ### Working Across State Lines
 
 Your licence from one state is not automatically valid in another. Most states have mutual recognition, but you must apply before working.
 
 ### Penalties for Unlicensed Work
 
-- Fines up to $50,000+ for individuals
+- Significant fines for individuals (amounts vary by state and change — check your state regulator)
 - You can't enforce contracts for unlicensed work
 - Insurance won't cover you`,
     duration: "5 min",
@@ -249,6 +253,8 @@ Plumbing is licensed in every state. Here's the breakdown.
 | NT | Plumbers and Drainers Licensing Board | Licensed Plumber |
 | ACT | Access Canberra | Plumber Licence (journeyman or contractor) |
 
+> Regulator names and structures change over time. Confirm the current licensing body and requirements with your state regulator before applying.
+
 ### Gas Fitting
 
 Gas fitting requires a separate endorsement or licence in all states. Never do gas work without the correct credential — the penalties are severe and the safety risks are real.
@@ -287,16 +293,18 @@ Unlike electrical and plumbing (which are always licensed), building/carpentry l
 
 ### State-by-State
 
-| State | Regulator | Threshold |
-|-------|-----------|-----------|
-| NSW | NSW Fair Trading | $5,000+ (including labour and materials) |
-| VIC | Victorian Building Authority | Any domestic building work over $10,000 |
-| QLD | QBCC | $3,300+ (including GST) |
-| SA | Consumer and Business Services | $12,000+ |
-| WA | Building and Energy | $20,000+ for residential |
+| State | Regulator | Licence threshold |
+|-------|-----------|-------------------|
+| NSW | NSW Fair Trading | Set by the regulator — check current threshold |
+| VIC | Victorian Building Authority | Set by the regulator — check current threshold |
+| QLD | QBCC | Set by the regulator — check current threshold |
+| SA | Consumer and Business Services | Set by the regulator — check current threshold |
+| WA | Building and Energy | Set by the regulator — check current threshold |
 | TAS | CBOS | All building work requires registration |
 | NT | Building Practitioners Board | All building work |
-| ACT | Access Canberra | All building work over $12,000 |
+| ACT | Access Canberra | Set by the regulator — check current threshold |
+
+Licence thresholds are dollar-value cut-offs set by each state and are updated periodically. Always confirm the current threshold with your state regulator before deciding whether you need a licence.
 
 ### Licence Classes
 
@@ -308,7 +316,7 @@ Most states have tiered builder licences:
 
 ### Owner-Builder
 
-Most states allow homeowners to do their own work under an owner-builder permit, but there are restrictions on selling within a set period (usually 5–7 years).`,
+Most states allow homeowners to do their own work under an owner-builder permit, but there are restrictions on selling within a set period (the timeframe varies by state — check your state regulator).`,
     duration: "6 min",
     durationMinutes: 6,
     learningOutcomes: [
@@ -384,7 +392,7 @@ Most tradies undercharge. Here's how to fix that.
 
 Your charge-out rate isn't your take-home. You need to cover:
 - **Your wage** — what you'd pay yourself as an employee
-- **Super** — 11.5% on top
+- **Super** — the legislated Super Guarantee rate on top (confirm the current rate at ato.gov.au)
 - **Insurance** — public liability, income protection, tool cover
 - **Vehicle costs** — fuel, rego, insurance, depreciation, servicing
 - **Tools and equipment** — replacement, maintenance, calibration
@@ -536,7 +544,7 @@ If you're operating a business — quoting for jobs, providing your own tools, c
 
 ### GST Registration
 
-- **Mandatory** if annual turnover is $75,000 or more
+- **Mandatory** once your annual turnover reaches the ATO's GST registration threshold (check the current threshold at ato.gov.au)
 - **Voluntary** below that — useful if you want to claim GST credits on tools and materials
 
 ### BAS Obligations
@@ -631,7 +639,7 @@ Getting this wrong can cost you tens of thousands in back-taxes, super, and pena
 ### Why It Matters
 
 If the ATO decides your "subcontractor" is actually an employee, **you** owe:
-- Superannuation (currently 11.5%)
+- Superannuation (at the legislated Super Guarantee rate — check the current rate at ato.gov.au)
 - PAYG withholding
 - Workers' compensation premiums
 - Payroll tax (if over threshold)

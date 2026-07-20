@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ALL_PRODUCTS, getProductById } from "@/data/products"
 import { siteConfig } from "@/config/site.config"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
+import { Disclaimer } from "@/components/disclaimer"
 import { Check } from "lucide-react"
 
 export function generateStaticParams() {
@@ -67,6 +68,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         <article className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10">
           <MarkdownRenderer content={product.content} />
         </article>
+
+        <div className="mt-6">
+          <Disclaimer variant="full" />
+        </div>
 
         <div className="mt-8 flex items-center gap-6">
           <div>

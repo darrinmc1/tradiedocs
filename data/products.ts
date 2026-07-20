@@ -31,7 +31,7 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 - **20 pre-filled SWMS templates** covering electrical, plumbing, carpentry, roofing, concreting, demolition, excavation, scaffolding, working at heights, confined spaces, hot works, asbestos removal, crane operations, formwork, steel fixing, waterproofing, tiling, painting (heights), glazing, and landscaping (machinery)
 - **Editable Word (.docx) format** — add your ABN, company name, and site-specific details
 - **State-compliant structure** — meets WHS requirements across NSW, VIC, QLD, SA, WA, TAS, NT, and ACT
-- **High-risk work checklist** — a master checklist cross-referencing all 18 high-risk construction work activities under the WHS Regulations
+- **High-risk work checklist** — a master checklist cross-referencing the high-risk construction work activities listed under the WHS Regulations
 
 ### How to Use Them
 

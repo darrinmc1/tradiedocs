@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
+import { NewsletterForm } from "@/components/newsletter-form"
 
 export default function HomePage() {
   return (
@@ -58,12 +59,15 @@ export default function HomePage() {
         <p className="text-slate-400 mb-8">
           {siteConfig.copy.emailCaptureSubheading}
         </p>
-        <Link
-          href="/products"
-          className="inline-block px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-orange-500 to-amber-600 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105"
-        >
-          Browse All Templates
-        </Link>
+        <NewsletterForm source="homepage" />
+        <div className="mt-6">
+          <Link
+            href="/products"
+            className="inline-block px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-orange-500 to-amber-600 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105"
+          >
+            Browse All Templates
+          </Link>
+        </div>
       </div>
     </div>
   )

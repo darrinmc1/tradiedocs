@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ALL_MODULES, getModuleById } from "@/data/modules"
 import { siteConfig } from "@/config/site.config"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
+import { Disclaimer } from "@/components/disclaimer"
 
 export function generateStaticParams() {
   return ALL_MODULES.map((mod) => ({ id: mod.id }))
@@ -50,6 +51,10 @@ export default function LessonPage({ params }: { params: { id: string } }) {
         <article className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10">
           <MarkdownRenderer content={mod.content} />
         </article>
+
+        <div className="mt-6">
+          <Disclaimer variant="full" />
+        </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
           {mod.tags.map((tag) => (
