@@ -9,6 +9,9 @@ export default function HomePage() {
       <div className={`${siteConfig.theme.heroGradient} py-24 md:py-32`}>
         <div className="mx-auto max-w-4xl px-6 text-center">
           <div className="text-6xl mb-6 animate-float">{siteConfig.theme.emoji}</div>
+          <p className="text-sm font-semibold uppercase tracking-widest text-orange-300 mb-4">
+            Compliance Templates for Australian Tradies
+          </p>
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
             <span className="gradient-text-cyan">{siteConfig.copy.heroTitle}</span>
           </h1>
