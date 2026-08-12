@@ -165,7 +165,7 @@ export const siteConfig: SiteConfig = {
       id: "safety",
       name: "Safety & SWMS",
       emoji: "\u{1F9BA}",
-      description: "SWMS templates, risk assessments, and WorkSafe compliance.",
+      description: "SWMS templates and risk-assessment starters for job sites.",
       color: "orange",
     },
     {
@@ -210,9 +210,9 @@ export const siteConfig: SiteConfig = {
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
     foundingMemberHeading: "Founding Member — Lock In Launch Pricing",
-    emailCaptureHeading: "Compliance Tips for Tradies",
+    emailCaptureHeading: "Get free compliance tips by email",
     emailCaptureSubheading:
-      "WorkSafe updates, template drops, and business tips for sole traders and small crews.",
+      "Practical WHS and paperwork tips for sole traders and small crews. No spam — unsubscribe anytime.",
     feedbackPlaceholder: "What template do you need next?",
   },
 

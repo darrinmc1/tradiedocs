@@ -107,7 +107,7 @@ export function WaitlistPopup() {
               </h2>
 
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                WorkSafe updates, new template drops, and business tips for
+                Practical WHS and paperwork tips, plus new template drops for
                 sole traders and small crews. No spam, no fluff.
               </p>
 
