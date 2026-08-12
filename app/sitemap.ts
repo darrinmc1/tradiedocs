@@ -14,6 +14,7 @@ export default function sitemap() {
   const staticPages = [
     { url: base, lastModified: new Date(), priority: 1.0 },
     { url: `${base}/lessons`, lastModified: new Date(), priority: 0.9 },
+    { url: `${base}/blog`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/updates`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/products`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/about`, lastModified: new Date(), priority: 0.6 },
