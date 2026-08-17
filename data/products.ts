@@ -45,7 +45,7 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 
 Sole-trader tradies and small crews who need compliant SWMS but don't have a safety officer to write them.`,
   price: 79,
-  stripePriceId: "price_TODO_swms",
+  stripePriceId: "price_1U4JsxPVyAgWnzPr9hwzd20r",
   features: [
     "20 pre-filled SWMS templates (electrical, plumbing, carpentry, roofing + 16 more)",
     "Editable Word format",
@@ -88,7 +88,7 @@ Win more jobs with professional quotes and get paid faster with clear invoices.
 
 Tradies who are great at the work but hate the paperwork. If you've lost a job because your quote looked unprofessional or waited months to get paid because your invoice was unclear — these templates fix that.`,
   price: 49,
-  stripePriceId: "price_TODO_quote",
+  stripePriceId: "price_1U4JsyPVyAgWnzPrnk8G5Jbo",
   features: [
     "Professional quote template",
     "Tax invoice template (ATO-compliant)",
@@ -137,7 +137,7 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 
 Bundle price: $119 (vs. $128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
   price: 119,
-  stripePriceId: "price_TODO_bundle",
+  stripePriceId: "price_1U4Jt0PVyAgWnzPrXAEWTDFH",
   features: [
     "Everything in both packs",
     "Incident report template",

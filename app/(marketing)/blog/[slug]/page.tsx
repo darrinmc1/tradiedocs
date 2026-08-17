@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar } from "lucide-react"
 import posts from "@/lib/blog"
+import HumorBreak from "@/components/humor-break"
 import { siteConfig } from "@/config/site.config"
 
 type Section = { heading: string; paragraphs: string[] }
@@ -214,7 +215,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </h1>
         <p className="text-lg text-slate-400 leading-relaxed mb-8">{post.e}</p>
 
-        {body.map((section) => (
+        {body.map((section, si) => (
           <section key={section.heading}>
             <h2 className="text-xl font-bold mt-10 mb-4 text-white">{section.heading}</h2>
             {section.paragraphs.map((p, i) => (
@@ -222,6 +223,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 {p}
               </p>
             ))}
+            {si === 1 && <HumorBreak tag="general" />}
           </section>
         ))}
 
