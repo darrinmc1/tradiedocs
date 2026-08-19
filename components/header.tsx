@@ -1,49 +1,141 @@
-import Link from "next/link";
+"use client"
 
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { LucideMenu } from "lucide-react";
+import { useState } from "react"
+import Link from "next/link"
+import {
+  SignInButton,
+  SignUpButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs"
+import { siteConfig } from "@/config/site.config"
+import { cn } from "@/lib/utils"
+import { Menu, X } from "lucide-react"
+import HumorToggle from "@/components/humor-toggle"
 
 export function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { isSignedIn, isLoaded } = useUser()
+
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between border-b bg-background px-4 py-2 shadow-sm">
-      <div className="flex items-center gap-4">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="lg:hidden">
-              <LucideMenu className="h-5 w-5" />
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-64">
-            <nav className="flex flex-col gap-4 p-4">
-              <Link href="/" className="text-lg font-semibold">Home</Link>
-              <Link href="/lessons" className="text-lg font-semibold">Lessons</Link>
-              <Link href="/products" className="text-lg font-semibold">Products</Link>
-              <Link href="/about" className="text-lg font-semibold">About</Link>
-              <Link href="/blog" className="text-lg font-semibold">Blog</Link>
-            </nav>
-          </SheetContent>
-        </Sheet>
-        <Link href="/" className="text-xl font-bold tracking-tight lg:text-2xl">
-          TradieDocs
-        </Link>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 group">
+            <span className="text-2xl group-hover:animate-float">
+              {siteConfig.theme.emoji}
+            </span>
+            <span className="font-display text-lg font-bold gradient-text-cyan">
+              {siteConfig.name}
+            </span>
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-1">
+            {siteConfig.nav.marketing.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/5 transition-all duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <HumorToggle />
+            {isLoaded && !isSignedIn && (
+              <>
+                <SignInButton mode="modal">
+                  <button className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">
+                    Log In
+                  </button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <button
+                    className={cn(
+                      "px-5 py-2 text-sm font-bold rounded-xl text-white",
+                      "bg-gradient-to-r from-orange-500 to-amber-600",
+                      "hover:from-orange-400 hover:to-amber-500",
+                      "shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40",
+                      "transition-all duration-300 hover:scale-105"
+                    )}
+                  >
+                    {siteConfig.copy.ctaButton}
+                  </button>
+                </SignUpButton>
+              </>
+            )}
+            {isLoaded && isSignedIn && (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <Link
+                  href="/account"
+                  className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                >
+                  Account
+                </Link>
+                <UserButton appearance={{ elements: { avatarBox: "h-9 w-9" } }} />
+              </>
+            )}
+          </div>
+
+          <button
+            className="md:hidden p-2 text-slate-300 hover:text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
-      <nav className="hidden items-center gap-4 lg:flex">
-        <Link href="/lessons" className="text-sm font-medium hover:text-primary">Lessons</Link>
-        <Link href="/products" className="text-sm font-medium hover:text-primary">Products</Link>
-        <Link href="/about" className="text-sm font-medium hover:text-primary">About</Link>
-        <Link href="/blog" className="text-sm font-medium hover:text-primary">Blog</Link>
-      </nav>
-      <div className="flex items-center gap-2">
-        <Button asChild variant="ghost" size="sm">
-          <Link href="/sign-in">Sign In</Link>
-        </Button>
-        <Button asChild size="sm">
-          <Link href="/sign-up">Sign Up</Link>
-        </Button>
-      </div>
+
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-xl">
+          <div className="px-4 py-4 space-y-2">
+            {siteConfig.nav.marketing.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/5 transition-all"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-4 border-t border-white/10 space-y-2">
+              {isLoaded && !isSignedIn && (
+                <>
+                  <SignInButton mode="modal">
+                    <button className="block w-full px-4 py-3 text-sm font-medium text-slate-300 hover:text-white text-center rounded-lg hover:bg-white/5">
+                      Log In
+                    </button>
+                  </SignInButton>
+                  <SignUpButton mode="modal">
+                    <button className="block w-full px-4 py-3 text-sm font-bold text-white text-center rounded-xl bg-gradient-to-r from-orange-500 to-amber-600">
+                      {siteConfig.copy.ctaButton}
+                    </button>
+                  </SignUpButton>
+                </>
+              )}
+              {isLoaded && isSignedIn && (
+                <Link
+                  href="/dashboard"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-white text-center rounded-lg hover:bg-white/5"
+                >
+                  Dashboard
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
-  );
+  )
 }
