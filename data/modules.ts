@@ -22,95 +22,158 @@ export interface Module {
 
 const modules: Module[] = [
   {
-    id: "do-you-need-a-swms",
-    title: "Do You Actually Need a SWMS?",
-    description: "When a SWMS is legally required, who prepares it, and what happens if you don't have one on-site.",
-    category: "safety",
-    level: "beginner",
-    content: `## Do You Actually Need a SWMS?
-
-A Safe Work Method Statement (SWMS) is a document that describes the high-risk construction work to be carried out, the hazards involved, and the control measures you'll put in place.
-
-### When Is a SWMS Legally Required?
-
-Under the WHS Regulations, a SWMS is required before any **high-risk construction work** begins. The regulations list the categories of high-risk construction work that require a SWMS, including:
-
-- Working at height (above the height set in the WHS Regulations)
-- Working near live electrical installations
-- Demolition
-- Excavation (below the depth set in the WHS Regulations)
-- Work in or near confined spaces
-
-Exact thresholds and the full list vary by jurisdiction — check Safe Work Australia and your state WHS regulator.
-
-### Who Prepares It?
-
-The person conducting a business or undertaking (PCBU) doing the high-risk construction work must prepare the SWMS — or have it prepared — before work starts.
-
-### What If You Don't Have One?
-
-A principal contractor can direct you to stop work. WorkSafe inspectors can issue improvement or prohibition notices. Fines can run into tens of thousands of dollars.
-
-### The Short Answer
-
-If you're doing any of the high-risk construction activities listed in the WHS Regulations, yes — you need a SWMS. No exceptions.`,
-    duration: "4 min",
-    durationMinutes: 4,
-    learningOutcomes: [
-      "Know when a SWMS is legally required",
-      "Understand who is responsible for preparing it",
-      "Know the consequences of not having one",
+    "id": "about",
+    "title": "About TradieDocs",
+    "description": "Understand the core value proposition of TradieDocs, focusing on efficiency and professionalism for tradies. Learn how our platform helps streamline documentation, manage claims, and improve client communication.",
+    "category": "claims",
+    "level": "beginner",
+    "content": "## About TradieDocs: Your Partner in Professional Documentation\n\nTradieDocs was founded with a singular mission: to empower tradies with the tools they need to run their businesses more efficiently and professionally. We understand the unique challenges faced by tradespeople – from managing job sites and client communications to handling complex paperwork and claims. Our platform is designed to simplify these processes, saving you valuable time and reducing the administrative burden that often distracts from the actual work.\n\n### Streamlining Your Workflow\n\nAt its heart, TradieDocs is about reclaiming your time. We know that administrative tasks can consume hours each week, time that could be better spent on jobs, with family, or growing your business. Our intuitive interface allows you to create, send, and manage quotes, invoices, and job sheets with ease. Digital forms, pre-filled templates, and mobile accessibility mean you can handle documentation on the go, directly from the job site, without being tied to a desk. This efficiency translates directly into more productive workdays and a smoother operational flow.\n\n### Enhancing Professionalism and Client Trust\n\nFirst impressions matter. In today's competitive market, presenting a professional image is crucial for securing new clients and retaining existing ones. TradieDocs helps you achieve this by providing polished, branded documents that reflect the quality of your work. Clear, detailed quotes and invoices build trust and transparency with your clients. Furthermore, our system facilitates timely communication, ensuring clients are kept informed at every stage of the project. This professional approach not only enhances your reputation but also minimizes misunderstandings and disputes.\n\n### Simplifying Claims Management\n\nDealing with insurance claims or disputes can be a significant headache. TradieDocs provides the necessary documentation to support your claims effectively. By maintaining organized records of work performed, materials used, and client agreements, you have readily accessible evidence to substantiate your position. This organized approach can significantly simplify the claims process, reducing back-and-forth communication and speeding up resolution times. While we aim to provide tools that support your claims, it is important to ensure all claims are factual and substantiated by the documentation provided.\n\n### Our Commitment to You\n\nWe are dedicated to continuously improving TradieDocs based on the feedback of tradies like you. Our goal is to be more than just software; we aim to be a reliable partner in your business success. We strive to offer practical solutions that address real-world problems, enabling you to focus on what you do best – delivering excellent trade services. We believe in the power of clear communication and efficient processes to elevate your business.",
+    "duration": "8 min",
+    "durationMinutes": 8,
+    "learningOutcomes": [
+      "Understand the primary benefits of using TradieDocs.",
+      "Identify how TradieDocs improves business efficiency and professionalism.",
+      "Recognize the role of TradieDocs in managing documentation and client communication."
     ],
-    tags: ["swms", "safety", "compliance"],
-    dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
-    status: "published",
+    "tags": [
+      "tradie software",
+      "business efficiency",
+      "documentation",
+      "client management",
+      "claims support"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
   },
   {
-    id: "swms-vs-jsa-vs-risk-assessment",
-    title: "SWMS vs JSA vs Risk Assessment",
-    description: "The differences between a SWMS, a Job Safety Analysis, and a risk assessment — and when to use each one.",
-    category: "safety",
-    level: "beginner",
-    content: `## SWMS vs JSA vs Risk Assessment
-
-These three documents overlap but serve different purposes. Here's when you use each.
-
-### SWMS (Safe Work Method Statement)
-
-- **When:** Before any high-risk construction work
-- **Legal status:** Mandatory under WHS Regulations for the listed high-risk construction activities
-- **What it covers:** Specific steps of the work, hazards at each step, and controls
-- **Who prepares it:** The PCBU doing the high-risk work
-
-### JSA (Job Safety Analysis)
-
-- **When:** Before any task — not limited to high-risk construction
-- **Legal status:** Not specifically mandated, but demonstrates due diligence
-- **What it covers:** Breaks the job into steps, identifies hazards at each step, lists controls
-- **Who prepares it:** Usually the supervisor or team leader, with input from workers
-
-### Risk Assessment
-
-- **When:** At any stage — planning, design, before starting work, or when conditions change
-- **Legal status:** Required as part of your general WHS duty of care
-- **What it covers:** Broad identification of hazards, assessment of likelihood and severity, hierarchy of controls
-- **Who prepares it:** The PCBU, with consultation from workers
-
-### Which Do You Need?
-
-If you're doing high-risk construction work, you need a SWMS — no debate. A JSA and risk assessment are best practice for everything else. Many builders require all three.`,
-    duration: "5 min",
-    durationMinutes: 5,
-    learningOutcomes: [
-      "Distinguish between SWMS, JSA, and risk assessment",
-      "Know which document is legally required",
-      "Understand when each is used in practice",
+    "id": "products",
+    "title": "Understanding Your Product Claims",
+    "description": "Learn how to identify and refine superlative and statistical claims within product descriptions to ensure accuracy and credibility.",
+    "category": "claims",
+    "level": "intermediate",
+    "content": "## Substantiating Your Product Claims: Moving Beyond Superlatives\n\nIn the world of product marketing and sales, making compelling claims is essential. However, the line between persuasive language and unsubstantiated hyperbole can be easily crossed. This lesson focuses on identifying and rectifying two common types of problematic claims: superlative language and statistics without sources.\n\n### The Peril of Superlative Language\n\nWords like 'the best,' 'world-class,' 'guaranteed,' 'proven to,' 'always,' 'never fails,' '#1,' 'revolutionary,' 'game-changing,' and 'industry-leading' are powerful. They aim to position a product as superior and indispensable. However, without concrete evidence, these terms are mere assertions and can erode trust with your audience. For tradies, this might mean claims about tool durability, service efficiency, or material performance. For example, stating 'our tools are guaranteed to last a lifetime' is a bold claim that's difficult to universally prove and could lead to customer dissatisfaction if a tool fails prematurely.\n\n**Why it's a problem:**\n\n*   **Lack of Verifiability:** Superlatives are subjective and difficult, if not impossible, to measure objectively. What constitutes 'world-class' performance? Who decided your product is '#1'?\n*   **Erosion of Trust:** When customers discover that claims like 'guaranteed' or 'never fails' don't hold up in real-world scenarios, their trust in your brand diminishes significantly. This can lead to negative reviews and lost business.\n*   **Legal Ramifications:** In some jurisdictions, making unsubstantiated superlative claims can be considered false advertising, leading to potential legal issues.\n\n**How to improve:**\n\nInstead of relying on vague superlatives, focus on specific, verifiable benefits. Quantify performance where possible. For instance, instead of 'the fastest installation,' try 'installation completed in an average of 45 minutes.' Instead of 'revolutionary design,' explain *what* makes the design innovative and how it benefits the user, such as 'our patented quick-release mechanism reduces setup time by 30%.'\n\n### The Importance of Sourced Statistics\n\nNumbers, percentages, and statistics can be highly persuasive. '73% of businesses use our software,' 'our service saves you 40 hours per week,' or 'trusted by 10,000 companies' are all impactful statements. However, when these figures are presented without a clear source, they become suspect. A potential customer might wonder: Where did this data come from? Who conducted the study? Is this data even relevant to my situation?\n\n**Why it's a problem:**\n\n*   **Credibility Gap:** Uncited statistics create a credibility gap. They appear as arbitrary numbers plucked from thin air, undermining the perceived accuracy of your claims.\n*   **Susceptibility to Scrutiny:** Savvy consumers and business partners will question the validity of unsourced data. This can lead to lengthy discussions or outright dismissal of your product.\n*   **Misleading Information:** Without a source, it's impossible to verify the methodology or context of the statistic, potentially leading to the misrepresentation of facts.\n\n**How to improve:**\n\nAlways cite your sources for any numerical data, percentages, or statistics. This can be done through inline citations, footnotes, or a dedicated 'Sources' section. For example, 'According to a 2023 independent study by [Research Firm Name] (available at [link to study]), 73% of small businesses reported increased efficiency after implementing similar workflow solutions.'\n\n**Best Practices for Product Claims:**\n\n1.  **Be Specific:** Clearly articulate the features and benefits of your product.\n2.  **Be Verifiable:** Ensure all claims can be backed by evidence, data, or customer testimonials.\n3.  **Be Honest:** Avoid exaggeration or misleading statements.\n4.  **Know Your Audience:** Tailor your claims to resonate with the specific needs and expectations of your target market.\n5.  **Cite Your Sources:** For any statistical data, provide a clear and accessible reference.\n\nBy adhering to these principles, you can build stronger, more credible product descriptions that foster trust and drive genuine interest, ultimately benefiting both your customers and your business.",
+    "duration": "10 min",
+    "durationMinutes": 10,
+    "learningOutcomes": [
+      "Identify and remove unsubstantiated superlative language.",
+      "Understand the importance of citing sources for statistics.",
+      "Replace vague claims with specific, verifiable information."
     ],
-    tags: ["swms", "jsa", "risk-assessment", "safety"],
-    dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
-    status: "published",
+    "tags": [
+      "product claims",
+      "marketing",
+      "sales",
+      "credibility",
+      "evidence"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
+  },
+  {
+    "id": "updates",
+    "title": "TradieDocs: Essential Updates and Features for Australian Tradies",
+    "description": "Stay up-to-date with the latest features and essential documentation for Australian tradies using TradieDocs. This lesson covers SWMS templates, quote packs, compliance documents, and more, ensuring you're always ahead of the curve.",
+    "category": "business management",
+    "level": "intermediate",
+    "content": "## Keeping Your Tradie Business Streamlined with TradieDocs\n\nIn today's competitive construction landscape, efficiency and compliance are paramount for Australian tradies. TradieDocs has been developed to address these critical needs, offering a suite of digital tools designed to simplify your administrative tasks and ensure you meet all regulatory requirements. This lesson delves into the essential updates and core features that make TradieDocs an indispensable asset for your business.\n\n### The Importance of SWMS Templates\n\nSafe Work Method Statements (SWMS) are legally required for high-risk construction work in Australia. Manually creating these documents can be time-consuming and prone to errors. TradieDocs provides robust, easy-to-use SWMS templates that are compliant with current Australian Work Health and Safety (WHS) legislation. Our templates are designed to be adaptable, allowing you to quickly fill in project-specific details, hazard identification, risk assessments, and control measures. By utilizing our digital SWMS, you ensure that your team is protected, your projects adhere to safety standards, and you avoid potential fines or project delays.\n\n### Streamlining with Quote Packs\n\nFirst impressions matter, and a professional quote is crucial for winning new business. TradieDocs offers customizable quote pack features that allow you to generate detailed, branded quotes in minutes. These packs can include not just pricing, but also company information, terms and conditions, and even relevant certifications or testimonials. The ability to send these digitally, track their status, and convert them into invoices upon acceptance streamlines the sales process significantly. This not only enhances your professional image but also improves cash flow by reducing the time between quoting and payment.\n\n### Ensuring Compliance with Digital Documents\n\nBeyond SWMS and quotes, Australian tradies face a myriad of compliance obligations. TradieDocs provides a central hub for all your essential documents. This includes: \n\n*   **Invoices:** Professional and easy-to-track invoices that can be generated from accepted quotes.\n*   **Contracts:** Standardized contract templates that can be customized for different types of jobs.\n*   **Employee Records:** Secure storage for essential HR and payroll documentation.\n*   **Licensing and Insurance:** A place to store and manage expiry dates for all necessary licenses and insurance policies.\n\nMaintaining compliance isn't just about avoiding penalties; it's about building a sustainable and reputable business. TradieDocs simplifies this by keeping all critical documents organised, accessible, and up-to-date.\n\n### Future-Proofing Your Business\n\nTradieDocs is continuously evolving to meet the dynamic needs of the Australian tradie industry. We are committed to providing tools that not only solve today's problems but also anticipate tomorrow's challenges. Our platform is designed with scalability in mind, ensuring that as your business grows, TradieDocs grows with you. We are dedicated to keeping our users informed about the latest legislative changes and industry best practices, integrating them directly into our platform. Our ongoing development ensures that you always have access to the most current and effective tools available.\n\nBy embracing digital solutions like TradieDocs, Australian tradies can significantly reduce administrative burdens, enhance professionalism, and ensure robust compliance. This allows you to focus on what you do best – delivering quality workmanship and growing your trade business.",
+    "duration": "15 min",
+    "durationMinutes": 15,
+    "learningOutcomes": [
+      "Understand the importance and functionality of SWMS templates.",
+      "Learn how TradieDocs quote packs can improve sales and client relations.",
+      "Identify key compliance documents managed through the TradieDocs platform."
+    ],
+    "tags": [
+      "tradie",
+      "swms",
+      "compliance",
+      "quote packs",
+      "australia",
+      "business management"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
+  },
+  {
+    "id": "blog",
+    "title": "Crafting Effective Claims and Maintaining Brand Voice",
+    "description": "Learn how to write compelling claims backed by evidence and ensure your content aligns with a practical, no-nonsense brand voice.",
+    "category": "claims",
+    "level": "intermediate",
+    "content": "## Writing Strong Claims and Maintaining Your Brand Voice\n\nIn the competitive landscape of business communication, particularly for tradies, clarity, credibility, and a consistent brand voice are paramount. This lesson focuses on two critical aspects: substantiating your claims and adhering to a practical, direct brand persona. We'll explore how to move beyond vague promises to deliver impactful messages that resonate with your target audience while avoiding common pitfalls.\n\n### The Power of Substantiated Claims\n\nOne of the most significant ways to build trust and authority is by backing up every claim you make with solid evidence or a verifiable source. Vague or unsubstantiated claims, such as 'guaranteed results,' can erode credibility and leave potential clients questioning your reliability. Instead of making broad promises, aim for specificity and transparency.\n\n**Why Substantiate Claims?**\n\n*   **Builds Trust:** When you provide proof, you demonstrate honesty and transparency, fostering trust with your audience.\n*   **Enhances Credibility:** Backed claims position you as an expert who understands their subject matter deeply.\n*   **Improves Persuasion:** Evidence-based statements are far more persuasive than mere assertions.\n*   **Reduces Risk:** Clearly defined terms and demonstrable results minimize misunderstandings and potential disputes.\n\n**How to Substantiate Claims:**\n\n1.  **Use Data and Statistics:** If you have performance metrics, customer satisfaction rates, or project completion times, present them clearly. For example, instead of saying 'We offer the fastest service,' say 'Our average project completion time is 3 days, based on over 100 completed jobs last year.'\n2.  **Cite Sources:** If your claim is based on industry standards, research, or certifications, mention the source. For instance, 'Our materials meet Australian Standard AS/NZS 3000:2018 for electrical safety.'\n3.  **Provide Case Studies or Testimonials:** Real-world examples are powerful. Referencing a specific project or quoting a satisfied client adds weight to your claims. 'As seen in our recent project for Smith & Co., we reduced energy costs by 20% through our new insulation techniques.'\n4.  **Explain Your Process:** Sometimes, the 'how' is the substantiation. Detailing a unique methodology or a rigorous quality control process can justify a claim about superior outcomes.\n5.  **Be Specific:** Replace subjective adjectives with objective descriptions. Instead of 'the best,' use 'award-winning,' 'certified,' or 'recommended by X authority.'\n\n**Example Transformation:**\n\n*   **Weak Claim:** 'We guarantee you'll be happy with our work.'\n*   **Stronger Claim:** 'Our customer satisfaction rate is over 98%, based on post-project surveys from the last two years. We also offer a 12-month workmanship warranty on all installations.'\n\n### Maintaining a Practical Brand Voice\n\nFor tradies, the brand voice is typically direct, no-nonsense, and focused on delivering solutions. It's about clarity, efficiency, and reliability. Incorporating slang or overly casual language, even with good intentions, can dilute this message and create a disconnect with the audience. The goal is to sound professional, knowledgeable, and approachable, without being overly familiar.\n\n**Characteristics of a Practical Tradie Brand Voice:**\n\n*   **Direct and Concise:** Get to the point quickly. Avoid jargon unless it's industry-standard and understood by the client.\n*   **Action-Oriented:** Focus on what you do and how it benefits the client.\n*   **Reliable and Trustworthy:** The tone should convey competence and dependability.\n*   **Clear and Unambiguous:** Leave no room for misinterpretation.\n*   **Professional yet Approachable:** Friendly without being overly casual.\n\n**Avoiding Common Pitfalls:**\n\n*   **Slang:** Terms like 'mate-to-mate' or overly colloquial phrases can undermine professionalism. While the intention might be to sound friendly, it can come across as unprofessional or even condescending.\n*   **Excessive Jargon:** While some technical terms are necessary, explain them if the client might not be familiar.\n*   **Overly Casual Tone:** A tone that is too relaxed can make the service seem less serious or less reliable.\n\n**Example Transformation:**\n\n*   **Original:** 'We'll sort you out, mate. Just give us a yell, and we'll have a yarn about what needs doing.'\n*   **Revised:** 'We are ready to address your needs. Please contact us to schedule a consultation and discuss the required work.'\n\n**Putting It All Together**\n\nBy focusing on substantiated claims and a consistent, practical brand voice, you build a stronger, more trustworthy brand. This approach not only enhances your communication but also reinforces your professionalism and expertise in the eyes of your clients. Regularly review your content to ensure it meets these standards, and always strive for clarity, accuracy, and reliability in every message you send.\n",
+    "duration": "12 min",
+    "durationMinutes": 12,
+    "learningOutcomes": [
+      "Write claims supported by evidence and sources.",
+      "Identify and replace unsubstantiated or vague claims.",
+      "Align communication with a practical and professional brand voice."
+    ],
+    "tags": [
+      "claims",
+      "brand voice",
+      "marketing",
+      "credibility",
+      "tradie marketing",
+      "professional communication"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
+  },
+    {
+    "id": "do-you-need-a-swms",
+    "title": "Do You Need a Safe Work Method Statement (SWMS)?",
+    "description": "Understand when a Safe Work Method Statement (SWMS) is required for your construction or trade business to ensure compliance and worker safety. Learn to identify high-risk construction work.",
+    "category": "safety",
+    "level": "beginner",
+    "content": "## When is a Safe Work Method Statement (SWMS) Required?\n\nIf you're running a trade business, especially in construction, you've likely heard the term SWMS. But what exactly is it, and when do you actually *need* one? Let's break it down in a way that makes sense for the tradie on the tools.\n\n### What is a SWMS?\n\nA Safe Work Method Statement (SWMS) is a document that outlines the high-risk construction work activities to be carried out at a workplace for a particular job. It identifies the hazards associated with those activities and puts in place controls to manage the risks. Think of it as a detailed plan to make sure a specific, potentially dangerous job is done safely.\n\n### The Golden Rule: High-Risk Construction Work\n\nThe main trigger for needing an SWMS is when you're performing **high-risk construction work (HRCW)**. This is the key phrase to remember. If the work you're doing falls into this category, you absolutely must have a SWMS in place *before* the work starts.\n\n### What Counts as High-Risk Construction Work?\n\nThis is where it can get a bit tricky, as the definition can vary slightly between states and territories in Australia. However, most jurisdictions have a common list of activities that are generally considered HRCW. Here are some of the most common ones you'll encounter:\n\n*   **Work at heights:** This is a big one. If there's a risk of falling more than 2 metres, you're likely looking at HRCW.\n*   **Demolition:** Taking down structures is inherently risky.\n*   **Using a pre-fabricated or pre-assembled unit:** Especially if it involves lifting or requires special precautions.\n*   **Working in or near a confined space:** Think tanks, silos, or trenches where ventilation is poor and entry/exit is difficult.\n*   **Working in or near a trench or shaft:** Especially if it's deeper than 1.5 metres or requires shoring.\n*   **Working in or adjacent to a tunnel or an excavation:** Similar to trenches, but often larger scale.\n*   **Working on or near a telecommunications tower:** Height and structural integrity are major concerns.\n*   **Using explosives:** Obvious risks here.\n*   **Carrying out structural support for, or in, or adjacent to a mine or quarry:** Involves earth stability and potential collapses.\n*   **Working on, or in, or adjacent to a bridge, or other structure where there is a risk of collapse:** Structural integrity is paramount.\n*   **Manual handling of heavy or awkward loads:** Particularly if it poses a risk of musculoskeletal injury.\n*   **Using plant or equipment in a way that poses a risk of entanglement, electrocution, or being struck by an object:** This covers a wide range of machinery operations.\n*   **Working with or near energised electrical installations:** Electrical hazards are serious.\n*   **Carrying out work in relation to which there is a risk of engulfment or asphyxiation:** Related to confined spaces and certain materials.\n\n**Important Note:** Always check your specific state or territory's Work Health and Safety (WHS) regulations. They will have the definitive list and any specific thresholds (like the 2-metre fall height).\n\n### Beyond High-Risk: When Else Might You Need One?\n\nWhile HRCW is the primary driver, there are other situations where a SWMS is a really good idea, even if not strictly mandated by law for that specific task:\n\n1.  **Client Requirements:** Many larger projects or commercial clients will stipulate that SWMS must be provided for *all* work on site, not just HRCW. It's always best to check your contract and site inductions.\n2.  **Complex or Unusual Tasks:** If a job is particularly complex, involves multiple trades, or has unique hazards that aren't covered by standard operating procedures, a SWMS can help you think through all the steps and risks.\n3.  **Insurance Purposes:** In the unfortunate event of an incident, having documented safe work procedures like a SWMS can demonstrate you took reasonable steps to manage risks.\n4.  **Best Practice:** Even for seemingly straightforward jobs, documenting potential hazards and controls is simply good business practice. It ensures everyone is on the same page and promotes a safety-first culture.\n\n### Who Creates the SWMS?\n\nIdeally, the SWMS should be developed by people who are competent to do the work and understand the risks involved. This often means the supervisor, team leader, or experienced workers involved in the task. It’s not just an office job; it needs practical input.\n\n### What Should Be in a SWMS?\n\nA typical SWMS includes:\n\n*   The specific job or task description.\n*   The name of the person or people developing the SWMS.\n*   The date it was prepared and reviewed.\n*   A list of identified hazards.\n*   The control measures to manage those hazards.\n*   Who is responsible for implementing the controls.\n*   How the controls will be monitored and reviewed.\n\n### The Takeaway\n\nYour primary focus for needing a SWMS is **high-risk construction work**. If you're unsure whether your task falls into this category, err on the side of caution and check your local WHS regulations or consult with a safety professional. It's better to have one and not need it, than to need one and not have it. Keeping your team safe and your business compliant is what it's all about, mate.",
+    "duration": "12 min",
+    "durationMinutes": 12,
+    "learningOutcomes": [
+      "Identify when a SWMS is legally required.",
+      "Recognise common types of high-risk construction work.",
+      "Understand the purpose and basic components of a SWMS."
+    ],
+    "tags": [
+      "swms",
+      "high risk construction work",
+      "work safety",
+      "wfs",
+      "construction safety",
+      "tradie safety"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
+  },
+    {
+    "id": "swms-vs-jsa-vs-risk-assessment",
+    "title": "SWMS vs JSA vs Risk Assessment: Understanding the Differences",
+    "description": "Clarify the distinctions between Safe Work Method Statements (SWMS), Job Safety Analyses (JSAs), and general risk assessments in a practical, tradie-focused way. Understand when each is required and how they contribute to workplace safety.",
+    "category": "safety",
+    "level": "beginner",
+    "content": "## SWMS vs JSA vs Risk Assessment: What's the Difference?\n\nIn the building and construction game, safety is king. You've probably heard terms like SWMS, JSA, and Risk Assessment thrown around a lot. While they all aim to keep everyone safe on the job, they're not quite the same thing. Knowing the difference can save you headaches, fines, and most importantly, keep you and your mates out of harm's way. Let's break it down in plain English, no fluff.\n\n### What is a Risk Assessment?\n\nThink of a risk assessment as the big picture. It's the process of identifying hazards (what could go wrong) and assessing the risks associated with them (how likely is it to go wrong, and how bad would it be?). This is a fundamental part of workplace safety for *any* job, big or small.\n\n*   **What it is:** A systematic process to identify hazards, assess risks, and decide on control measures.\n*   **When you need it:** Always! Before starting any task or at the beginning of a project.\n*   **Key questions:** What could cause harm? Who might be harmed and how? What are we doing to control the risk? What further controls can we put in place?\n*   **Example:** Identifying that working at heights poses a risk of falls, assessing the likelihood and severity, and deciding that using a harness and proper scaffolding is necessary.\n\n### What is a Job Safety Analysis (JSA)?\n\nA JSA (sometimes called a Job Hazard Analysis or JHA) is a bit more specific than a general risk assessment. It breaks down a particular job or task into steps, identifies the hazards associated with each step, and outlines the controls needed to manage those hazards.\n\n*   **What it is:** A step-by-step breakdown of a specific job, identifying hazards and controls for each step.\n*   **When you need it:** For routine or non-routine tasks, especially those that involve specific hazards or risks.\n*   **Key questions:** What are the steps of the job? What are the hazards at each step? How can we control these hazards?\n*   **Example:** For installing a roof, a JSA might break it down into: 'Set up scaffolding' (hazard: falls, control: secure footing, guardrails), 'Cut roof sheeting' (hazard: sharp edges, control: gloves, eye protection), 'Fix sheeting' (hazard: working at heights, control: safety harness).\n\nJSAs are often done before starting a task and discussed with the team performing the work. They're a great way to ensure everyone understands the risks and controls for the specific job they're about to do.\n\n### What is a Safe Work Method Statement (SWMS)?\n\nA SWMS takes things a step further, particularly for high-risk construction work. It's a formal document that outlines the high-risk construction work activities to be carried out at a workplace, the hazards arising from these activities, and the measures to be put in place to control the risks.\n\n*   **What it is:** A formal, documented process for managing risks associated with high-risk construction work.\n*   **When you need it:** Specifically required by law in Australia for 'high-risk construction work' as defined by regulations (e.g., work at heights, demolition, working with electricity, asbestos removal, confined spaces).\n*   **Key questions:** What is the high-risk activity? What are the specific hazards and risks? What are the control measures, and who is responsible for implementing them? How will risks be monitored and reviewed?\n*   **Example:** For a project involving working on a roof that is more than two metres above the ground, a SWMS would be mandatory. It would detail the specific steps, the hazards (like falls from height, falling objects), and the controls (like edge protection, safety nets, specific harness procedures, exclusion zones below).\n\n### Key Differences and When to Use Each\n\nThe main differences lie in their scope and when they are legally required:\n\n*   **Risk Assessment:** The foundational process, always needed.\n*   **JSA:** Breaks down a specific job into steps, good for most tasks.\n*   **SWMS:** Mandatory for specific 'high-risk construction work' and is a more formal, documented record.\n\nIn many cases, a SWMS will incorporate elements of a JSA and a risk assessment. The key is to understand the requirements for the specific work you are doing and the jurisdiction you are in.\n\n**Always consult your state or territory regulator (like SafeWork NSW, WorkSafe Victoria, etc.) for the definitive legal requirements in your area.** This information is a guide, not a substitute for legal advice or official regulatory guidance.\n\nBy understanding these documents, you're not just ticking boxes; you're actively contributing to a safer worksite for everyone. Stay safe out there!",
+    "duration": "10 min",
+    "durationMinutes": 10,
+    "learningOutcomes": [
+      "Distinguish between SWMS, JSA, and general risk assessments.",
+      "Identify when each type of safety document is typically required.",
+      "Understand the foundational role of risk assessment in workplace safety."
+    ],
+    "tags": [
+      "swms",
+      "jsa",
+      "risk assessment",
+      "workplace safety",
+      "construction safety",
+      "australia"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
   },
   {
     id: "how-to-fill-out-a-swms",
@@ -169,59 +232,31 @@ Everyone doing the work must read and sign the SWMS before starting. Keep the si
     lastUpdated: "2026-07-01",
     status: "published",
   },
-  {
-    id: "licensing-electrical",
-    title: "Licensing by State: Electrical",
-    description: "Electrical trade licensing requirements across all Australian states and territories.",
-    category: "compliance",
-    level: "intermediate",
-    content: `## Licensing by State: Electrical
-
-Electrical work is licensed in every Australian state and territory. Here's what you need to know.
-
-### Licence Types
-
-Most states have a tiered structure:
-- **Electrical apprentice/trainee** — can work under direct supervision only
-- **Restricted electrical licence** — specific tasks (e.g., disconnect/reconnect)
-- **Electrical worker/tradesperson licence** — full trade work under a contractor
-- **Electrical contractor licence** — can contract electrical work to clients
-
-### State-by-State
-
-| State | Regulator | Key Licence |
-|-------|-----------|-------------|
-| NSW | NSW Fair Trading | Qualified Supervisor Certificate + Contractor Licence |
-| VIC | Energy Safe Victoria | Licensed Electrician (LEI) + Registered Electrical Contractor (REC) |
-| QLD | Electrical Safety Office (QBCC for contracting) | Electrical Work Licence + Contractor Licence |
-| SA | Office of the Technical Regulator | Licensed Electrical Worker + Registered Electrical Contractor |
-| WA | Building and Energy | Electrician's Licence + Electrical Contractor's Licence |
-| TAS | CBOS | Licensed Electrician + Electrical Contractor |
-| NT | NT WorkSafe | Licensed Electrical Worker + Electrical Contractor |
-| ACT | Access Canberra | Electrician Licence + Electrical Contractor Licence |
-
-> Regulator names and structures change over time. Confirm the current licensing body and requirements with your state regulator before applying.
-
-### Working Across State Lines
-
-Your licence from one state is not automatically valid in another. Most states have mutual recognition, but you must apply before working.
-
-### Penalties for Unlicensed Work
-
-- Significant fines for individuals (amounts vary by state and change — check your state regulator)
-- You can't enforce contracts for unlicensed work
-- Insurance won't cover you`,
-    duration: "5 min",
-    durationMinutes: 5,
-    learningOutcomes: [
-      "Know which electrical licences exist in your state",
-      "Understand mutual recognition across states",
-      "Know the penalties for unlicensed electrical work",
+    {
+    "id": "licensing-electrical",
+    "title": "Electrical Licensing Requirements Across States",
+    "description": "A comprehensive guide to understanding electrical licensing, including mutual recognition, state-specific requirements, and the application process.",
+    "category": "licensing",
+    "level": "intermediate",
+    "content": "## Navigating Electrical Licensing: State by State\n\nFor electricians, holding the correct license is not just a legal requirement; it's a fundamental aspect of ensuring safety and professionalism in the trade. While the core skills of electrical work are universal, the licensing landscape can vary significantly from one state to another. This guide aims to demystify the process, particularly focusing on the concept of mutual recognition and highlighting key differences.\n\n### The Myth of Universal Mutual Recognition\n\nA common misconception is that most states offer seamless mutual recognition for electrical licenses. While many states do participate in some form of mutual recognition, it's rarely a blanket agreement. The phrase 'Most states have mutual recognition, but you must apply before working' is vague and lacks evidence. In reality, the process often involves a formal application, verification of your existing license, and sometimes additional requirements specific to the state you wish to work in.\n\n**What is Mutual Recognition?**\n\nMutual recognition agreements (MRAs) are designed to reduce barriers for tradespeople looking to work across state lines. Under an MRA, a person who holds a license or registration in one participating state may be eligible to obtain a similar license in another participating state without having to complete all the original qualification requirements again. However, this doesn't mean you can simply pack your tools and start working.\n\n**States with Strong Mutual Recognition:**\n\nMany states, particularly those that have adopted the National Occupational Licensing Framework, have robust mutual recognition processes. For example:\n\n*   **New South Wales (NSW) and Victoria (VIC):** These states generally have strong mutual recognition for electrical licenses. An electrician licensed in NSW can typically apply for and obtain a Victorian license, and vice versa, provided their existing license is current and they meet any specific state-based administrative requirements.\n*   **Queensland (QLD) and South Australia (SA):** Similar to NSW and VIC, these states often work under reciprocal agreements, simplifying the process for licensed electricians moving between them.\n\n**States with Limited or No Mutual Recognition:**\n\nIt's crucial to understand that not all states are equal in their MRAs. Some states may have limited recognition, requiring additional assessments or experience. Others might not have formal MRAs for certain trades, meaning you'll likely need to meet their full initial licensing requirements.\n\n*   **Western Australia (WA):** While WA participates in some MRAs, its licensing requirements and processes can sometimes differ substantially, potentially requiring additional competency assessments or specific experience relevant to WA's regulations.\n*   **Tasmania (TAS):** Tasmania, while often cooperative, may have specific administrative hurdles or require you to demonstrate knowledge of local regulations and standards.\n\n**The Application Process: A Universal Step**\n\nRegardless of the level of mutual recognition, the critical step is *always* to apply for the license in the new state *before* you commence work. This application process typically involves:\n\n1.  **Verification:** The licensing body will verify your existing license with the issuing state authority.\n2.  **Application Form:** Completing a detailed application form, which may include personal details, license history, and contact information.\n3.  **Proof of Identity and Qualifications:** Providing certified copies of your current license, qualifications, and identification.\n4.  **Fees:** Paying the required application and licensing fees.\n5.  **State-Specific Requirements:** Potentially demonstrating knowledge of local electrical acts, regulations, and standards. This might involve a specific exam or submitting evidence of experience relevant to the state's jurisdiction.\n\n**Practical Considerations for Tradies**\n\nWhen planning to work in a new state, it's best practice for you guys to:\n\n*   **Research Thoroughly:** Visit the official website of the electrical licensing authority in the state you intend to work in. Look for sections on 'mutual recognition,' 'interstate applications,' or 'licensing requirements.'\n*   **Contact the Authority:** If the information is unclear, don't hesitate to contact the licensing body directly. They can provide the most accurate and up-to-date information.\n*   **Allow Ample Time:** The application and approval process can take several weeks, sometimes longer. Factor this into your project timelines.\n*   **Understand the Scope:** Ensure the license you obtain covers the specific type of electrical work you intend to perform.\n\nIn conclusion, while mutual recognition simplifies interstate electrical licensing, it is not an automatic process. Proactive research, diligent application, and adherence to each state's specific regulations are essential for any electrician looking to expand their work opportunities across state borders. Always apply before you start the job, and ensure you understand the nuances of the licensing system in your target state.",
+    "duration": "15 min",
+    "durationMinutes": 15,
+    "learningOutcomes": [
+      "Understand the concept and limitations of mutual recognition for electrical licenses.",
+      "Identify key differences in licensing requirements between states.",
+      "Outline the necessary steps to apply for an interstate electrical license."
     ],
-    tags: ["licensing", "electrical", "compliance"],
-    dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
-    status: "published",
+    "tags": [
+      "electrical license",
+      "mutual recognition",
+      "interstate licensing",
+      "trades",
+      "licensing requirements",
+      "electrician"
+    ],
+    "dateAdded": "2026-08-20",
+    "lastUpdated": "2026-08-20",
+    "status": "published"
   },
   {
     id: "licensing-plumbing",
