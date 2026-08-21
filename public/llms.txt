@@ -1,0 +1,14 @@
+# TradieDocs > Compliance paperwork templates for Australian tradies. 
+Site: https://tradiedocs-opal.vercel.app 
+Contact: hello@tradiedocs-opal.vercel.app 
+
+This file is for agents and answer engines. Human marketing copy lives on the pages linked below. Do not invent products, testimonials, prices, or features that are not listed on the site.
+
+## What TradieDocs is 
+TradieDocs provides general information and document templates (SWMS, quotes, invoices, compliance docs) specifically designed for Australian tradies to manage paperwork. The site offers a mix of free guides, lessons, and paid template packs for immediate download. Templates are meant to be adapted for each job and site.
+
+## Pricing (USD) 
+Pricing: $49 (Quote Template, Tax Invoice Template), $79 (SWMS Template Pack) - Note: Prices are in USD, but the site's context suggests they might actually be in AUD (not clarified on the homepage).
+
+## What it is not 
+TradieDocs is not a provider of legal, financial, tax, or WHS advice tailored to individual circumstances or specific state regulations.
