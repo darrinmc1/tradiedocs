@@ -1,275 +1,247 @@
 import Link from "next/link"
-import { siteConfig } from "@/config/site.config"
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/solid"
+import { siteConfig } from "@/config/site.config"
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
-  description: "Simple, transparent pricing for tradie document templates. Get the exact paperwork you need — from free starter packs to complete business bundles.",
+  description: "Simple, transparent pricing for tradie document templates. Start free, upgrade when you're ready. No subscriptions, no surprises.",
 }
 
-const plans = [
+const comparisonRows = [
+  { feature: "Quote templates", free: "1 template", starter: "5 templates", pro: "Unlimited" },
+  { feature: "Invoice templates", free: "1 template", starter: "5 templates", pro: "Unlimited" },
+  { feature: "Safety & compliance docs", free: false, starter: "3 documents", pro: "Unlimited" },
+  { feature: "Subcontractor agreements", free: false, starter: false, pro: true },
+  { feature: "Variation order forms", free: false, starter: true, pro: true },
+  { feature: "Scope of works templates", free: false, starter: true, pro: true },
+  { feature: "Editable Word & PDF formats", free: true, starter: true, pro: true },
+  { feature: "Mobile-friendly layout", free: true, starter: true, pro: true },
+  { feature: "Australian compliance ready", free: true, starter: true, pro: true },
+  { feature: "Commercial use licence", free: false, starter: true, pro: true },
+  { feature: "Priority email support", free: false, starter: false, pro: true },
+  { feature: "Lifetime updates", free: false, starter: true, pro: true },
+]
+
+const packs = [
   {
-    name: "Free Starter",
-    price: "$0",
-    period: "",
-    description: "Essential templates to get you started with professional paperwork.",
-    cta: "Download Free",
-    ctaHref: "/templates?filter=free",
-    highlight: false,
-    features: [
-      { label: "Basic Quote Template", included: true },
-      { label: "Simple Invoice Template", included: true },
-      { label: "1 Job Sheet Template", included: true },
-      { label: "Email & PDF format", included: true },
-      { label: "Editable in Word / Google Docs", included: true },
-      { label: "Safety & SWMS Templates", included: false },
-      { label: "Subcontractor Agreements", included: false },
-      { label: "Variation & Change Order Forms", included: false },
-      { label: "Client Contract Templates", included: false },
-      { label: "Priority Email Support", included: false },
-      { label: "Lifetime Updates", included: false },
-    ],
-  },
-  {
-    name: "Tradie Essentials",
+    name: "Starter Pack",
     price: "$47",
-    period: "one-off",
-    description: "Everything a sole trader needs to run a professional operation.",
-    cta: "Get Essentials Pack",
-    ctaHref: "/products/tradie-essentials",
+    description: "Perfect for sole traders and small operators just getting started.",
+    href: "/products/starter-pack",
     highlight: false,
-    features: [
-      { label: "Basic Quote Template", included: true },
-      { label: "Simple Invoice Template", included: true },
-      { label: "1 Job Sheet Template", included: true },
-      { label: "Email & PDF format", included: true },
-      { label: "Editable in Word / Google Docs", included: true },
-      { label: "Safety & SWMS Templates", included: true },
-      { label: "Subcontractor Agreements", included: false },
-      { label: "Variation & Change Order Forms", included: true },
-      { label: "Client Contract Templates", included: false },
-      { label: "Priority Email Support", included: false },
-      { label: "Lifetime Updates", included: true },
+    includes: [
+      "5 quote templates",
+      "5 invoice templates",
+      "3 safety & compliance docs",
+      "Variation order form",
+      "Scope of works template",
+      "Editable Word & PDF formats",
+      "Commercial use licence",
+      "Lifetime updates",
     ],
   },
   {
-    name: "Complete Business Bundle",
+    name: "Pro Pack",
     price: "$97",
-    period: "one-off",
-    description: "The full toolkit for tradies running a serious business or small team.",
-    cta: "Get Complete Bundle",
-    ctaHref: "/products/complete-bundle",
+    description: "Everything a growing trade business needs to look professional and stay protected.",
+    href: "/products/pro-pack",
     highlight: true,
     badge: "Most Popular",
-    features: [
-      { label: "Basic Quote Template", included: true },
-      { label: "Simple Invoice Template", included: true },
-      { label: "1 Job Sheet Template", included: true },
-      { label: "Email & PDF format", included: true },
-      { label: "Editable in Word / Google Docs", included: true },
-      { label: "Safety & SWMS Templates", included: true },
-      { label: "Subcontractor Agreements", included: true },
-      { label: "Variation & Change Order Forms", included: true },
-      { label: "Client Contract Templates", included: true },
-      { label: "Priority Email Support", included: true },
-      { label: "Lifetime Updates", included: true },
+    includes: [
+      "Unlimited quote templates",
+      "Unlimited invoice templates",
+      "Full safety & compliance library",
+      "Subcontractor agreements",
+      "Variation order forms",
+      "Scope of works templates",
+      "Editable Word & PDF formats",
+      "Commercial use licence",
+      "Priority email support",
+      "Lifetime updates",
     ],
   },
 ]
 
-const faqs = [
-  {
-    q: "Are these templates specific to Australian tradies?",
-    a: "Yes. All templates are written for Australian conditions — including GST, ABN fields, and common trade terminology used across plumbing, electrical, building, and more.",
-  },
-  {
-    q: "What format do I get the templates in?",
-    a: "Templates come as editable Word (.docx) and Google Docs files, plus a PDF version for sending to clients. Just download, add your logo and details, and you're ready to go.",
-  },
-  {
-    q: "Is this a subscription?",
-    a: "No. All purchases are a one-off payment. You own the templates forever with no recurring fees.",
-  },
-  {
-    q: "Can I customise the templates for my business?",
-    a: "Absolutely. Every template is fully editable. Add your branding, adjust the terms, and tailor the layout to suit your trade.",
-  },
-  {
-    q: "What if I only need one or two templates?",
-    a: "You can browse individual templates in our template library and purchase only what you need. Bundles offer the best value if you need multiple documents.",
-  },
-]
+function CellValue({ value }: { value: string | boolean }) {
+  if (value === true) {
+    return <CheckIcon className="mx-auto h-5 w-5 text-green-500" aria-label="Included" />
+  }
+  if (value === false) {
+    return <XMarkIcon className="mx-auto h-5 w-5 text-zinc-300" aria-label="Not included" />
+  }
+  return <span className="text-sm text-zinc-700">{value}</span>
+}
 
 export default function PricingPage() {
   return (
     <main className="bg-white">
       {/* Hero */}
-      <section className="bg-gray-50 border-b border-gray-200 py-16 px-4 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Simple, transparent pricing
+      <section className="bg-zinc-950 py-20 text-center">
+        <div className="mx-auto max-w-3xl px-4">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-amber-400">Pricing</p>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+            Simple pricing. No subscriptions.
           </h1>
-          <p className="text-lg text-gray-600">
-            No subscriptions. No hidden fees. Buy once, use forever. Pick the pack that suits your trade business.
+          <p className="mt-4 text-lg text-zinc-400">
+            Pay once, use forever. Every template pack includes editable files, a commercial licence, and lifetime updates.
           </p>
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <Link
+              href="/products"
+              className="rounded-lg bg-amber-400 px-6 py-3 text-sm font-semibold text-zinc-900 shadow hover:bg-amber-300 transition-colors"
+            >
+              Browse all products
+            </Link>
+            <Link
+              href="/templates"
+              className="rounded-lg border border-zinc-700 px-6 py-3 text-sm font-semibold text-white hover:bg-zinc-800 transition-colors"
+            >
+              Try a free template
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Pricing Cards */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-          {plans.map((plan) => (
+      {/* Pack cards */}
+      <section className="mx-auto max-w-5xl px-4 py-20">
+        <h2 className="mb-10 text-center text-2xl font-bold text-zinc-900">Choose your pack</h2>
+        <div className="grid gap-8 sm:grid-cols-2">
+          {packs.map((pack) => (
             <div
-              key={plan.name}
-              className={`rounded-2xl border ${
-                plan.highlight
-                  ? "border-yellow-400 shadow-xl ring-2 ring-yellow-400"
-                  : "border-gray-200 shadow-sm"
-              } p-8 flex flex-col relative`}
+              key={pack.name}
+              className={`relative rounded-2xl border p-8 shadow-sm ${
+                pack.highlight
+                  ? "border-amber-400 bg-zinc-950 text-white"
+                  : "border-zinc-200 bg-white text-zinc-900"
+              }`}
             >
-              {plan.badge && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-gray-900 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wide">
-                  {plan.badge}
+              {pack.badge && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-amber-400 px-4 py-1 text-xs font-bold text-zinc-900">
+                  {pack.badge}
                 </span>
               )}
-              <h2 className="text-xl font-bold text-gray-900 mb-1">{plan.name}</h2>
-              <div className="flex items-end gap-1 mb-2">
-                <span className="text-4xl font-extrabold text-gray-900">{plan.price}</span>
-                {plan.period && (
-                  <span className="text-sm text-gray-500 mb-1">{plan.period}</span>
-                )}
-              </div>
-              <p className="text-sm text-gray-600 mb-6">{plan.description}</p>
-              <ul className="space-y-3 mb-8 flex-1">
-                {plan.features.map((feature) => (
-                  <li key={feature.label} className="flex items-center gap-3 text-sm">
-                    {feature.included ? (
-                      <CheckIcon className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    ) : (
-                      <XMarkIcon className="w-5 h-5 text-gray-300 flex-shrink-0" />
-                    )}
-                    <span className={feature.included ? "text-gray-800" : "text-gray-400"}>
-                      {feature.label}
-                    </span>
+              <h3 className={`text-xl font-bold ${pack.highlight ? "text-white" : "text-zinc-900"}`}>
+                {pack.name}
+              </h3>
+              <p className={`mt-1 text-sm ${pack.highlight ? "text-zinc-400" : "text-zinc-500"}`}>
+                {pack.description}
+              </p>
+              <p className="mt-6 text-4xl font-extrabold">{pack.price}</p>
+              <p className={`text-xs ${pack.highlight ? "text-zinc-500" : "text-zinc-400"}`}>one-time payment</p>
+              <ul className="mt-6 space-y-3">
+                {pack.includes.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm">
+                    <CheckIcon
+                      className={`mt-0.5 h-4 w-4 shrink-0 ${
+                        pack.highlight ? "text-amber-400" : "text-green-500"
+                      }`}
+                    />
+                    <span className={pack.highlight ? "text-zinc-300" : "text-zinc-700"}>{item}</span>
                   </li>
                 ))}
               </ul>
               <Link
-                href={plan.ctaHref}
-                className={`block text-center rounded-xl py-3 px-6 font-semibold text-sm transition ${
-                  plan.highlight
-                    ? "bg-yellow-400 hover:bg-yellow-500 text-gray-900"
-                    : "bg-gray-900 hover:bg-gray-700 text-white"
+                href={pack.href}
+                className={`mt-8 block rounded-lg px-6 py-3 text-center text-sm font-semibold transition-colors ${
+                  pack.highlight
+                    ? "bg-amber-400 text-zinc-900 hover:bg-amber-300"
+                    : "bg-zinc-900 text-white hover:bg-zinc-700"
                 }`}
               >
-                {plan.cta}
+                Get {pack.name}
               </Link>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="max-w-5xl mx-auto px-4 pb-16">
-        <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">Full feature comparison</h2>
-        <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-gray-50 border-b border-gray-200">
-                <th className="text-left px-6 py-4 font-semibold text-gray-700 w-1/2">Feature</th>
-                {plans.map((plan) => (
-                  <th
-                    key={plan.name}
-                    className={`px-4 py-4 text-center font-semibold ${
-                      plan.highlight ? "text-yellow-600" : "text-gray-700"
-                    }`}
-                  >
-                    {plan.name}
-                    <div className="text-lg font-extrabold text-gray-900">{plan.price}</div>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {plans[0].features.map((feature, i) => (
-                <tr
-                  key={feature.label}
-                  className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                >
-                  <td className="px-6 py-3 text-gray-700 font-medium">{feature.label}</td>
-                  {plans.map((plan) => (
-                    <td key={plan.name} className="px-4 py-3 text-center">
-                      {plan.features[i].included ? (
-                        <CheckIcon className="w-5 h-5 text-green-500 mx-auto" />
-                      ) : (
-                        <XMarkIcon className="w-5 h-5 text-gray-300 mx-auto" />
-                      )}
-                    </td>
-                  ))}
+      {/* Free vs paid comparison table */}
+      <section className="bg-zinc-50 py-20">
+        <div className="mx-auto max-w-5xl px-4">
+          <h2 className="mb-2 text-center text-2xl font-bold text-zinc-900">Free vs paid — what&apos;s included?</h2>
+          <p className="mb-10 text-center text-sm text-zinc-500">
+            Start with a free template to see the quality, then upgrade when you&apos;re ready.
+          </p>
+          <div className="overflow-x-auto rounded-2xl border border-zinc-200 bg-white shadow-sm">
+            <table className="w-full min-w-[600px] text-sm">
+              <thead>
+                <tr className="border-b border-zinc-100">
+                  <th className="py-4 pl-6 pr-4 text-left font-semibold text-zinc-700">Feature</th>
+                  <th className="px-4 py-4 text-center font-semibold text-zinc-700">Free</th>
+                  <th className="px-4 py-4 text-center font-semibold text-zinc-700">Starter — $47</th>
+                  <th className="px-4 py-4 text-center font-semibold text-amber-600">Pro — $97</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Trust strip */}
-      <section className="bg-gray-50 border-t border-gray-200 py-10 px-4">
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-8 text-center text-sm text-gray-600">
-          <div>
-            <div className="text-2xl font-bold text-gray-900">2,400+</div>
-            <div>Tradies using our templates</div>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row, i) => (
+                  <tr
+                    key={row.feature}
+                    className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}
+                  >
+                    <td className="py-3 pl-6 pr-4 font-medium text-zinc-800">{row.feature}</td>
+                    <td className="px-4 py-3 text-center">
+                      <CellValue value={row.free} />
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <CellValue value={row.starter} />
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <CellValue value={row.pro} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <div>
-            <div className="text-2xl font-bold text-gray-900">One-off</div>
-            <div>No subscriptions, ever</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-gray-900">Instant</div>
-            <div>Download after purchase</div>
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-gray-900">AU-specific</div>
-            <div>Built for Australian tradies</div>
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <Link
+              href="/products/pro-pack"
+              className="rounded-lg bg-amber-400 px-6 py-3 text-sm font-semibold text-zinc-900 shadow hover:bg-amber-300 transition-colors"
+            >
+              Get the Pro Pack — $97
+            </Link>
+            <Link
+              href="/templates"
+              className="rounded-lg border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 transition-colors"
+            >
+              Download a free template first
+            </Link>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">Frequently asked questions</h2>
-        <div className="space-y-6">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="border-b border-gray-200 pb-6">
-              <h3 className="font-semibold text-gray-900 mb-2">{faq.q}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+      <section className="mx-auto max-w-3xl px-4 py-20">
+        <h2 className="mb-10 text-center text-2xl font-bold text-zinc-900">Frequently asked questions</h2>
+        <dl className="space-y-6">
+          {[
+            {
+              q: "Is this a subscription?",
+              a: "No. Every pack is a one-time payment. You own the templates forever with no recurring fees.",
+            },
+            {
+              q: "What formats do I get?",
+              a: "All templates come in editable Microsoft Word (.docx) and PDF formats so you can customise them on any device.",
+            },
+            {
+              q: "Can I use these for my business?",
+              a: "Yes. Paid packs include a commercial use licence, meaning you can use the templates for all your client work.",
+            },
+            {
+              q: "Are the templates Australian-specific?",
+              a: "Yes. All documents are written for Australian tradies and comply with common Australian business and safety requirements.",
+            },
+            {
+              q: "What if I need something not in the pack?",
+              a: "Reach out via our contact page. We regularly add new templates and Pro Pack customers get priority requests.",
+            },
+          ].map(({ q, a }) => (
+            <div key={q} className="rounded-xl border border-zinc-100 bg-zinc-50 p-6">
+              <dt className="font-semibold text-zinc-900">{q}</dt>
+              <dd className="mt-2 text-sm text-zinc-600">{a}</dd>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="bg-gray-900 text-white py-16 px-4 text-center">
-        <div className="max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Ready to sort your paperwork?</h2>
-          <p className="text-gray-400 mb-8">
-            Download a free template today or grab the complete bundle and never worry about business documents again.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/templates?filter=free"
-              className="rounded-xl border border-white px-6 py-3 font-semibold text-sm hover:bg-white hover:text-gray-900 transition"
-            >
-              Browse Free Templates
-            </Link>
-            <Link
-              href="/products/complete-bundle"
-              className="rounded-xl bg-yellow-400 text-gray-900 px-6 py-3 font-semibold text-sm hover:bg-yellow-500 transition"
-            >
-              Get Complete Bundle — $97
-            </Link>
-          </div>
-        </div>
+        </dl>
       </section>
     </main>
   )
