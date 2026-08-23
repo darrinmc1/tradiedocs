@@ -1,141 +1,111 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
-import {
-  SignInButton,
-  SignUpButton,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs"
+import { useState, useEffect } from "react"
 import { siteConfig } from "@/config/site.config"
-import { cn } from "@/lib/utils"
 import { Menu, X } from "lucide-react"
-import HumorToggle from "@/components/humor-toggle"
 
-export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { isSignedIn, isLoaded } = useUser()
+export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMenuOpen(false)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen])
+
+  const navLinks = siteConfig.navLinks || [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Contact", href: "/contact" },
+  ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl group-hover:animate-float">
-              {siteConfig.theme.emoji}
-            </span>
-            <span className="font-display text-lg font-bold gradient-text-cyan">
-              {siteConfig.name}
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2 flex-shrink-0">
+            <span className="text-xl font-bold text-gray-900">
+              {siteConfig.name || "Site"}
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
-            {siteConfig.nav.marketing.map((link) => (
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link: { label: string; href: string }) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/5 transition-all duration-200"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors duration-200"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
-            <HumorToggle />
-            {isLoaded && !isSignedIn && (
-              <>
-                <SignInButton mode="modal">
-                  <button className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors">
-                    Log In
-                  </button>
-                </SignInButton>
-                <SignUpButton mode="modal">
-                  <button
-                    className={cn(
-                      "px-5 py-2 text-sm font-bold rounded-xl text-white",
-                      "bg-gradient-to-r from-orange-500 to-amber-600",
-                      "hover:from-orange-400 hover:to-amber-500",
-                      "shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40",
-                      "transition-all duration-300 hover:scale-105"
-                    )}
-                  >
-                    {siteConfig.copy.ctaButton}
-                  </button>
-                </SignUpButton>
-              </>
-            )}
-            {isLoaded && isSignedIn && (
-              <>
-                <Link
-                  href="/dashboard"
-                  className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  href="/account"
-                  className="px-4 py-2 text-sm font-medium text-slate-300 hover:text-white transition-colors"
-                >
-                  Account
-                </Link>
-                <UserButton appearance={{ elements: { avatarBox: "h-9 w-9" } }} />
-              </>
-            )}
-          </div>
-
+          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-slate-300 hover:text-white"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors duration-200"
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {menuOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+          )}
           </button>
         </div>
       </div>
 
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-white/10 bg-slate-950/95 backdrop-blur-xl">
-          <div className="px-4 py-4 space-y-2">
-            {siteConfig.nav.marketing.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-orange-400 rounded-lg hover:bg-white/5 transition-all"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-white/10 space-y-2">
-              {isLoaded && !isSignedIn && (
-                <>
-                  <SignInButton mode="modal">
-                    <button className="block w-full px-4 py-3 text-sm font-medium text-slate-300 hover:text-white text-center rounded-lg hover:bg-white/5">
-                      Log In
-                    </button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <button className="block w-full px-4 py-3 text-sm font-bold text-white text-center rounded-xl bg-gradient-to-r from-orange-500 to-amber-600">
-                      {siteConfig.copy.ctaButton}
-                    </button>
-                  </SignUpButton>
-                </>
-              )}
-              {isLoaded && isSignedIn && (
-                <Link
-                  href="/dashboard"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-3 text-sm font-medium text-slate-300 hover:text-white text-center rounded-lg hover:bg-white/5"
-                >
-                  Dashboard
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
+      {/* Mobile Menu Overlay */}
+      {menuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-25 md:hidden"
+          aria-hidden="true"
+          onClick={() => setMenuOpen(false)}
+        />
       )}
+
+      {/* Mobile Menu Panel */}
+      <div
+        id="mobile-menu"
+        className={`md:hidden fixed top-16 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-lg transform transition-transform duration-300 ease-in-out ${
+          menuOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        <nav className="px-4 pt-4 pb-6 space-y-1">
+          {navLinks.map((link: { label: string; href: string }) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center px-4 py-3 rounded-lg text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 active:bg-gray-100 transition-colors duration-150"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
     </header>
   )
 }
