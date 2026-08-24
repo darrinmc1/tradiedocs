@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { siteConfig } from "@/config/site.config"
 import { Menu, X } from "lucide-react"
 
-export default function Header() {
+export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -109,3 +109,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header

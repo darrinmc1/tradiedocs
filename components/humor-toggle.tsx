@@ -1,15 +1,17 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { humorEnabled, setHumorEnabled } from "@/components/humor-break"
+import { HUMOR_HARD_OFF, humorEnabled, setHumorEnabled } from "@/components/humor-break"
 import { humorTheme } from "@/lib/humor"
 
 export default function HumorToggle() {
-  const [enabled, setEnabled] = useState(true)
+  const [enabled, setEnabled] = useState(false)
 
   useEffect(() => {
     setEnabled(humorEnabled())
   }, [])
+
+  if (HUMOR_HARD_OFF) return null
 
   const onToggle = () => {
     const next = !enabled
