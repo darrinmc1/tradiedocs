@@ -2,7 +2,6 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar } from "lucide-react"
 import posts from "@/lib/blog"
-import HumorBreak from "@/components/humor-break"
 import { siteConfig } from "@/config/site.config"
 
 type Section = { heading: string; paragraphs: string[] }
@@ -223,7 +222,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 {p}
               </p>
             ))}
-            {si === 1 && <HumorBreak tag="general" />}
           </section>
         ))}
 

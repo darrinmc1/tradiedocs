@@ -11,33 +11,23 @@ const quoteInvoicePack = getProductById("quote-invoice-pack")!
 const TEMPLATE_PREVIEWS = [
   {
     id: "swms",
-    name: "SWMS Template Pack",
+    name: swmsPack.name,
     description:
       "Pre-filled Safe Work Method Statements for 20 trades — editable Word format.",
     href: `/products/${swmsPack.id}`,
-    access: "paid" as const,
+    access: "coming-soon" as const,
     priceLabel: `$${swmsPack.price}`,
     emoji: swmsPack.emoji,
   },
   {
-    id: "quote",
-    name: "Quote Template",
+    id: "quote-invoice",
+    name: quoteInvoicePack.name,
     description:
-      "Professional quote layout with itemised pricing, scope, and acceptance block.",
+      "Professional quote and ATO-oriented tax invoice in one pack — itemised pricing, GST lines, and payment terms.",
     href: `/products/${quoteInvoicePack.id}`,
-    access: "paid" as const,
+    access: "coming-soon" as const,
     priceLabel: `$${quoteInvoicePack.price}`,
-    emoji: "\u{1F4C4}",
-  },
-  {
-    id: "invoice",
-    name: "Tax Invoice Template",
-    description:
-      "ATO-oriented tax invoice with ABN, GST lines, payment terms, and bank details.",
-    href: `/products/${quoteInvoicePack.id}`,
-    access: "paid" as const,
-    priceLabel: `$${quoteInvoicePack.price}`,
-    emoji: "\u{1F4B3}",
+    emoji: quoteInvoicePack.emoji,
   },
   {
     id: "free-guides",
@@ -98,9 +88,9 @@ export default function HomePage() {
           <span className="gradient-text-cyan">Template previews</span>
         </h2>
         <p className="text-slate-400 text-center max-w-xl mx-auto mb-12">
-          Named packs and starters available now — clear free vs paid labels, no guesswork.
+          One SKU per pack. Free guides are live. Paid packs are priced but not for sale yet.
         </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {TEMPLATE_PREVIEWS.map((preview) => (
             <Link
               key={preview.id}
@@ -118,15 +108,15 @@ export default function HomePage() {
                       : "shrink-0 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-400"
                   }
                 >
-                  {preview.access === "free" ? "Free" : "Paid"}
+                  {preview.access === "free" ? "Free" : "Coming soon"}
                 </span>
               </div>
               <h3 className="text-lg font-bold text-white mb-2">{preview.name}</h3>
               <p className="text-sm text-slate-400 flex-1 mb-4">{preview.description}</p>
               <span className="text-sm font-semibold text-orange-400">
                 {preview.priceLabel}
-                {preview.access === "paid" ? (
-                  <span className="text-slate-500 font-normal"> one-time</span>
+                {preview.access === "coming-soon" ? (
+                  <span className="text-slate-500 font-normal"> one-time · waitlist</span>
                 ) : null}
               </span>
             </Link>
@@ -157,7 +147,7 @@ export default function HomePage() {
           </Link>
           {" · "}
           <Link href="/products" className="text-orange-400 hover:text-orange-300 underline-offset-4 hover:underline">
-            Browse paid templates
+            Browse coming-soon packs
           </Link>
         </p>
       </section>

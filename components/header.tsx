@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import { siteConfig } from "@/config/site.config"
 import { Menu, X } from "lucide-react"
 
-export default function Header() {
+export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
@@ -27,12 +27,7 @@ export default function Header() {
     }
   }, [menuOpen])
 
-  const navLinks = siteConfig.navLinks || [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Contact", href: "/contact" },
-  ]
+  const navLinks = siteConfig.nav.marketing
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
@@ -109,3 +104,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header

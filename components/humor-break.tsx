@@ -6,10 +6,14 @@ import { humorBank, humorTheme, type HumorItem } from "@/lib/humor"
 const STORAGE_KEY = "humor-enabled"
 const TOGGLE_EVENT = "humor:toggle"
 
+/** SWMS / WHS / legal-adjacent site — humor stays off (hard rule). */
+export const HUMOR_HARD_OFF = true
+
 export function humorEnabled(): boolean {
-  if (typeof window === "undefined") return true
+  if (HUMOR_HARD_OFF) return false
+  if (typeof window === "undefined") return false
   const v = window.localStorage.getItem(STORAGE_KEY)
-  return v === null ? true : v === "true"
+  return v === null ? false : v === "true"
 }
 
 export function setHumorEnabled(enabled: boolean) {
@@ -18,8 +22,7 @@ export function setHumorEnabled(enabled: boolean) {
 }
 
 // Reads the shared toggle state. Rendering nothing until mounted avoids
-// hydration mismatches — the default (ON) renders the same markup server
-// and client side for the first paint.
+// hydration mismatches. TradieDocs defaults humor OFF (SWMS / WHS).
 export function useHumorEnabled(): boolean | null {
   const [enabled, setEnabled] = useState<boolean | null>(null)
   useEffect(() => {

@@ -4,6 +4,7 @@ import { ALL_PRODUCTS, getProductById } from "@/data/products"
 import { siteConfig } from "@/config/site.config"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import { Disclaimer } from "@/components/disclaimer"
+import { ComingSoonCta } from "@/components/coming-soon-cta"
 import { Check } from "lucide-react"
 
 export function generateStaticParams() {
@@ -73,20 +74,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <Disclaimer variant="full" />
         </div>
 
-        <div className="mt-8 flex items-center gap-6">
-          <div>
-            <span className="text-4xl font-extrabold text-white">${product.price}</span>
-            <span className="text-slate-400 ml-1">one-time</span>
-          </div>
-          <form action="/api/checkout" method="POST">
-            <input type="hidden" name="productId" value={product.id} />
-            <button
-              type="submit"
-              className="px-8 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-400 hover:to-amber-500 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all"
-            >
-              Buy Now
-            </button>
-          </form>
+        <div className="mt-8">
+          <ComingSoonCta
+            price={product.price}
+            source={`product-waitlist-${product.id}`}
+          />
         </div>
 
         <div className="mt-6 flex flex-wrap gap-2">

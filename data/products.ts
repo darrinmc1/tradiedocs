@@ -21,7 +21,7 @@ const swmsPack: Product = {
   id: "swms-pack",
   name: "SWMS Template Pack — 20 Trades",
   description:
-    "Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format, compliant in all AU states.",
+    "Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator.",
   content: `## SWMS Template Pack — 20 Trades
 
 Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled Safe Work Method Statements covering the most common high-risk construction activities.
@@ -30,16 +30,15 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 
 - **20 pre-filled SWMS templates** covering electrical, plumbing, carpentry, roofing, concreting, demolition, excavation, scaffolding, working at heights, confined spaces, hot works, asbestos removal, crane operations, formwork, steel fixing, waterproofing, tiling, painting (heights), glazing, and landscaping (machinery)
 - **Editable Word (.docx) format** — add your ABN, company name, and site-specific details
-- **State-compliant structure** — meets WHS requirements across NSW, VIC, QLD, SA, WA, TAS, NT, and ACT
+- **State-aware structure** — organised around typical WHS SWMS headings; confirm current rules in your state before use
 - **High-risk work checklist** — a master checklist cross-referencing the high-risk construction work activities listed under the WHS Regulations
 
 ### How to Use Them
 
-1. Download the ZIP and extract
-2. Open the template for your trade/activity
-3. Fill in your business details, site address, and workers
-4. Review and adjust hazards/controls for your specific job
-5. Print, sign, and keep on-site
+1. When the pack is available, open the template for your trade/activity
+2. Fill in your business details, site address, and workers
+3. Review and adjust hazards/controls for your specific job
+4. Print, sign, and keep on-site
 
 ### Who It's For
 
@@ -49,7 +48,7 @@ Sole-trader tradies and small crews who need compliant SWMS but don't have a saf
   features: [
     "20 pre-filled SWMS templates (electrical, plumbing, carpentry, roofing + 16 more)",
     "Editable Word format",
-    "State-compliant structure (all AU states)",
+    "State-aware SWMS structure (confirm with your regulator)",
     "High-risk work checklist",
     "Free updates for 12 months",
   ],
@@ -79,10 +78,9 @@ Win more jobs with professional quotes and get paid faster with clear invoices.
 
 ### How to Use Them
 
-1. Download the ZIP and extract
-2. Open the quote template, add your logo and ABN
-3. Save as your master template
-4. Duplicate for each new job and fill in job-specific details
+1. When the pack is available, open the quote template and add your logo and ABN
+2. Save as your master template
+3. Duplicate for each new job and fill in job-specific details
 
 ### Who It's For
 
@@ -117,7 +115,7 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 **Everything in the SWMS Template Pack ($79):**
 - 20 pre-filled SWMS templates
 - High-risk work checklist
-- State-compliant structure
+- State-aware SWMS structure (confirm with your regulator)
 
 **Everything in the Quote + Invoice Pack ($49):**
 - Professional quote template

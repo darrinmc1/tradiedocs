@@ -22,8 +22,10 @@ export default function TermsPage() {
           </p>
           <h2>Payments and Refunds</h2>
           <p>
-            All purchases are processed through Stripe. Refund requests within 14
-            days of purchase will be honored.
+            Paid template packs are not available for purchase yet. There is no
+            live checkout. Join a product waitlist if you want to be notified
+            when a pack can be bought. Refund terms will be published before any
+            paid sale goes live.
           </p>
           <h2>Contact</h2>
           <p>
