@@ -3,7 +3,6 @@ import { Inter, Outfit } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import { siteConfig } from "@/config/site.config"
-import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
 import { Analytics } from "@vercel/analytics/react"
 
@@ -62,7 +61,6 @@ export default function RootLayout({
       >
         <ClerkProvider>
           {children}
-          <WaitlistPopup />
           <FeedbackWidget />
         </ClerkProvider>
         <Analytics />

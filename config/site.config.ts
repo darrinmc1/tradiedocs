@@ -202,11 +202,11 @@ export const siteConfig: SiteConfig = {
   },
 
   copy: {
-    heroTitle: "Compliance Paperwork Sorted. Get Back on the Tools.",
+    heroTitle: "Site-ready SWMS templates without writing them from scratch.",
     heroSubtitle:
-      "SWMS, quotes, invoices, and compliance docs built for Australian tradies. Download the templates, fill them in, and stop worrying about paperwork.",
-    ctaButton: "Browse Templates",
-    ctaSecondary: "Read the Guides",
+      "Twenty pre-filled Safe Work Method Statements for Australian trades. Editable Word. Starting-point templates — not legal advice, not a cert mill.",
+    ctaButton: "View the SWMS pack",
+    ctaSecondary: "Read the free guides",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
     foundingMemberHeading: "Founding Member — Lock In Launch Pricing",
