@@ -21,10 +21,12 @@ const swmsPack: Product = {
   id: "swms-pack",
   name: "SWMS Template Pack — 20 Trades",
   description:
-    "Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator.",
+    "Coming Soon. Planned pack of starting-point Safe Work Method Statements for 20 trades. No file is available to download yet. Confirm current WHS rules with your state regulator before use.",
   content: `## SWMS Template Pack — 20 Trades
 
-Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled Safe Work Method Statements covering the most common high-risk construction activities.
+**Status: Coming Soon.** Checkout is not live and there is no zip or Word file on this site yet. The price below is the planned one-time amount for when the pack exists. Use Notify me if you want an email then.
+
+When it is available, this pack is intended as **starting-point** Safe Work Method Statements for common high-risk construction activities — not a finished SWMS for your site.
 
 ### What You Get
 
@@ -42,7 +44,7 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 
 ### Who It's For
 
-Sole-trader tradies and small crews who need compliant SWMS but don't have a safety officer to write them.`,
+Sole traders and small crews who will want starting-point SWMS files when this pack exists. A template is not a finished, site-specific SWMS.`,
   price: 79,
   stripePriceId: "price_1U4JsxPVyAgWnzPr9hwzd20r",
   features: [
@@ -63,10 +65,12 @@ const quoteInvoicePack: Product = {
   id: "quote-invoice-pack",
   name: "Quote + Invoice Pack",
   description:
-    "Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate.",
+    "Coming Soon. Planned quote, tax invoice, variation, and payment-reminder starters. No file is available to download yet.",
   content: `## Quote + Invoice Pack
 
-Win more jobs with professional quotes and get paid faster with clear invoices.
+**Status: Coming Soon.** Checkout is not live and there is no downloadable file yet. The price below is planned for when the pack exists. Use Notify me if you want an email then.
+
+When it is available, the pack is intended to help you send a clearer quote and a clearer invoice — not to replace advice on a payment dispute.
 
 ### What You Get
 
@@ -105,10 +109,12 @@ const complianceBundle: Product = {
   id: "compliance-bundle",
   name: "Full Compliance Bundle",
   description:
-    "Everything in both packs, plus incident report templates, 10 toolbox talk templates, subcontractor agreement, and site induction checklist.",
+    "Coming Soon. Planned bundle of both packs plus extra forms. No file is available to download yet. Not for sale today.",
   content: `## Full Compliance Bundle
 
-The complete paperwork toolkit for tradies who want every document they'll ever need on a job site.
+**Status: Coming Soon.** Checkout is not live and there is no downloadable file yet. The price below is planned for when the files exist. Use Notify me if you want an email then.
+
+When it is available, this bundle is intended to combine the SWMS starters and the quote/invoice starters with extra forms. It is not a complete WHS system and it is not legal advice.
 
 ### What You Get
 
