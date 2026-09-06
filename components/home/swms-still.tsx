@@ -83,10 +83,6 @@ export function SwmsStill() {
           </table>
         </div>
       </div>
-
-      <div className="swms-site-ready-stamp" aria-hidden="true">
-        <span className="swms-site-ready-stamp-mark">Site ready</span>
-      </div>
     </div>
   )
 }

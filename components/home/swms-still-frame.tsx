@@ -25,6 +25,9 @@ export function SwmsStillFrame({
           <div className="kickoff-pan origin-top-left">
             <SwmsStill />
           </div>
+          <div className="swms-site-ready-stamp" aria-hidden="true">
+            <span className="swms-site-ready-stamp-mark">Site ready</span>
+          </div>
         </div>
       </figure>
     </div>

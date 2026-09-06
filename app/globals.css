@@ -200,8 +200,8 @@
 }
 
 @keyframes kickoff-pan {
-  0% { transform: scale(1.12) translate(2.4%, 1.6%); }
-  100% { transform: scale(1.12) translate(-3.2%, -2.4%); }
+  0% { transform: scale(1.06) translate(1.2%, 0.8%); }
+  100% { transform: scale(1.06) translate(-1.6%, -1.2%); }
 }
 
 .kickoff-pan {
@@ -218,7 +218,7 @@
   }
   3%,
   18% {
-    background-color: rgba(249, 115, 22, 0.16);
+    background-color: rgba(249, 115, 22, 0.28);
     box-shadow: inset 3px 0 0 #f97316;
   }
   22% {
@@ -255,8 +255,8 @@
 .swms-site-ready-stamp {
   pointer-events: none;
   position: absolute;
-  right: 1.25rem;
-  top: 2.75rem;
+  right: 0.75rem;
+  bottom: 0.7rem;
   z-index: 2;
   animation: swms-site-ready-stamp 7s ease-in-out infinite;
 }
