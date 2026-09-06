@@ -53,9 +53,9 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-5 px-6 py-6 sm:gap-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,32rem)] lg:gap-12 lg:py-16">
         <div className="min-w-0">
           <p className="text-sm font-medium text-orange-300">
-            Safe Work Method Statements
+            {siteConfig.copy.heroEyebrow}
           </p>
-          <h1 className="mt-2 max-w-[22ch] text-balance font-display text-[1.75rem] font-extrabold leading-tight tracking-tight text-white sm:mt-3 sm:text-4xl lg:text-5xl">
+          <h1 className="mt-2 max-w-[24ch] text-balance font-display text-[1.75rem] font-extrabold leading-tight tracking-tight text-white sm:mt-3 sm:text-4xl lg:text-5xl">
             {siteConfig.copy.heroTitle}
           </h1>
           <p className="mt-3 max-w-xl text-pretty text-sm leading-relaxed text-slate-400 sm:mt-4 sm:text-base md:text-lg">
@@ -69,7 +69,7 @@ export function Hero() {
 
         <div className="min-w-0">
           <p className="mb-4 hidden max-w-xl text-sm leading-relaxed text-slate-400 sm:block">
-            Open the pack for the trade, fill the site address, keep a signed
+            Open the template for the trade, add the site address, keep a signed
             copy on site. {writtenCount} published guides sit next to the
             templates. Checkout is not live.
           </p>
