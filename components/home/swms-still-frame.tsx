@@ -17,7 +17,7 @@ export function SwmsStillFrame({
         className="pointer-events-none absolute -right-6 top-8 hidden h-[78%] w-[42%] rounded-xl border border-white/10 bg-white/[0.04] shadow-2xl sm:block lg:-right-10"
         aria-hidden="true"
       />
-      <figure className="relative overflow-hidden rounded-xl border border-white/10 bg-[#12100D] shadow-orange-glow">
+      <figure className="relative overflow-hidden rounded-xl border border-white/10 bg-[#12141A] shadow-orange-glow">
         <figcaption className="border-b border-white/10 px-4 py-2 text-xs text-slate-400">
           {caption}
         </figcaption>
