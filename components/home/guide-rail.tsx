@@ -29,7 +29,7 @@ export function GuideRail() {
         <Reveal>
           <p className="text-sm font-medium text-orange-300">Written guides</p>
           <h2 className="mt-2 max-w-xl font-display text-3xl font-bold tracking-tight text-white">
-            Lessons you can open, not a catalog of blanks.
+            Published SWMS and site-paperwork guides.
           </h2>
           <p className="mt-3 max-w-xl text-slate-400">
             {writtenCount} published guides. SWMS first. Quotes, invoices, and

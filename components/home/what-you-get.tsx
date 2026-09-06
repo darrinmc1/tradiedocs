@@ -20,8 +20,8 @@ const CARDS = [
   },
   {
     kicker: "03",
-    title: "Free written guides. Counted from the library.",
-    body: "SWMS basics, quoting, invoicing, licensing, and site paperwork — published lessons you can open now. No sign-up. We will not invent a lesson count.",
+    title: "Published written guides.",
+    body: "SWMS basics, quoting, invoicing, licensing, and site paperwork. Open them without an account.",
     href: "/lessons",
     cta: "Read the free guides",
   },
@@ -34,7 +34,7 @@ export function WhatYouGet() {
         <Reveal>
           <p className="text-sm font-medium text-orange-300">What you get</p>
           <h2 className="mt-2 max-w-xl font-display text-3xl font-bold tracking-tight text-white">
-            A documents product, not a slogan stack.
+            SWMS pack, quote pack, and the written guides.
           </h2>
         </Reveal>
       </div>
