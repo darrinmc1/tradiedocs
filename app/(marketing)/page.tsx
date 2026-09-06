@@ -33,22 +33,21 @@ export default function HomePage() {
             </p>
           </Reveal>
           <div className="mt-8">
-            <NewsletterForm source="homepage" />
+            <NewsletterForm source="homepage" buttonLabel="Join the list" />
           </div>
           <p className="mt-6 text-sm text-slate-500">
-            Prefer to browse first?{" "}
             <Link
               href="/lessons"
               className="text-orange-400 underline-offset-4 hover:text-orange-300 hover:underline"
             >
-              Read the free guides
+              Written guides
             </Link>
             {" · "}
             <Link
               href="/products"
               className="text-orange-400 underline-offset-4 hover:text-orange-300 hover:underline"
             >
-              Browse coming-soon packs
+              Coming-soon packs
             </Link>
           </p>
         </div>
