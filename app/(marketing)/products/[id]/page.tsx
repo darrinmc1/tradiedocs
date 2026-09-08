@@ -1,19 +1,15 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import { ALL_PRODUCTS, getProductById } from "@/data/products"
+import { PRODUCTS } from "@/data/products"
 import { siteConfig } from "@/config/site.config"
-import { MarkdownRenderer } from "@/components/markdown-renderer"
-import { Disclaimer } from "@/components/disclaimer"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
-import { Check } from "lucide-react"
 
-export function generateStaticParams() {
-  return ALL_PRODUCTS.map((p) => ({ id: p.id }))
+export async function generateStaticParams() {
+  return PRODUCTS.map((p) => ({ id: p.id }))
 }
 
-export function generateMetadata({ params }: { params: { id: string } }) {
-  const product = getProductById(params.id)
-  if (!product) return { title: "Not Found" }
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const product = PRODUCTS.find((p) => p.id === params.id)
+  if (!product) return {}
   return {
     title: `${product.name} | ${siteConfig.name}`,
     description: product.description,
@@ -21,83 +17,56 @@ export function generateMetadata({ params }: { params: { id: string } }) {
 }
 
 export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = getProductById(params.id)
+  const product = PRODUCTS.find((p) => p.id === params.id)
   if (!product) notFound()
 
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    url: `${siteConfig.url}/products/${product.id}`,
+    brand: {
+      "@type": "Brand",
+      name: siteConfig.name,
+    },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "AUD",
+      price: product.price ? (product.price / 100).toFixed(2) : "0",
+      availability: "https://schema.org/InStock",
+      url: `${siteConfig.url}/products/${product.id}`,
+      seller: {
+        "@type": "Organization",
+        name: siteConfig.name,
+      },
+    },
+  }
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className={`${siteConfig.theme.heroGradient} py-16`}>
-        <div className="mx-auto max-w-3xl px-6">
-          <Link
-            href="/products"
-            className="inline-flex items-center text-sm text-slate-400 hover:text-orange-400 transition-colors mb-6"
-          >
-            <span className="mr-1">&larr;</span> Back to Products
-          </Link>
-
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-5xl">{product.emoji}</span>
-            <div>
-              <h1 className="text-4xl font-extrabold tracking-tight text-white">
-                {product.name}
-              </h1>
-              <span className="inline-block mt-1 rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1 text-xs font-medium text-amber-400">
-                {product.category}
-              </span>
-            </div>
-          </div>
-
-          <p className="text-lg text-slate-400 mb-6">{product.description}</p>
-
-          <div className="rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 p-5">
-            <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wide mb-3">
-              What&apos;s Included
-            </h3>
-            <ul className="space-y-2">
-              {product.features.map((feature, i) => (
-                <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
-                  <Check className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+      <div className="max-w-3xl mx-auto px-4 py-16">
+        <Link href="/products" className="text-sm text-slate-400 hover:text-white mb-8 inline-block">
+          &larr; Back to Products
+        </Link>
+        <h1 className="text-3xl font-bold text-white mb-4">{product.name}</h1>
+        <p className="text-slate-300 mb-8">{product.description}</p>
+        {product.price && (
+          <p className="text-2xl font-bold text-white mb-8">
+            ${(product.price / 100).toFixed(2)} AUD
+          </p>
+        )}
+        <Link
+          href="/pricing"
+          className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-xl transition-colors"
+        >
+          Get Access
+        </Link>
       </div>
-
-      <div className="mx-auto max-w-3xl px-6 py-12">
-        <article className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10">
-          <MarkdownRenderer content={product.content} />
-        </article>
-
-        <div className="mt-6">
-          <Disclaimer variant="full" />
-        </div>
-
-        <div className="mt-8">
-          <ComingSoonCta
-            price={product.price}
-            source={`product-waitlist-${product.id}`}
-          />
-        </div>
-
-        <div className="mt-6 flex flex-wrap gap-2">
-          {product.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-white/5 border border-white/10 px-3 py-1 text-xs text-slate-500"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-12">
-          <Link href="/products" className="text-sm text-slate-400 hover:text-orange-400 transition-colors">
-            &larr; All Products
-          </Link>
-        </div>
-      </div>
-    </div>
+    </>
   )
 }
