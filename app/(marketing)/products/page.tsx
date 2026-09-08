@@ -1,79 +1,72 @@
 import Link from "next/link"
+import { PRODUCTS } from "@/data/products"
 import { siteConfig } from "@/config/site.config"
-import { ALL_PRODUCTS } from "@/data/products"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
-import { Disclaimer } from "@/components/disclaimer"
-import { Check } from "lucide-react"
 
 export const metadata = {
-  title: `Templates | ${siteConfig.name}`,
-  description:
-    "SWMS, quote, invoice, and compliance template packs for Australian tradies. Checkout is coming soon — join the waitlist.",
+  title: `Products | ${siteConfig.name}`,
+  description: `Browse all document templates and resources for Australian tradies from ${siteConfig.name}.`,
 }
 
 export default function ProductsPage() {
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${siteConfig.name} Products`,
+    description: `Document templates and resources for Australian tradies`,
+    url: `${siteConfig.url}/products`,
+    numberOfItems: PRODUCTS.length,
+    itemListElement: PRODUCTS.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: product.name,
+      description: product.description,
+      url: `${siteConfig.url}/products/${product.id}`,
+      item: {
+        "@type": "Product",
+        name: product.name,
+        description: product.description,
+        url: `${siteConfig.url}/products/${product.id}`,
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "AUD",
+          price: product.price ? (product.price / 100).toFixed(2) : "0",
+          availability: "https://schema.org/InStock",
+        },
+      },
+    })),
+  }
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className={`${siteConfig.theme.heroGradient} py-16`}>
-        <div className="mx-auto max-w-5xl px-6 text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-4">
-            <span className="gradient-text-cyan">Template packs</span>
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-slate-400">
-            Priced packs for when checkout is live. Nothing here is for sale yet —
-            use Notify me if you want an email when a pack is available.
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <div className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-white mb-4">Products</h1>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Professional document templates and resources built for Australian tradies.
           </p>
         </div>
-      </div>
-
-      <div className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {ALL_PRODUCTS.map((product) => (
-            <article
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PRODUCTS.map((product) => (
+            <Link
               key={product.id}
-              className="flex flex-col rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-6"
+              href={`/products/${product.id}`}
+              className="glass-card p-6 rounded-2xl hover:scale-[1.02] transition-all flex flex-col"
             >
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <span className="text-4xl" aria-hidden="true">
-                  {product.emoji}
-                </span>
-                <span className="shrink-0 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-400">
-                  Coming soon
-                </span>
-              </div>
-              <h2 className="text-xl font-bold text-white mb-2">{product.name}</h2>
-              <p className="text-sm text-slate-400 flex-1 mb-4">{product.description}</p>
-              <ul className="space-y-2 mb-6">
-                {product.features.slice(0, 4).map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
-                    <Check className="h-4 w-4 text-orange-500 mt-0.5 shrink-0" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-2xl font-extrabold text-white mb-4">
-                ${product.price}
-                <span className="ml-1 text-sm font-normal text-slate-500">one-time</span>
-              </p>
-              <ComingSoonCta
-                price={product.price}
-                source={`product-waitlist-${product.id}`}
-                layout="card"
-              />
-              <Link
-                href={`/products/${product.id}`}
-                className="mt-4 text-center text-sm text-slate-400 hover:text-orange-400 transition-colors"
-              >
-                View pack details
-              </Link>
-            </article>
+              <h2 className="text-lg font-bold text-white mb-2">{product.name}</h2>
+              <p className="text-slate-400 text-sm flex-1">{product.description}</p>
+              {product.price && (
+                <p className="text-orange-400 font-bold mt-4">
+                  ${(product.price / 100).toFixed(2)} AUD
+                </p>
+              )}
+            </Link>
           ))}
         </div>
-
-        <div className="mt-12">
-          <Disclaimer variant="full" />
-        </div>
       </div>
-    </div>
+    </>
   )
 }
