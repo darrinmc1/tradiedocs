@@ -1,102 +1,127 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
-import { ALL_PRODUCTS } from "@/data/products"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
-import { Disclaimer } from "@/components/disclaimer"
-import { Check } from "lucide-react"
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
-  description:
-    "One-time prices for TradieDocs template packs. Checkout is not live — join the waitlist to be notified.",
+  description: `Simple, transparent pricing for ${siteConfig.name}. Get access to all document templates and lessons for Australian tradies.`,
 }
 
-const faqs = [
-  {
-    q: "Are these templates specific to Australian tradies?",
-    a: "Yes. Packs are written for Australian conditions — including GST, ABN fields, and common trade terminology used across plumbing, electrical, building, and more. Confirm current WHS and tax rules with your state regulator and the ATO.",
-  },
-  {
-    q: "Can I buy a pack today?",
-    a: "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
-  },
-  {
-    q: "Is this a subscription?",
-    a: "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
-  },
-  {
-    q: "What if I only need one or two templates?",
-    a: "The Quote + Invoice Pack and SWMS Template Pack are sold separately. The Full Compliance Bundle is the combined option when checkout is live.",
-  },
-]
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is included in the subscription?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Your subscription includes access to all document templates, lessons, and resources designed specifically for Australian tradies. New content is added regularly.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I cancel my subscription at any time?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, you can cancel your subscription at any time. You will retain access until the end of your current billing period.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is there a free trial available?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We offer a free tier so you can explore the platform before committing to a paid plan. No credit card required to get started.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are the documents legally compliant in Australia?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Our templates are designed with Australian regulations in mind. We recommend reviewing documents with a qualified professional for your specific situation.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What payment methods do you accept?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We accept all major credit and debit cards via Stripe. All transactions are secure and encrypted.",
+      },
+    },
+  ],
+}
 
 export default function PricingPage() {
+  const plans = siteConfig.pricing?.plans || []
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <section className={`${siteConfig.theme.heroGradient} py-16 px-4 text-center`}>
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-4">
-            <span className="gradient-text-cyan">Simple, one-time pack prices</span>
-          </h1>
-          <p className="text-lg text-slate-400">
-            Same catalogue as the products page. Checkout is coming soon — no
-            live purchase and no file download yet.
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <div className="max-w-5xl mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-white mb-4">Simple, Honest Pricing</h1>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Everything you need to run your tradie business like a pro. No hidden fees, no surprises.
           </p>
         </div>
-      </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {ALL_PRODUCTS.map((product) => (
-            <div
-              key={product.id}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 flex flex-col"
-            >
-              <h2 className="text-xl font-bold text-white mb-1">{product.name}</h2>
-              <div className="flex items-end gap-1 mb-2">
-                <span className="text-4xl font-extrabold text-white">${product.price}</span>
-                <span className="text-sm text-slate-500 mb-1">one-time</span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {plans.length > 0 ? (
+            plans.map((plan: any) => (
+              <div key={plan.id} className="glass-card p-8 rounded-2xl flex flex-col">
+                <h2 className="text-xl font-bold text-white mb-2">{plan.name}</h2>
+                <p className="text-slate-400 text-sm mb-6">{plan.description}</p>
+                <p className="text-4xl font-bold text-white mb-1">
+                  {plan.price === 0 ? "Free" : `$${(plan.price / 100).toFixed(0)}`}
+                  {plan.price > 0 && <span className="text-lg text-slate-400">/mo</span>}
+                </p>
+                <ul className="mt-6 space-y-3 flex-1">
+                  {plan.features?.map((feature: string) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
+                      <span className="text-orange-400 mt-0.5">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={plan.price === 0 ? "/sign-up" : `/api/checkout?plan=${plan.id}`}
+                  className="mt-8 block text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-xl transition-colors"
+                >
+                  {plan.price === 0 ? "Get Started Free" : "Subscribe Now"}
+                </Link>
               </div>
-              <p className="text-sm text-slate-400 mb-6">{product.description}</p>
-              <ul className="space-y-3 mb-8 flex-1">
-                {product.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-slate-300">
-                    <Check className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <ComingSoonCta
-                price={product.price}
-                source={`product-waitlist-${product.id}`}
-                layout="card"
-              />
+            ))
+          ) : (
+            <div className="col-span-full glass-card p-12 rounded-2xl text-center">
+              <h2 className="text-2xl font-bold text-white mb-4">Founding Member Access</h2>
+              <p className="text-slate-400 mb-2">Early access pricing — join the waitlist to lock in your rate.</p>
               <Link
-                href={`/products/${product.id}`}
-                className="mt-4 text-center text-sm text-slate-400 hover:text-orange-400 transition-colors"
+                href="/sign-up"
+                className="mt-6 inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-xl transition-colors"
               >
-                View pack details
+                Join the Waitlist
               </Link>
             </div>
-          ))}
+          )}
         </div>
-      </section>
 
-      <section className="max-w-3xl mx-auto px-4 pb-10">
-        <Disclaimer variant="full" />
-      </section>
-
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white text-center mb-10">Frequently asked questions</h2>
-        <div className="space-y-6">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="border-b border-white/10 pb-6">
-              <h3 className="font-semibold text-white mb-2">{faq.q}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
-            </div>
-          ))}
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+          <div className="space-y-6">
+            {faqSchema.mainEntity.map((faq) => (
+              <div key={faq.name} className="glass-card p-6 rounded-2xl">
+                <h3 className="font-bold text-white mb-2">{faq.name}</h3>
+                <p className="text-slate-400 text-sm">{faq.acceptedAnswer.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   )
 }
