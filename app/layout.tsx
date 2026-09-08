@@ -1,54 +1,52 @@
 import type { Metadata } from "next"
-import { Inter, Outfit } from "next/font/google"
-import { ClerkProvider } from "@clerk/nextjs"
+import { Inter } from "next/font/google"
 import "./globals.css"
-import GAAnalytics from "./components/Analytics"
+import { ClerkProvider } from "@clerk/nextjs"
+import { dark } from "@clerk/themes"
+import Analytics from "./components/Analytics"
 import { siteConfig } from "@/config/site.config"
-import { WaitlistPopup } from "@/components/waitlist-popup"
-import { FeedbackWidget } from "@/components/feedback-widget"
-import { Analytics } from "@vercel/analytics/react"
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-})
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-})
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_DOMAIN
-    ? `https://${process.env.NEXT_PUBLIC_SITE_DOMAIN}`
-    : process.env.NEXT_PUBLIC_VERCEL_URL
-      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-      : `https://${siteConfig.domain}`
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} - ${siteConfig.tagline}`,
-    template: `%s`,
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  authors: [{ name: siteConfig.name }],
-  icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
-    ],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
-  },
+  metadataBase: new URL(siteConfig.url),
   openGraph: {
+    type: "website",
+    locale: "en_AU",
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.description,
-    url: siteUrl,
-    siteName: siteConfig.name,
-    type: "website",
-    locale: "en_US",
   },
-  metadataBase: new URL(siteUrl),
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+  },
+}
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.png`,
+  description: siteConfig.description,
+  sameAs: [
+    siteConfig.links?.twitter,
+    siteConfig.links?.instagram,
+    siteConfig.links?.facebook,
+  ].filter(Boolean),
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    email: siteConfig.email,
+  },
 }
 
 export default function RootLayout({
@@ -57,45 +55,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${outfit.variable} font-sans antialiased ${siteConfig.theme.bgClass} ${siteConfig.theme.textClass}`}
-      >
-        <ClerkProvider>
+    <ClerkProvider appearance={{ baseTheme: dark }}>
+      <html lang="en">
+        <head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          />
+        </head>
+        <body className={inter.className}>
           {children}
-          <WaitlistPopup />
-          <FeedbackWidget />
-        </ClerkProvider>
-        <Analytics />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": `${siteUrl}/#organization`,
-                  name: siteConfig.name,
-                  url: siteUrl,
-                  description: siteConfig.description,
-                  email: siteConfig.contact.email,
-                  sameAs: [siteConfig.contact.github],
-                },
-                {
-                  "@type": "WebSite",
-                  "@id": `${siteUrl}/#website`,
-                  url: siteUrl,
-                  name: siteConfig.name,
-                  description: siteConfig.description,
-                  publisher: { "@id": `${siteUrl}/#organization` },
-                },
-              ],
-            }),
-          }}
-        />
-        <GAAnalytics />
-      </body>
-    </html>
+          <Analytics />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
