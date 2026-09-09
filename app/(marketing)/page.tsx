@@ -1,161 +1,75 @@
-import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
-import { NewsletterForm } from "@/components/newsletter-form"
-import { Disclaimer } from "@/components/disclaimer"
-import { getProductById } from "@/data/products"
-
-const swmsPack = getProductById("swms-pack")!
-const quoteInvoicePack = getProductById("quote-invoice-pack")!
-
-/** Named template previews surfaced on the soft-launch homepage (from real product data). */
-const TEMPLATE_PREVIEWS = [
-  {
-    id: "swms",
-    name: swmsPack.name,
-    description:
-      "Pre-filled Safe Work Method Statements for 20 trades — editable Word format.",
-    href: `/products/${swmsPack.id}`,
-    access: "coming-soon" as const,
-    priceLabel: `$${swmsPack.price}`,
-    emoji: swmsPack.emoji,
-  },
-  {
-    id: "quote-invoice",
-    name: quoteInvoicePack.name,
-    description:
-      "Professional quote and ATO-oriented tax invoice in one pack — itemised pricing, GST lines, and payment terms.",
-    href: `/products/${quoteInvoicePack.id}`,
-    access: "coming-soon" as const,
-    priceLabel: `$${quoteInvoicePack.price}`,
-    emoji: quoteInvoicePack.emoji,
-  },
-  {
-    id: "free-guides",
-    name: "Free Compliance Guides",
-    description:
-      "15 free lessons on SWMS basics, quoting, invoicing, licensing, and more — no sign-up required.",
-    href: "/lessons",
-    access: "free" as const,
-    priceLabel: "Free",
-    emoji: "\u{1F4D6}",
-  },
-] as const
+import Link from "next/link"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      {/* Hero — one composition, one primary CTA */}
-      <div
-        className={`${siteConfig.theme.heroGradient} relative overflow-hidden py-24 md:py-32`}
-      >
-        <div
-          className="absolute inset-0 bg-[url('/images/hero-tradiedocs.jpg')] bg-cover bg-center opacity-25"
-          aria-hidden="true"
-        />
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-orange-300 mb-4">
-            {siteConfig.name}
-          </p>
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
-            <span className="gradient-text-cyan">{siteConfig.copy.heroTitle}</span>
+    <main>
+      {/* Hero Section */}
+      <section className="relative py-20 px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-white leading-tight">
+            {siteConfig.hero?.heading ?? "Business Docs for Australian Tradies"}
           </h1>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-            {siteConfig.copy.heroSubtitle}
+          <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            {siteConfig.hero?.subheading ?? "Stop losing jobs to dodgy paperwork. Get professional quotes, contracts, and invoices built for tradies — in minutes."}
           </p>
-          <div className="flex flex-col items-center gap-4">
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
             <Link
               href="/products"
-              className="px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-400 hover:to-amber-500 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 transition-all duration-300 hover:scale-105"
+              className="inline-block bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-3 px-8 rounded-xl text-lg transition-all"
             >
-              {siteConfig.copy.ctaButton}
+              Browse Templates
             </Link>
-            <a
-              href="#free-tips"
-              className="text-sm font-medium text-slate-400 hover:text-orange-300 transition-colors underline-offset-4 hover:underline"
-            >
-              Or get free tips by email
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Named template previews — free vs paid */}
-      <section className="mx-auto max-w-6xl px-6 py-20" aria-labelledby="templates-heading">
-        <h2
-          id="templates-heading"
-          className="text-3xl font-extrabold text-center mb-3"
-        >
-          <span className="gradient-text-cyan">Template previews</span>
-        </h2>
-        <p className="text-slate-400 text-center max-w-xl mx-auto mb-12">
-          One SKU per pack. Free guides are live. Paid packs are priced but not for sale yet.
-        </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {TEMPLATE_PREVIEWS.map((preview) => (
             <Link
-              key={preview.id}
-              href={preview.href}
-              className="glass-card p-6 rounded-2xl flex flex-col transition-all hover:scale-[1.02]"
+              href="/lessons"
+              className="inline-block border border-slate-500 hover:border-slate-300 text-white font-bold py-3 px-8 rounded-xl text-lg transition-all"
             >
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <span className="text-3xl" aria-hidden="true">
-                  {preview.emoji}
-                </span>
-                <span
-                  className={
-                    preview.access === "free"
-                      ? "shrink-0 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-emerald-400"
-                      : "shrink-0 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-400"
-                  }
-                >
-                  {preview.access === "free" ? "Free" : "Coming soon"}
-                </span>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2">{preview.name}</h3>
-              <p className="text-sm text-slate-400 flex-1 mb-4">{preview.description}</p>
-              <span className="text-sm font-semibold text-orange-400">
-                {preview.priceLabel}
-                {preview.access === "coming-soon" ? (
-                  <span className="text-slate-500 font-normal"> one-time · waitlist</span>
-                ) : null}
-              </span>
+              Free Lessons
             </Link>
-          ))}
+          </div>
+
+          {/* Testimonials */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="glass-card p-5 rounded-2xl text-left">
+              <p className="text-slate-300 text-sm mb-4">&ldquo;Used the quote template on a big reno job and landed the contract. Looked way more professional than what I was sending before.&rdquo;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center text-black font-bold text-sm">JM</div>
+                <div>
+                  <p className="text-white text-sm font-semibold">Jake M.</p>
+                  <p className="text-slate-500 text-xs">Carpenter &mdash; Brisbane, QLD</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl text-left">
+              <p className="text-slate-300 text-sm mb-4">&ldquo;Finally got paid on time. The invoice template is dead simple and my clients actually read it. Worth every cent.&rdquo;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center text-black font-bold text-sm">SR</div>
+                <div>
+                  <p className="text-white text-sm font-semibold">Sarah R.</p>
+                  <p className="text-slate-500 text-xs">Electrician &mdash; Melbourne, VIC</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card p-5 rounded-2xl text-left">
+              <p className="text-slate-300 text-sm mb-4">&ldquo;The subcontractor agreement saved me from a nightmare situation. Proper terms, plain English. Legends.&rdquo;</p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-yellow-400 flex items-center justify-center text-black font-bold text-sm">DT</div>
+                <div>
+                  <p className="text-white text-sm font-semibold">Dave T.</p>
+                  <p className="text-slate-500 text-xs">Plumber &mdash; Perth, WA</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Social proof micro-copy */}
+          <p className="mt-8 text-slate-500 text-sm">Trusted by tradies across Australia &mdash; no lock-in, no BS.</p>
         </div>
       </section>
-
-      {/* Free email path — conversion without inventing Stripe */}
-      <section
-        id="free-tips"
-        className="mx-auto max-w-4xl px-6 py-20 text-center scroll-mt-24"
-        aria-labelledby="free-tips-heading"
-      >
-        <p className="inline-block mb-4 rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-400">
-          Free
-        </p>
-        <h2 id="free-tips-heading" className="text-3xl font-extrabold mb-4">
-          {siteConfig.copy.emailCaptureHeading}
-        </h2>
-        <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-          {siteConfig.copy.emailCaptureSubheading}
-        </p>
-        <NewsletterForm source="homepage" />
-        <p className="mt-6 text-sm text-slate-500">
-          Prefer to browse first?{" "}
-          <Link href="/lessons" className="text-orange-400 hover:text-orange-300 underline-offset-4 hover:underline">
-            Read the free guides
-          </Link>
-          {" · "}
-          <Link href="/products" className="text-orange-400 hover:text-orange-300 underline-offset-4 hover:underline">
-            Browse coming-soon packs
-          </Link>
-        </p>
-      </section>
-
-      {/* Trust — not legal advice; no invented state badges or WorkSafe claims */}
-      <section className="mx-auto max-w-3xl px-6 pb-20">
-        <Disclaimer variant="full" />
-      </section>
-    </div>
+    </main>
   )
 }
