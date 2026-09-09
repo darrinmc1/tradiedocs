@@ -103,3 +103,194 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-float { animation: none !important; }
 }
+
+@layer utilities {
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(249, 115, 22, 0.14) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .shadow-orange-glow {
+    box-shadow:
+      0 0 80px -12px rgba(249, 115, 22, 0.45),
+      0 24px 60px -28px rgba(0, 0, 0, 0.65);
+  }
+
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-up[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left[data-visible="true"] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right[data-visible="true"] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.93);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale[data-visible="true"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .stagger-1 { transition-delay: 0ms; }
+  .stagger-2 { transition-delay: 80ms; }
+  .stagger-3 { transition-delay: 160ms; }
+  .stagger-4 { transition-delay: 240ms; }
+  .stagger-5 { transition-delay: 320ms; }
+}
+
+.stack-slot {
+  min-height: auto;
+}
+.stack-card {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .stack-slot {
+    min-height: 58vh;
+  }
+  .stack-card {
+    position: sticky;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-card {
+    position: relative;
+    top: auto !important;
+  }
+  .stack-slot {
+    min-height: auto;
+  }
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes kickoff-pan {
+  0% { transform: scale(1.06) translate(1.2%, 0.8%); }
+  100% { transform: scale(1.06) translate(-1.6%, -1.2%); }
+}
+
+.kickoff-pan {
+  animation: kickoff-pan 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* TradieDocs-only still motion: 7s hazard-row scan + site-ready stamp. */
+@keyframes swms-hazard-highlight {
+  0%,
+  100% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  3%,
+  18% {
+    background-color: rgba(249, 115, 22, 0.28);
+    box-shadow: inset 3px 0 0 #f97316;
+  }
+  22% {
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.swms-hazard-row {
+  animation: swms-hazard-highlight 7s ease-in-out infinite;
+}
+.swms-hazard-row:nth-child(1) { animation-delay: 0s; }
+.swms-hazard-row:nth-child(2) { animation-delay: 1.55s; }
+.swms-hazard-row:nth-child(3) { animation-delay: 3.1s; }
+.swms-hazard-row:nth-child(4) { animation-delay: 4.65s; }
+
+@keyframes swms-site-ready-stamp {
+  0%,
+  68% {
+    opacity: 0;
+    transform: rotate(-12deg) scale(1.1);
+  }
+  76%,
+  90% {
+    opacity: 0.92;
+    transform: rotate(-8deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-8deg) scale(1);
+  }
+}
+
+.swms-site-ready-stamp {
+  pointer-events: none;
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.7rem;
+  z-index: 2;
+  animation: swms-site-ready-stamp 7s ease-in-out infinite;
+}
+
+.swms-site-ready-stamp-mark {
+  display: inline-block;
+  border: 2px solid rgb(251 146 60 / 0.85);
+  border-radius: 0.25rem;
+  padding: 0.28rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: rgb(253 186 116);
+  background: rgb(15 23 42 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kickoff-pan {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+  .swms-hazard-row,
+  .swms-site-ready-stamp {
+    animation: none !important;
+  }
+  .swms-hazard-row:first-child {
+    background-color: rgba(249, 115, 22, 0.12);
+    box-shadow: inset 3px 0 0 #f97316;
+  }
+  .swms-site-ready-stamp {
+    opacity: 0.72;
+    transform: rotate(-8deg) scale(1);
+  }
+}

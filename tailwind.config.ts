@@ -39,6 +39,9 @@ const config: Config = {
         sans: ["var(--font-inter)"],
         display: ["var(--font-outfit)"],
       },
+      letterSpacing: {
+        tightest: "-0.04em",
+      },
       animation: {
         float: "float 6s ease-in-out infinite",
         "pulse-slow": "pulse 4s ease-in-out infinite",

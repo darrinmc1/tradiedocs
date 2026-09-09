@@ -202,17 +202,17 @@ export const siteConfig: SiteConfig = {
   },
 
   copy: {
-    heroTitle: "Compliance Paperwork Sorted. Get Back on the Tools.",
+    heroTitle: "When the builder wants a SWMS, add the site and print.",
     heroSubtitle:
-      "SWMS, quotes, invoices, and compliance docs built for Australian tradies. Download the templates, fill them in, and stop worrying about paperwork.",
-    ctaButton: "Browse Templates",
-    ctaSecondary: "Read the Guides",
+      "Twenty pre-filled Safe Work Method Statements for Australian trades. Editable Word. Confirm current WHS rules with your state regulator.",
+    ctaButton: "Open the SWMS pack",
+    ctaSecondary: "Read the free guides",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
     foundingMemberHeading: "Founding Member — Lock In Launch Pricing",
-    emailCaptureHeading: "Get free compliance tips by email",
+    emailCaptureHeading: "WHS and paperwork notes by email",
     emailCaptureSubheading:
-      "Practical WHS and paperwork tips for sole traders and small crews. No spam — unsubscribe anytime.",
+      "Site paperwork and SWMS notes for sole traders and small crews. Unsubscribe anytime.",
     feedbackPlaceholder: "What template do you need next?",
   },
 

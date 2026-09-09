@@ -12,6 +12,9 @@ const POPUP_STORAGE_KEY = "tradiedocs-waitlist-seen"
 const SHOW_AFTER_MS = 5000
 const SUPPRESS_DAYS = 30
 
+/** Homepage Pack 2 — no auto-modals on a SWMS/legal product. */
+const AUTO_MODAL_OFF = true
+
 export function WaitlistPopup() {
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState("")
@@ -20,6 +23,7 @@ export function WaitlistPopup() {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
+    if (AUTO_MODAL_OFF) return
     const lastSeen = localStorage.getItem(POPUP_STORAGE_KEY)
     if (lastSeen) {
       const daysSince =

@@ -4,7 +4,7 @@ import { useState } from "react"
 
 export function NewsletterForm({
   source = "homepage",
-  buttonLabel = "Get free tips",
+  buttonLabel = "Join the list",
 }: {
   source?: string
   buttonLabel?: string
