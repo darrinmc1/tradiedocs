@@ -1,13 +1,44 @@
 import { NextRequest, NextResponse } from "next/server"
 import { auth } from "@clerk/nextjs/server"
+import { stripe } from "@/lib/stripe"
 import { getProductById } from "@/data/products"
 import { getUserEntitlements, getSignedDownloadUrl } from "@/lib/entitlements"
+import { isPurchasesOpen } from "@/lib/purchases"
 
-export async function POST() {
-  return NextResponse.json(
-    { error: "Checkout is not live. There is no payment method yet." },
-    { status: 503 }
-  )
+export async function POST(req: NextRequest) {
+  if (!isPurchasesOpen() || !stripe) {
+    return NextResponse.json(
+      { error: "Checkout is not live. There is no payment method yet." },
+      { status: 503 }
+    )
+  }
+
+  const { userId } = await auth()
+  if (!userId) {
+    return NextResponse.json({ error: "Not authenticated" }, { status: 401 })
+  }
+
+  const body = await req.formData()
+  const productId = body.get("productId") as string
+  const product = getProductById(productId)
+  if (!product) {
+    return NextResponse.json({ error: "Product not found" }, { status: 404 })
+  }
+
+  const origin = req.headers.get("origin") ?? req.nextUrl.origin
+
+  const session = await stripe.checkout.sessions.create({
+    mode: "payment",
+    line_items: [{ price: product.stripePriceId, quantity: 1 }],
+    success_url: `${origin}/account?purchased=${productId}`,
+    cancel_url: `${origin}/products/${productId}`,
+    metadata: {
+      userId,
+      productId,
+    },
+  })
+
+  return NextResponse.redirect(session.url!, 303)
 }
 
 export async function GET(req: NextRequest) {

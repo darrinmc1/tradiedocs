@@ -68,6 +68,7 @@ export default function PricingPage() {
               </ul>
               <ComingSoonCta
                 price={product.price}
+                productId={product.id}
                 source={`product-waitlist-${product.id}`}
                 layout="card"
               />
