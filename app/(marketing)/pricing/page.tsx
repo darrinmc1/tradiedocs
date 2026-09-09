@@ -1,102 +1,140 @@
-import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
-import { ALL_PRODUCTS } from "@/data/products"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
-import { Disclaimer } from "@/components/disclaimer"
-import { Check } from "lucide-react"
+import Link from "next/link"
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
-  description:
-    "One-time prices for TradieDocs template packs. Checkout is not live — join the waitlist to be notified.",
+  description: `Simple, transparent pricing for ${siteConfig.name}. Get access to all document templates and lessons for Australian tradies.`,
 }
 
-const faqs = [
-  {
-    q: "Are these templates specific to Australian tradies?",
-    a: "Yes. Packs are written for Australian conditions — including GST, ABN fields, and common trade terminology used across plumbing, electrical, building, and more. Confirm current WHS and tax rules with your state regulator and the ATO.",
-  },
-  {
-    q: "Can I buy a pack today?",
-    a: "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
-  },
-  {
-    q: "Is this a subscription?",
-    a: "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
-  },
-  {
-    q: "What if I only need one or two templates?",
-    a: "The Quote + Invoice Pack and SWMS Template Pack are sold separately. The Full Compliance Bundle is the combined option when checkout is live.",
-  },
-]
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is included in the free plan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The free plan gives you access to a selection of document templates and introductory lessons to help you get started managing your tradie business.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I cancel my subscription at any time?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, you can cancel your subscription at any time. You will retain access until the end of your current billing period.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Are the document templates suitable for Australian tradies?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, all document templates are specifically designed for Australian tradies and comply with relevant Australian business and legal requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you offer a money-back guarantee?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, we offer a 30-day money-back guarantee. If you are not satisfied with your purchase, contact us within 30 days for a full refund.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What payment methods do you accept?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We accept all major credit and debit cards including Visa, Mastercard, and American Express, processed securely through Stripe.",
+      },
+    },
+  ],
+}
 
 export default function PricingPage() {
+  const plans = siteConfig.pricing?.plans || []
+
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <section className={`${siteConfig.theme.heroGradient} py-16 px-4 text-center`}>
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-4">
-            <span className="gradient-text-cyan">Simple, one-time pack prices</span>
-          </h1>
-          <p className="text-lg text-slate-400">
-            Same catalogue as the products page. Checkout is coming soon — no
-            live purchase and no file download yet.
-          </p>
-        </div>
-      </section>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <main className="min-h-screen py-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Simple, Honest Pricing
+            </h1>
+            <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+              Everything you need to run your tradie business like a pro. No hidden fees, no surprises.
+            </p>
+          </div>
 
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {ALL_PRODUCTS.map((product) => (
-            <div
-              key={product.id}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 flex flex-col"
-            >
-              <h2 className="text-xl font-bold text-white mb-1">{product.name}</h2>
-              <div className="flex items-end gap-1 mb-2">
-                <span className="text-4xl font-extrabold text-white">${product.price}</span>
-                <span className="text-sm text-slate-500 mb-1">one-time</span>
-              </div>
-              <p className="text-sm text-slate-400 mb-6">{product.description}</p>
-              <ul className="space-y-3 mb-8 flex-1">
-                {product.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-slate-300">
-                    <Check className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <ComingSoonCta
-                price={product.price}
-                source={`product-waitlist-${product.id}`}
-                layout="card"
-              />
-              <Link
-                href={`/products/${product.id}`}
-                className="mt-4 text-center text-sm text-slate-400 hover:text-orange-400 transition-colors"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {plans.map((plan: any) => (
+              <div
+                key={plan.name}
+                className={`glass-card rounded-2xl p-8 flex flex-col ${
+                  plan.featured ? "border border-orange-500/50 relative" : ""
+                }`}
               >
-                View pack details
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+                {plan.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <div className="mb-6">
+                  <h2 className="text-xl font-bold text-white mb-2">{plan.name}</h2>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    {plan.period && (
+                      <span className="text-slate-400 text-sm">{plan.period}</span>
+                    )}
+                  </div>
+                  {plan.description && (
+                    <p className="text-slate-400 text-sm mt-2">{plan.description}</p>
+                  )}
+                </div>
+                <ul className="space-y-3 mb-8 flex-1">
+                  {(plan.features || []).map((feature: string) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-slate-300">
+                      <span className="text-orange-400 mt-0.5">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={plan.href || "/sign-up"}
+                  className={`block text-center py-3 px-6 rounded-xl font-semibold transition-all ${
+                    plan.featured
+                      ? "bg-orange-500 hover:bg-orange-600 text-white"
+                      : "bg-white/10 hover:bg-white/20 text-white"
+                  }`}
+                >
+                  {plan.cta || "Get Started"}
+                </Link>
+              </div>
+            ))}
+          </div>
 
-      <section className="max-w-3xl mx-auto px-4 pb-10">
-        <Disclaimer variant="full" />
-      </section>
-
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white text-center mb-10">Frequently asked questions</h2>
-        <div className="space-y-6">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="border-b border-white/10 pb-6">
-              <h3 className="font-semibold text-white mb-2">{faq.q}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-white text-center mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {faqSchema.mainEntity.map((faq) => (
+                <div key={faq.name} className="glass-card rounded-xl p-6">
+                  <h3 className="font-semibold text-white mb-2">{faq.name}</h3>
+                  <p className="text-slate-400 text-sm">{faq.acceptedAnswer.text}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-      </section>
-    </div>
+      </main>
+    </>
   )
 }
