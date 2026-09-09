@@ -36,7 +36,7 @@ export const tradieDocsFaqs = [
   {
     question: "How much do TradieDocs templates cost?",
     answer:
-      "One-time purchases only — no subscription. The SWMS Template Pack covering 20 trades is $79, the Quote + Invoice Pack is $49, and the Full Compliance Bundle (both packs plus bonus templates) is $119.",
+      "Checkout is not live and there is no payment method yet. Planned one-time pack prices: SWMS Template Pack $79, Quote + Invoice Pack $49, Full Compliance Bundle $119. Join the waitlist on the products page to be notified.",
   },
   {
     question: "Is TradieDocs legal advice?",
@@ -82,10 +82,9 @@ ${updateBlock}
 
 ## Pricing
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+Checkout is not live. There is no payment method yet.
+Planned one-time pack prices (waitlist only): SWMS Template Pack $79, Quote + Invoice Pack $49, Full Compliance Bundle $119.
+Join a product waitlist at ${base}/products or ${base}/pricing.
 
 ## FAQs
 
