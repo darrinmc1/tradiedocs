@@ -1,78 +1,102 @@
-import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
-import { NewsletterForm } from "@/components/newsletter-form"
-import { Disclaimer } from "@/components/disclaimer"
-
-const templatePreviews = [
-  {
-    name: "SWMS Drafting Pack",
-    description: "Editable starting-point documents and prompts to help structure job-specific safety paperwork. They are not a substitute for site-specific review, legal obligations or competent safety advice.",
-    href: "/products/swms-pack",
-    status: "Coming soon",
-    emoji: "🦺",
-  },
-  {
-    name: "Quote & Invoice Pack",
-    description: "Practical quote and invoice templates with itemised pricing, GST fields and payment-term sections for Australian tradies.",
-    href: "/products/quote-invoice-pack",
-    status: "Coming soon",
-    emoji: "🧾",
-  },
-  {
-    name: "Free Business Admin Guides",
-    description: "Free lessons on quoting, invoicing, record keeping, SWMS basics and common paperwork workflows — no sign-up required.",
-    href: "/lessons",
-    status: "Free",
-    emoji: "📖",
-  },
-] as const
+import Link from "next/link"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className={`${siteConfig.theme.heroGradient} relative overflow-hidden py-24 md:py-32`}>
-        <div className="absolute inset-0 bg-[url('/images/hero-tradiedocs.jpg')] bg-cover bg-center opacity-25" aria-hidden="true" />
-        <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-orange-300">{siteConfig.name}</p>
-          <h1 className="mb-6 text-5xl font-extrabold tracking-tight md:text-6xl"><span className="gradient-text-cyan">Less paperwork chaos. Better job records.</span></h1>
-          <p className="mx-auto mb-6 max-w-2xl text-xl text-slate-300">Templates, checklists and short guides for quotes, invoices, job records and safety paperwork — built around the admin Australian tradies repeat every week.</p>
-          <p className="mx-auto mb-10 max-w-2xl text-sm text-slate-400">TradieDocs provides educational material and editable starting points. It does not guarantee legal, WHS, tax or regulatory compliance; documents must be reviewed for the actual job and jurisdiction.</p>
-          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/lessons" className="rounded-xl bg-gradient-to-r from-orange-500 to-amber-600 px-8 py-4 font-bold text-white transition-all hover:from-orange-400 hover:to-amber-500">Read the free guides</Link>
-            <Link href="/products" className="rounded-xl border border-white/15 px-8 py-4 font-bold text-slate-200 hover:bg-white/5">Preview templates</Link>
+    <main>
+      {/* Hero Section */}
+      <section className="py-20 px-4 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          Business Documents for Australian Tradies
+        </h1>
+        <p className="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
+          Professional quotes, invoices, contracts and compliance documents — built specifically for Australian tradespeople.
+        </p>
+        <div className="flex gap-4 justify-center">
+          <Link href="/products" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-xl transition-all">
+            Browse Templates
+          </Link>
+          <Link href="/pricing" className="border border-slate-600 hover:border-slate-400 text-white font-bold py-3 px-8 rounded-xl transition-all">
+            View Pricing
+          </Link>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-4 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">Everything a Tradie Needs</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="text-3xl mb-4">📋</div>
+            <h3 className="text-xl font-bold mb-2">Quote Templates</h3>
+            <p className="text-slate-400">Professional quotes that win jobs. Customisable for any trade.</p>
+          </div>
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="text-3xl mb-4">🧾</div>
+            <h3 className="text-xl font-bold mb-2">Invoice Templates</h3>
+            <p className="text-slate-400">Get paid faster with clear, professional invoices that meet ATO requirements.</p>
+          </div>
+          <div className="glass-card p-6 rounded-2xl">
+            <div className="text-3xl mb-4">📝</div>
+            <h3 className="text-xl font-bold mb-2">Contracts & Agreements</h3>
+            <p className="text-slate-400">Protect your business with solid contracts reviewed for Australian conditions.</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-20" aria-labelledby="templates-heading">
-        <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange-300">Useful before subscriptions</p>
-          <h2 id="templates-heading" className="text-3xl font-extrabold"><span className="gradient-text-cyan">Working guides and template previews</span></h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-400">Paid checkout is not live, so TradieDocs is not publishing pack prices yet. The focus is making the paperwork useful first.</p>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {templatePreviews.map((preview) => (
-            <Link key={preview.name} href={preview.href} className="glass-card flex flex-col rounded-2xl p-6 transition-all hover:scale-[1.02]">
-              <div className="mb-3 flex items-start justify-between gap-3">
-                <span className="text-3xl" aria-hidden="true">{preview.emoji}</span>
-                <span className={`shrink-0 rounded-md border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide ${preview.status === "Free" ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400" : "border-amber-500/30 bg-amber-500/10 text-amber-400"}`}>{preview.status}</span>
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-white">{preview.name}</h3>
-              <p className="flex-1 text-sm leading-relaxed text-slate-400">{preview.description}</p>
-            </Link>
-          ))}
+      {/* FAQ Section */}
+      <section className="py-16 px-4 max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-4">Frequently Asked Questions</h2>
+        <p className="text-slate-400 text-center mb-12">Got questions about compliance and how our templates work? We&apos;ve got answers.</p>
+
+        <div className="space-y-6">
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">Are these templates legally compliant?</h3>
+            <p className="text-slate-400">Our templates are drafted with reference to Australian consumer law, the Australian Consumer Law (ACL), and relevant building and construction legislation. They are designed to meet standard compliance requirements for Australian tradespeople. We recommend reviewing any contract with a solicitor for high-value or complex jobs, as every situation is unique.</p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">Will these templates work for my state or territory?</h3>
+            <p className="text-slate-400">Yes — our templates are designed to work across all Australian states and territories including NSW, VIC, QLD, WA, SA, TAS, ACT, and NT. Where state-specific licensing or disclosure requirements differ (such as in QLD or VIC for domestic building work), we include notes to guide you on what to add for your location.</p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">Do the invoice templates meet ATO requirements?</h3>
+            <p className="text-slate-400">Absolutely. Our invoice templates include all mandatory fields required by the Australian Taxation Office (ATO) for valid tax invoices — including ABN, GST amounts, supplier details, and itemised descriptions. They are suitable for both GST-registered and non-registered tradies.</p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">Are the templates suitable for subcontractors?</h3>
+            <p className="text-slate-400">Yes. We have templates specifically designed for subcontractor arrangements, including subcontractor agreements that address payment terms, scope of work, liability, and insurance requirements — all common concerns in the Australian construction industry.</p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">How often are the templates updated?</h3>
+            <p className="text-slate-400">We review and update our templates regularly to reflect changes in Australian legislation, ATO requirements, and industry standards. Members on our Pro plan receive automatic access to all updated versions at no extra cost.</p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">Can I customise the templates for my trade?</h3>
+            <p className="text-slate-400">Yes — all templates are provided in editable formats so you can add your business name, logo, licence number, and any trade-specific terms. They work for electricians, plumbers, builders, carpenters, painters, landscapers, and most other trades.</p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl">
+            <h3 className="text-lg font-bold mb-2">Do I need a lawyer to use these templates?</h3>
+            <p className="text-slate-400">For everyday quoting, invoicing, and standard residential jobs, our templates are ready to use straight away. For large commercial contracts, disputes, or unusual circumstances, we always recommend getting independent legal advice. Think of our templates as a solid, professional starting point — not a substitute for legal counsel when the stakes are high.</p>
+          </div>
         </div>
       </section>
 
-      <section id="free-tips" className="mx-auto max-w-4xl scroll-mt-24 px-6 py-20 text-center" aria-labelledby="free-tips-heading">
-        <p className="mb-4 inline-block rounded-md border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-400">Free</p>
-        <h2 id="free-tips-heading" className="mb-4 text-3xl font-extrabold">Get practical tradie admin tips by email</h2>
-        <p className="mx-auto mb-8 max-w-xl text-slate-400">Short notes on quoting, invoices, paperwork habits and job records. No fake compliance promises.</p>
-        <NewsletterForm source="homepage" />
-        <p className="mt-6 text-sm text-slate-500">Prefer to browse first? <Link href="/lessons" className="text-orange-400 underline-offset-4 hover:text-orange-300 hover:underline">Read the free guides</Link>.</p>
+      {/* CTA Section */}
+      <section className="py-16 px-4 text-center">
+        <div className="glass-card p-12 rounded-2xl max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-slate-400 mb-8">Join thousands of Australian tradies who trust TradieDocs for their business paperwork.</p>
+          <Link href="/products" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-xl transition-all inline-block">
+            Browse All Templates
+          </Link>
+        </div>
       </section>
-
-      <section className="mx-auto max-w-3xl px-6 pb-20"><Disclaimer variant="full" /></section>
-    </div>
+    </main>
   )
 }
