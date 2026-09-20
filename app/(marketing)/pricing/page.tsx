@@ -1,102 +1,194 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
-import { ALL_PRODUCTS } from "@/data/products"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
-import { Disclaimer } from "@/components/disclaimer"
-import { Check } from "lucide-react"
+import { Check, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
-  description:
-    "One-time prices for TradieDocs template packs. Checkout is not live — join the waitlist to be notified.",
+  description: "Simple, transparent pricing for tradies who want to get their paperwork sorted. No hidden fees, no surprises.",
 }
 
-const faqs = [
+const tiers = [
   {
-    q: "Are these templates specific to Australian tradies?",
-    a: "Yes. Packs are written for Australian conditions — including GST, ABN fields, and common trade terminology used across plumbing, electrical, building, and more. Confirm current WHS and tax rules with your state regulator and the ATO.",
+    name: "Starter",
+    price: "Free",
+    priceDetail: "forever",
+    description: "Perfect for sole traders just getting started with digital quoting.",
+    cta: "Get started free",
+    ctaHref: "/register",
+    highlighted: false,
+    features: [
+      { text: "Up to 5 quotes per month", included: true },
+      { text: "Basic quote templates", included: true },
+      { text: "PDF export", included: true },
+      { text: "Customer management (up to 20)", included: true },
+      { text: "Email support", included: true },
+      { text: "Unlimited quotes", included: false },
+      { text: "Invoice generation", included: false },
+      { text: "Payment tracking", included: false },
+      { text: "Custom branding", included: false },
+      { text: "Priority support", included: false },
+    ],
   },
   {
-    q: "Can I buy a pack today?",
-    a: "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
+    name: "Pro",
+    price: "$29",
+    priceDetail: "per month",
+    description: "For growing trade businesses that need to look professional and stay on top of jobs.",
+    cta: "Start 14-day free trial",
+    ctaHref: "/register?plan=pro",
+    highlighted: true,
+    badge: "Most popular",
+    features: [
+      { text: "Unlimited quotes", included: true },
+      { text: "Professional quote templates", included: true },
+      { text: "PDF export", included: true },
+      { text: "Unlimited customer management", included: true },
+      { text: "Email support", included: true },
+      { text: "Invoice generation", included: true },
+      { text: "Payment tracking", included: true },
+      { text: "Custom branding & logo", included: true },
+      { text: "Priority support", included: false },
+      { text: "Team members", included: false },
+    ],
   },
   {
-    q: "Is this a subscription?",
-    a: "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
-  },
-  {
-    q: "What if I only need one or two templates?",
-    a: "The Quote + Invoice Pack and SWMS Template Pack are sold separately. The Full Compliance Bundle is the combined option when checkout is live.",
+    name: "Business",
+    price: "$79",
+    priceDetail: "per month",
+    description: "For established trade businesses managing a team and serious volume.",
+    cta: "Start 14-day free trial",
+    ctaHref: "/register?plan=business",
+    highlighted: false,
+    features: [
+      { text: "Unlimited quotes", included: true },
+      { text: "Professional quote templates", included: true },
+      { text: "PDF export", included: true },
+      { text: "Unlimited customer management", included: true },
+      { text: "Email & phone support", included: true },
+      { text: "Invoice generation", included: true },
+      { text: "Payment tracking", included: true },
+      { text: "Custom branding & logo", included: true },
+      { text: "Priority support", included: true },
+      { text: "Up to 5 team members", included: true },
+    ],
   },
 ]
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50">
-      <section className={`${siteConfig.theme.heroGradient} py-16 px-4 text-center`}>
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-extrabold tracking-tight mb-4">
-            <span className="gradient-text-cyan">Simple, one-time pack prices</span>
-          </h1>
-          <p className="text-lg text-slate-400">
-            Same catalogue as the products page. Checkout is coming soon — no
-            live purchase and no file download yet.
-          </p>
-        </div>
-      </section>
+    <div className="container mx-auto px-4 py-16 max-w-6xl">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <h1 className="text-4xl font-bold tracking-tight mb-4">
+          Simple, honest pricing
+        </h1>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          No lock-in contracts. No hidden fees. Cancel any time.
+          Start free and upgrade when you need more.
+        </p>
+      </div>
 
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {ALL_PRODUCTS.map((product) => (
-            <div
-              key={product.id}
-              className="rounded-2xl border border-white/10 bg-white/5 p-8 flex flex-col"
-            >
-              <h2 className="text-xl font-bold text-white mb-1">{product.name}</h2>
-              <div className="flex items-end gap-1 mb-2">
-                <span className="text-4xl font-extrabold text-white">${product.price}</span>
-                <span className="text-sm text-slate-500 mb-1">one-time</span>
+      {/* Pricing cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        {tiers.map((tier) => (
+          <div
+            key={tier.name}
+            className={`relative rounded-2xl border p-8 flex flex-col ${
+              tier.highlighted
+                ? "border-primary bg-primary/5 shadow-lg scale-105"
+                : "border-border bg-card"
+            }`}
+          >
+            {tier.badge && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                  {tier.badge}
+                </span>
               </div>
-              <p className="text-sm text-slate-400 mb-6">{product.description}</p>
-              <ul className="space-y-3 mb-8 flex-1">
-                {product.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm text-slate-300">
-                    <Check className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <ComingSoonCta
-                price={product.price}
-                source={`product-waitlist-${product.id}`}
-                layout="card"
-              />
-              <Link
-                href={`/products/${product.id}`}
-                className="mt-4 text-center text-sm text-slate-400 hover:text-orange-400 transition-colors"
-              >
-                View pack details
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
+            )}
 
-      <section className="max-w-3xl mx-auto px-4 pb-10">
-        <Disclaimer variant="full" />
-      </section>
-
-      <section className="max-w-3xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white text-center mb-10">Frequently asked questions</h2>
-        <div className="space-y-6">
-          {faqs.map((faq) => (
-            <div key={faq.q} className="border-b border-white/10 pb-6">
-              <h3 className="font-semibold text-white mb-2">{faq.q}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{faq.a}</p>
+            <div className="mb-6">
+              <h2 className="text-xl font-bold mb-1">{tier.name}</h2>
+              <div className="flex items-baseline gap-1 mb-3">
+                <span className="text-4xl font-extrabold">{tier.price}</span>
+                <span className="text-muted-foreground text-sm">{tier.priceDetail}</span>
+              </div>
+              <p className="text-muted-foreground text-sm">{tier.description}</p>
             </div>
-          ))}
+
+            <ul className="space-y-3 mb-8 flex-1">
+              {tier.features.map((feature) => (
+                <li key={feature.text} className="flex items-start gap-2 text-sm">
+                  {feature.included ? (
+                    <Check className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
+                  ) : (
+                    <X className="h-4 w-4 text-muted-foreground/40 mt-0.5 shrink-0" />
+                  )}
+                  <span className={feature.included ? "" : "text-muted-foreground/50"}>
+                    {feature.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <Button
+              asChild
+              variant={tier.highlighted ? "default" : "outline"}
+              className="w-full"
+            >
+              <Link href={tier.ctaHref}>{tier.cta}</Link>
+            </Button>
+          </div>
+        ))}
+      </div>
+
+      {/* FAQ / reassurance */}
+      <div className="border rounded-2xl p-8 bg-muted/30">
+        <h2 className="text-2xl font-bold mb-6 text-center">Common questions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="font-semibold mb-2">Do I need a credit card to start?</h3>
+            <p className="text-muted-foreground text-sm">
+              No. The Starter plan is completely free with no credit card required.
+              You only need to add payment details when upgrading to Pro or Business.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Can I cancel any time?</h3>
+            <p className="text-muted-foreground text-sm">
+              Yes. There are no lock-in contracts. Cancel your subscription at any
+              time and you won&apos;t be charged again. Your data stays accessible
+              until the end of your billing period.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">What happens after the free trial?</h3>
+            <p className="text-muted-foreground text-sm">
+              After your 14-day trial you&apos;ll be asked to enter payment details
+              to continue. If you don&apos;t upgrade, your account automatically
+              moves to the free Starter plan.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-2">Can I change plans later?</h3>
+            <p className="text-muted-foreground text-sm">
+              Absolutely. Upgrade or downgrade at any time from your account
+              settings. Changes take effect immediately and billing is prorated.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="text-center mt-12">
+        <p className="text-muted-foreground mb-4">
+          Still not sure? Start free — no credit card needed.
+        </p>
+        <Button asChild size="lg">
+          <Link href="/register">Create your free account</Link>
+        </Button>
+      </div>
     </div>
   )
 }
