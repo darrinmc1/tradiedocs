@@ -54,6 +54,7 @@ export interface NavConfig {
 }
 
 export interface CopyConfig {
+  heroEyebrow: string
   heroTitle: string
   heroSubtitle: string
   ctaButton: string
@@ -202,11 +203,12 @@ export const siteConfig: SiteConfig = {
   },
 
   copy: {
-    heroTitle: "When the builder wants a SWMS, add the site and print.",
+    heroEyebrow: "SWMS templates + written guides",
+    heroTitle: "Safe Work Method Statement templates you fill on site.",
     heroSubtitle:
-      "Twenty pre-filled Safe Work Method Statements for Australian trades. Editable Word. Confirm current WHS rules with your state regulator.",
-    ctaButton: "Open the SWMS pack",
-    ctaSecondary: "Read the free guides",
+      "Twenty pre-filled SWMS templates for Australian trades, plus free written guides. Editable Word. Confirm current WHS rules with your state regulator.",
+    ctaButton: "Open the SWMS templates",
+    ctaSecondary: "Read the written guides",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
     foundingMemberHeading: "Founding Member — Lock In Launch Pricing",
