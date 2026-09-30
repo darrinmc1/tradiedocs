@@ -2,11 +2,10 @@
 // TRADIEDOCS — AEO (Answer Engine Optimization)
 // Generates /llms.txt + /llm.txt so AI assistants can read what the site is,
 // what it does, its key pages, pricing, and FAQs.
-// Reference pattern: Intel Academy / CertSprint lib/aeo.ts (verified live).
 // =============================================================================
 
 import { siteConfig } from "@/config/site.config"
-import { ALL_MODULES } from "@/data/modules"
+import { PUBLISHED_LESSON_COUNT, PUBLISHED_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
 
@@ -21,27 +20,31 @@ export const tradieDocsFaqs = [
   {
     question: "What is TradieDocs?",
     answer:
-      "TradieDocs provides SWMS templates, quote packs, and compliance documents for Australian tradies. Download, fill in, done — no subscriptions, no fluff.",
+      "TradieDocs publishes written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies. Template packs are Coming Soon — checkout is not live and there is no file to download yet. General information only; not legal advice.",
   },
   {
     question: "What is a SWMS?",
     answer:
-      "A Safe Work Method Statement (SWMS) documents the high-risk construction work, the hazards involved, and the control measures to manage them. Many Australian states require a SWMS for high-risk construction work before work starts.",
+      "A Safe Work Method Statement (SWMS) documents high-risk construction work, the hazards involved, and the control measures. In jurisdictions that use the model WHS Regulations, a SWMS is required for high-risk construction work before that work starts. Confirm the local definition with the state or territory regulator.",
   },
   {
     question: "Do I need a SWMS for every job?",
     answer:
-      "Not every job — SWMS are required for high-risk construction work as defined by WHS regulations. TradieDocs has a free lesson explaining when you do and don't need one, plus templates covering 20 trades.",
+      "Not every job. A SWMS is required for high-risk construction work as defined in the WHS (or OHS) rules that apply to the site. TradieDocs has a free written lesson on when a SWMS is typically required. Template files are Coming Soon.",
   },
   {
     question: "How much do TradieDocs templates cost?",
     answer:
-      "One-time purchases only — no subscription. The SWMS Template Pack covering 20 trades is $79, the Quote + Invoice Pack is $49, and the Full Compliance Bundle (both packs plus bonus templates) is $119.",
+      "Nothing is for sale today. Planned one-time prices when checkout opens: SWMS Template Pack $79, Quote + Invoice Pack $49, Full Compliance Bundle $119. There is no subscription and no downloadable file yet. Join the waitlist on a product page.",
   },
   {
     question: "Is TradieDocs legal advice?",
     answer:
-      "No. TradieDocs templates are a starting point — you must customise them to your specific site, task, and state's WHS requirements. It is not legal advice.",
+      "No. TradieDocs provides general information and, when files exist, starting-point templates. It is not legal, financial, tax, or WHS advice. Confirm current rules with Safe Work Australia, your state regulator, and the ATO.",
+  },
+  {
+    question: "How many free lessons are on the site?",
+    answer: `There are ${PUBLISHED_LESSON_COUNT} published written lessons. That count is the number of lessons with status published in the lesson data — not a marketing estimate.`,
   },
 ]
 
@@ -50,9 +53,9 @@ export function buildLlmTxt(): string {
   const productBlock = ALL_PRODUCTS.map(
     (p) => `- ${p.name} — ${p.description} — ${base}/products/${p.id}`,
   ).join("\n")
-  const moduleBlock = ALL_MODULES.filter((m) => m.status === "published")
-    .map((m) => `- ${m.title} — ${m.description} — ${base}/lessons/${m.id}`)
-    .join("\n")
+  const moduleBlock = PUBLISHED_MODULES.map(
+    (m) => `- ${m.title} — ${m.description} — ${base}/lessons/${m.id}`,
+  ).join("\n")
   const updateBlock = ALL_UPDATES.map(
     (u) => `- ${u.title} — ${base}/updates/${u.id}`,
   ).join("\n")
@@ -62,17 +65,18 @@ export function buildLlmTxt(): string {
 
   return `# ${siteConfig.name}
 
-> ${siteConfig.description}
+> Written SWMS and workplace-docs education for Australian tradies. Template packs are Coming Soon. Not legal advice.
 
 Site: ${base}
-Job: Downloadable SWMS templates, quote packs, and compliance documents for Australian tradies — fill in, done, no subscription.
-Not: a legal firm; not legal advice; templates must be customised to the job and state requirements.
+Published written lessons: ${PUBLISHED_LESSON_COUNT}
+Job: Free written lessons on SWMS, quoting, invoicing, licensing, and compliance. Priced template packs are listed but not sold or downloadable yet.
+Not: a law firm; not legal, tax, or WHS advice; not a live document shop until files exist.
 
-## Products
+## Products (Coming Soon — no download)
 
 ${productBlock}
 
-## Lessons (study guides)
+## Lessons (published written guides)
 
 ${moduleBlock}
 
@@ -82,10 +86,9 @@ ${updateBlock}
 
 ## Pricing
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+- Template packs: planned one-time prices on ${base}/products — checkout not live
+- Subscription tiers listed in site config are not a live offer
+- Waitlist / Notify me is the only current product action
 
 ## FAQs
 

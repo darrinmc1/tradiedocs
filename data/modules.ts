@@ -1,5 +1,7 @@
 // =============================================================================
-// TRADIEDOCS — SEED LESSONS
+// TRADIEDOCS — LESSONS
+// Written workplace-docs education for Australian tradies.
+// General information only — not legal, tax, or WHS advice.
 // =============================================================================
 
 export type ModuleLevel = "beginner" | "intermediate" | "advanced"
@@ -22,816 +24,1624 @@ export interface Module {
 
 const modules: Module[] = [
   {
-    "id": "about",
-    "title": "About TradieDocs",
-    "description": "Understand the core value proposition of TradieDocs, focusing on efficiency and professionalism for tradies. Learn how our platform helps streamline documentation, manage claims, and improve client communication.",
-    "category": "claims",
-    "level": "beginner",
-    "content": "## About TradieDocs: Your Partner in Professional Documentation\n\nTradieDocs was founded with a singular mission: to empower tradies with the tools they need to run their businesses more efficiently and professionally. We understand the unique challenges faced by tradespeople – from managing job sites and client communications to handling complex paperwork and claims. Our platform is designed to simplify these processes, saving you valuable time and reducing the administrative burden that often distracts from the actual work.\n\n### Streamlining Your Workflow\n\nAt its heart, TradieDocs is about reclaiming your time. We know that administrative tasks can consume hours each week, time that could be better spent on jobs, with family, or growing your business. Our intuitive interface allows you to create, send, and manage quotes, invoices, and job sheets with ease. Digital forms, pre-filled templates, and mobile accessibility mean you can handle documentation on the go, directly from the job site, without being tied to a desk. This efficiency translates directly into more productive workdays and a smoother operational flow.\n\n### Enhancing Professionalism and Client Trust\n\nFirst impressions matter. In today's competitive market, presenting a professional image is crucial for securing new clients and retaining existing ones. TradieDocs helps you achieve this by providing polished, branded documents that reflect the quality of your work. Clear, detailed quotes and invoices build trust and transparency with your clients. Furthermore, our system facilitates timely communication, ensuring clients are kept informed at every stage of the project. This professional approach not only enhances your reputation but also minimizes misunderstandings and disputes.\n\n### Simplifying Claims Management\n\nDealing with insurance claims or disputes can be a significant headache. TradieDocs provides the necessary documentation to support your claims effectively. By maintaining organized records of work performed, materials used, and client agreements, you have readily accessible evidence to substantiate your position. This organized approach can significantly simplify the claims process, reducing back-and-forth communication and speeding up resolution times. While we aim to provide tools that support your claims, it is important to ensure all claims are factual and substantiated by the documentation provided.\n\n### Our Commitment to You\n\nWe are dedicated to continuously improving TradieDocs based on the feedback of tradies like you. Our goal is to be more than just software; we aim to be a reliable partner in your business success. We strive to offer practical solutions that address real-world problems, enabling you to focus on what you do best – delivering excellent trade services. We believe in the power of clear communication and efficient processes to elevate your business.",
-    "duration": "8 min",
-    "durationMinutes": 8,
-    "learningOutcomes": [
-      "Understand the primary benefits of using TradieDocs.",
-      "Identify how TradieDocs improves business efficiency and professionalism.",
-      "Recognize the role of TradieDocs in managing documentation and client communication."
+    id: "about",
+    title: "What Paperwork a Trade Business Usually Needs",
+    description:
+      "A practical map of the documents most Australian sole traders and small crews are asked for — and which of those topics this site covers in writing today.",
+    category: "business",
+    level: "beginner",
+    content: `## What Paperwork a Trade Business Usually Needs
+
+This lesson is a map, not a shopping list. The documents you need depend on the work, the site, whether you employ anyone, and the state or territory you are in. Treat it as a starting inventory. Confirm current rules with your state Work Health and Safety (WHS) regulator, your licensing body, and the [Australian Taxation Office](https://www.ato.gov.au).
+
+TradieDocs publishes **written lessons** on these topics. Downloadable template packs are **Coming Soon** — there is no file to download and checkout is not live. This page does not sell anything and is not legal advice.
+
+### The usual document groups
+
+Most trade businesses are asked for documents in four groups:
+
+1. **Safety** — Safe Work Method Statements (SWMS) for high-risk construction work, risk assessments, toolbox talk records, inductions, and incident reports.
+2. **Commercial** — quotes, contracts or work orders, variation notices, invoices, and payment follow-up.
+3. **Authority to work** — the correct trade licence or registration, and any high-risk work licence the task requires.
+4. **Insurance and tax** — public liability certificate of currency, workers compensation if you have workers, ABN details, and GST treatment on invoices if you are registered.
+
+You will not need every item on every job. A one-person electrical call-out and a multi-trade commercial fit-out have different paperwork loads. The point is to know which group a request belongs to, so you can answer it with a real document instead of a verbal promise.
+
+### Safety documents
+
+A SWMS is required when the work is **high-risk construction work** as defined in the WHS regulations that apply to your site. It is not a general safety slogan sheet. It names the high-risk activity, the hazards, the controls, and who will apply those controls. It must be prepared before that work starts, be understandable, and be available where the work is done.
+
+A general risk assessment is still useful on jobs that are not high-risk construction work. A Job Safety Analysis (JSA) breaks one task into steps. Toolbox talks and inductions are how you show that people on site were told about the hazards that day. Incident and near-miss records are how you show you responded when something went wrong.
+
+For the legal trigger, read [Do You Need a Safe Work Method Statement (SWMS)?](/lessons/do-you-need-a-swms). For how the documents differ, read [SWMS vs JSA vs Risk Assessment](/lessons/swms-vs-jsa-vs-risk-assessment).
+
+### Commercial documents
+
+A quote that wins work and still protects your margin states who you are, what is included, what is excluded, how GST is treated, how long the price holds, and how the client accepts. An invoice that gets paid states the same identity details, a clear description of what was supplied, the amount, the due date, and how to pay. A variation notice is how extra work stays extra — in writing, priced, and approved before you start it.
+
+These are not optional extras on most residential and commercial jobs. They are how scope disputes are avoided. See the quoting, pricing, invoicing, and variations lessons on this site.
+
+### Licences, insurance, and tax
+
+Licensing is state-based. Electrical and plumbing work is licensed in every jurisdiction. Building and carpentry licensing often depends on the value and type of work. Insurance is a mix of what the law requires and what a principal contractor will not let you on site without. Tax setup (ABN, GST, BAS) is an ATO matter.
+
+Do not treat a website lesson as a substitute for the regulator page. Use the licensing and compliance lessons here to know **what to ask**, then confirm the current form, fee, and threshold with the body that issues the licence or collects the tax.
+
+### What is live on TradieDocs today
+
+**Live now:** written lessons on SWMS, quoting, invoicing, variations, licensing, insurance, tax basics, toolbox talks, and inspections. You can read them without an account.
+
+**Coming Soon:** the SWMS Template Pack, Quote + Invoice Pack, and Full Compliance Bundle. Those packs are priced for when checkout opens. There is no downloadable zip or Word file on this site yet. If a page offers a Notify me form, that is a waitlist — not a purchase.
+
+### How to use these lessons
+
+- Read the lesson that matches the document you have been asked for.
+- Write your own site-specific version. Copy-pasting a generic document onto a different site is a common reason inspections go badly.
+- Confirm figures, licence classes, and high-risk definitions with the official source before you rely on them.
+- Do not treat anything on this site as legal, financial, tax, or WHS advice.
+
+If you only do one thing after this page, list the documents you were asked for on your last three jobs. That list is your real paperwork curriculum.`,
+    duration: "10 min",
+    durationMinutes: 10,
+    learningOutcomes: [
+      "Name the four document groups most trade businesses are asked for",
+      "Tell the difference between a live written lesson and a Coming Soon template pack",
+      "Know where to confirm WHS, licensing, and tax rules before relying on a lesson",
     ],
-    "tags": [
-      "tradie software",
-      "business efficiency",
-      "documentation",
-      "client management",
-      "claims support"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["paperwork", "swms", "quoting", "compliance", "orientation"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
   {
-    "id": "products",
-    "title": "Understanding Your Product Claims",
-    "description": "Learn how to identify and refine superlative and statistical claims within product descriptions to ensure accuracy and credibility.",
-    "category": "claims",
-    "level": "intermediate",
-    "content": "## Substantiating Your Product Claims: Moving Beyond Superlatives\n\nIn the world of product marketing and sales, making compelling claims is essential. However, the line between persuasive language and unsubstantiated hyperbole can be easily crossed. This lesson focuses on identifying and rectifying two common types of problematic claims: superlative language and statistics without sources.\n\n### The Peril of Superlative Language\n\nWords like 'the best,' 'world-class,' 'guaranteed,' 'proven to,' 'always,' 'never fails,' '#1,' 'revolutionary,' 'game-changing,' and 'industry-leading' are powerful. They aim to position a product as superior and indispensable. However, without concrete evidence, these terms are mere assertions and can erode trust with your audience. For tradies, this might mean claims about tool durability, service efficiency, or material performance. For example, stating 'our tools are guaranteed to last a lifetime' is a bold claim that's difficult to universally prove and could lead to customer dissatisfaction if a tool fails prematurely.\n\n**Why it's a problem:**\n\n*   **Lack of Verifiability:** Superlatives are subjective and difficult, if not impossible, to measure objectively. What constitutes 'world-class' performance? Who decided your product is '#1'?\n*   **Erosion of Trust:** When customers discover that claims like 'guaranteed' or 'never fails' don't hold up in real-world scenarios, their trust in your brand diminishes significantly. This can lead to negative reviews and lost business.\n*   **Legal Ramifications:** In some jurisdictions, making unsubstantiated superlative claims can be considered false advertising, leading to potential legal issues.\n\n**How to improve:**\n\nInstead of relying on vague superlatives, focus on specific, verifiable benefits. Quantify performance where possible. For instance, instead of 'the fastest installation,' try 'installation completed in an average of 45 minutes.' Instead of 'revolutionary design,' explain *what* makes the design innovative and how it benefits the user, such as 'our patented quick-release mechanism reduces setup time by 30%.'\n\n### The Importance of Sourced Statistics\n\nNumbers, percentages, and statistics can be highly persuasive. '73% of businesses use our software,' 'our service saves you 40 hours per week,' or 'trusted by 10,000 companies' are all impactful statements. However, when these figures are presented without a clear source, they become suspect. A potential customer might wonder: Where did this data come from? Who conducted the study? Is this data even relevant to my situation?\n\n**Why it's a problem:**\n\n*   **Credibility Gap:** Uncited statistics create a credibility gap. They appear as arbitrary numbers plucked from thin air, undermining the perceived accuracy of your claims.\n*   **Susceptibility to Scrutiny:** Savvy consumers and business partners will question the validity of unsourced data. This can lead to lengthy discussions or outright dismissal of your product.\n*   **Misleading Information:** Without a source, it's impossible to verify the methodology or context of the statistic, potentially leading to the misrepresentation of facts.\n\n**How to improve:**\n\nAlways cite your sources for any numerical data, percentages, or statistics. This can be done through inline citations, footnotes, or a dedicated 'Sources' section. For example, 'According to a 2023 independent study by [Research Firm Name] (available at [link to study]), 73% of small businesses reported increased efficiency after implementing similar workflow solutions.'\n\n**Best Practices for Product Claims:**\n\n1.  **Be Specific:** Clearly articulate the features and benefits of your product.\n2.  **Be Verifiable:** Ensure all claims can be backed by evidence, data, or customer testimonials.\n3.  **Be Honest:** Avoid exaggeration or misleading statements.\n4.  **Know Your Audience:** Tailor your claims to resonate with the specific needs and expectations of your target market.\n5.  **Cite Your Sources:** For any statistical data, provide a clear and accessible reference.\n\nBy adhering to these principles, you can build stronger, more credible product descriptions that foster trust and drive genuine interest, ultimately benefiting both your customers and your business.",
-    "duration": "10 min",
-    "durationMinutes": 10,
-    "learningOutcomes": [
-      "Identify and remove unsubstantiated superlative language.",
-      "Understand the importance of citing sources for statistics.",
-      "Replace vague claims with specific, verifiable information."
+    id: "products",
+    title: "Describing Your Work Accurately",
+    description:
+      "How to write quotes, warranties, and job descriptions that stay specific and supportable — without superlatives you cannot prove.",
+    category: "business",
+    level: "intermediate",
+    content: `## Describing Your Work Accurately
+
+Clients, builders, and insurers read what you write. Vague praise ("best in the area", "guaranteed forever") is weaker than a specific, supportable statement. This lesson is about describing work and materials in language you can stand behind. It is not marketing advice and it is not legal advice. Consumer law and warranty rules vary — confirm current obligations with [ACCC guidance](https://www.accc.gov.au) and your state consumer agency.
+
+### Why wording on a quote matters
+
+A quote is a commercial document. If you write "lifetime guarantee" or "will never leak", a later dispute will quote those words back to you. If you write "12-month workmanship warranty on the installation described in this quote", both sides know the boundary.
+
+The same applies to materials. "Premium fittings" means little. "Brass isolation valves, brand and model as listed, installed to the manufacturer's instructions" can be checked.
+
+### Superlatives that do not help
+
+Words that usually need evidence you do not have:
+
+- Best, number one, industry-leading, revolutionary
+- Guaranteed, never fails, always, forever
+- Fastest, cheapest, only approved installer (unless you can show the approval)
+
+Replace them with a fact:
+
+- Instead of "fastest install", write the time you actually plan: "One day on site after materials arrive, weather permitting."
+- Instead of "guaranteed dry", write the warranty term and what it covers.
+- Instead of "highest quality", name the product, standard, or finish.
+
+### Statistics need a source
+
+Percentages and counts look precise. Without a source they are just numbers. If you did not measure it, do not publish it.
+
+- "Trusted by 10,000 customers" — only if you can show how that was counted.
+- "Saves 40 hours a week" — only if that figure comes from a named study or your own recorded jobs.
+- "Meets Australian Standards" — name the standard and the part of the work it applies to.
+
+If you cannot cite a source, drop the number and describe the work.
+
+### Warranties versus consumer guarantees
+
+Many tradies offer a workmanship warranty for a stated period. That is a contractual promise you choose to make. Separate from that, the Australian Consumer Law provides consumer guarantees on many goods and services. You cannot contract out of those guarantees with a footnote. You also should not imply that a short workmanship warranty is the client's only remedy if the law provides more.
+
+Practical approach:
+
+- State your workmanship warranty period and what it covers (labour, specified defects).
+- State what it does not cover (client damage, lack of maintenance, work by others).
+- Do not write "no refunds" or "as is" on consumer work as if that ends the matter.
+- If a product has a manufacturer warranty, say so and keep the paperwork.
+
+Confirm current consumer guarantee rules before you print terms.
+
+### Product and material claims on site
+
+If you specify a product, you are responsible for installing it as specified or recording a substitution. If the client supplies the product, write that down. If a finish depends on substrate condition you have not opened up yet, write an allowance or an exclusion.
+
+Examples of clear language:
+
+- "Existing waterproofing not tested. If the membrane fails a flood test, a variation will be issued before tiling proceeds."
+- "Quote assumes timber joists at the centres shown on the supplied drawing. Different centres may change labour and materials."
+- "Paint system: two coats of the listed interior acrylic over the listed sealer. Colour as selected from the listed range."
+
+### A short review before you send a document
+
+1. Can a stranger on site tell what is included and what is not?
+2. Would you be willing to show this sentence to an inspector, a tribunal, or an insurer?
+3. Is every number sourced or measured?
+4. Is every promise time-bounded and scoped?
+5. Have you named your ABN, licence number (if required), and GST treatment?
+
+If a sentence fails those checks, rewrite it. Clear documents reduce arguments. They do not replace professional advice on a live dispute.
+
+Template packs that would hold this wording for you are **Coming Soon**. Until those files exist, use this lesson as a writing standard for the quotes and invoices you already produce.`,
+    duration: "11 min",
+    durationMinutes: 11,
+    learningOutcomes: [
+      "Replace unsupportable superlatives with specific, checkable statements",
+      "Separate a workmanship warranty from consumer guarantees",
+      "Review a quote for claims you would be willing to defend",
     ],
-    "tags": [
-      "product claims",
-      "marketing",
-      "sales",
-      "credibility",
-      "evidence"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["quoting", "warranties", "consumer-law", "communication", "claims"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
   {
-    "id": "updates",
-    "title": "TradieDocs: Essential Updates and Features for Australian Tradies",
-    "description": "Stay up-to-date with the latest features and essential documentation for Australian tradies using TradieDocs. This lesson covers SWMS templates, quote packs, compliance documents, and more, ensuring you're always ahead of the curve.",
-    "category": "business management",
-    "level": "intermediate",
-    "content": "## Keeping Your Tradie Business Streamlined with TradieDocs\n\nIn today's competitive construction landscape, efficiency and compliance are paramount for Australian tradies. TradieDocs has been developed to address these critical needs, offering a suite of digital tools designed to simplify your administrative tasks and ensure you meet all regulatory requirements. This lesson delves into the essential updates and core features that make TradieDocs an indispensable asset for your business.\n\n### The Importance of SWMS Templates\n\nSafe Work Method Statements (SWMS) are legally required for high-risk construction work in Australia. Manually creating these documents can be time-consuming and prone to errors. TradieDocs provides robust, easy-to-use SWMS templates that are compliant with current Australian Work Health and Safety (WHS) legislation. Our templates are designed to be adaptable, allowing you to quickly fill in project-specific details, hazard identification, risk assessments, and control measures. By utilizing our digital SWMS, you ensure that your team is protected, your projects adhere to safety standards, and you avoid potential fines or project delays.\n\n### Streamlining with Quote Packs\n\nFirst impressions matter, and a professional quote is crucial for winning new business. TradieDocs offers customizable quote pack features that allow you to generate detailed, branded quotes in minutes. These packs can include not just pricing, but also company information, terms and conditions, and even relevant certifications or testimonials. The ability to send these digitally, track their status, and convert them into invoices upon acceptance streamlines the sales process significantly. This not only enhances your professional image but also improves cash flow by reducing the time between quoting and payment.\n\n### Ensuring Compliance with Digital Documents\n\nBeyond SWMS and quotes, Australian tradies face a myriad of compliance obligations. TradieDocs provides a central hub for all your essential documents. This includes: \n\n*   **Invoices:** Professional and easy-to-track invoices that can be generated from accepted quotes.\n*   **Contracts:** Standardized contract templates that can be customized for different types of jobs.\n*   **Employee Records:** Secure storage for essential HR and payroll documentation.\n*   **Licensing and Insurance:** A place to store and manage expiry dates for all necessary licenses and insurance policies.\n\nMaintaining compliance isn't just about avoiding penalties; it's about building a sustainable and reputable business. TradieDocs simplifies this by keeping all critical documents organised, accessible, and up-to-date.\n\n### Future-Proofing Your Business\n\nTradieDocs is continuously evolving to meet the dynamic needs of the Australian tradie industry. We are committed to providing tools that not only solve today's problems but also anticipate tomorrow's challenges. Our platform is designed with scalability in mind, ensuring that as your business grows, TradieDocs grows with you. We are dedicated to keeping our users informed about the latest legislative changes and industry best practices, integrating them directly into our platform. Our ongoing development ensures that you always have access to the most current and effective tools available.\n\nBy embracing digital solutions like TradieDocs, Australian tradies can significantly reduce administrative burdens, enhance professionalism, and ensure robust compliance. This allows you to focus on what you do best – delivering quality workmanship and growing your trade business.",
-    "duration": "15 min",
-    "durationMinutes": 15,
-    "learningOutcomes": [
-      "Understand the importance and functionality of SWMS templates.",
-      "Learn how TradieDocs quote packs can improve sales and client relations.",
-      "Identify key compliance documents managed through the TradieDocs platform."
+    id: "updates",
+    title: "Keeping Compliance Documents Current",
+    description:
+      "When to review a SWMS, licence, insurance certificate, or induction record so the folder on site matches the work being done.",
+    category: "compliance",
+    level: "intermediate",
+    content: `## Keeping Compliance Documents Current
+
+A document that was correct last year can be wrong this morning. Crews change, plant changes, weather changes, and regulators update guidance. This lesson covers when to review the paperwork you already have. It is general information, not a compliance audit.
+
+### What "current" means on a job site
+
+Current does not mean "we printed it once." It means the document still describes:
+
+- The work that is actually happening
+- The people who are actually doing it
+- The plant and access method in use today
+- The controls that are actually in place
+- Licences and insurance that have not expired
+
+If any of those have moved and the paper has not, the paper is out of date.
+
+### SWMS review triggers
+
+Review a SWMS when:
+
+- The high-risk activity changes (different method, different location, different plant)
+- A control is not working or cannot be used
+- A new hazard appears (services found, weather, other trades)
+- Workers who were not consulted on the original document join the task
+- There is an incident or a near miss related to the work
+- You move to a new site and reuse a document written for a different one
+
+Reusing a SWMS from another site without a site-specific review is one of the most common inspection findings. Change the site address and the work steps, then walk it with the people doing the job.
+
+### Licences and tickets
+
+Put renewal dates where you will see them — not only in an email inbox. Typical items that expire or need refresh:
+
+- Trade licence or contractor registration
+- High-risk work licences (for example scaffolding, dogging, forklift) where the work requires them
+- White Card / construction induction (rules on recognition differ; confirm with the host site)
+- First aid and emergency warden training if you rely on named people
+- Electrical testing and tagging intervals for your own plant, where applicable
+
+Do not start licensed work on the hope that a renewal will land. Apply before the expiry. Interstate work may require a separate application even when mutual recognition exists — apply in the receiving jurisdiction before you start.
+
+### Insurance certificates of currency
+
+Principal contractors usually ask for a certificate that is valid **on the dates you will be on site**, not a certificate that was valid when you quoted. Check:
+
+- Public liability — limit the builder asked for, and the period of cover
+- Workers compensation — if you have workers
+- Any higher cover a contract specifies
+
+If a policy renews mid-job, send the new certificate without being asked. An expired certificate is enough for a site manager to stop you at the gate.
+
+### Inductions and toolbox records
+
+Induction records should match the people on site today. If a labour-hire worker or a new apprentice arrives, induct them before they start. Toolbox talk attendance sheets are evidence that a briefing happened. Keep the date, topic, presenter, and names. A talk that was never recorded is hard to prove.
+
+### A monthly document check (15 minutes)
+
+Once a month, or at the start of each new project:
+
+1. List active jobs and the high-risk work on each.
+2. Confirm a current, signed SWMS exists for that work.
+3. Check licence and insurance end dates that fall in the next 60 days.
+4. Confirm induction and toolbox records exist for the current crew.
+5. Archive superseded versions. Do not leave two conflicting SWMS in the same folder.
+
+### What TradieDocs will add later
+
+Printed packs (incident forms, toolbox talk sheets, induction checklists) are **Coming Soon**. They are not available as downloads today. Until they are, keep your own dated records. The written lessons on this site stay available so you can rebuild a document when a review trigger fires.
+
+When a regulator publishes a rule change, use the official page — not a memory of last year's toolbox talk. [Safe Work Australia](https://www.safeworkaustralia.gov.au) maintains model WHS material. Your state or territory regulator publishes the rules that apply on your site.`,
+    duration: "10 min",
+    durationMinutes: 10,
+    learningOutcomes: [
+      "List the events that should trigger a SWMS review",
+      "Keep licence and insurance dates visible before they expire",
+      "Run a short monthly check so site folders match the live work",
     ],
-    "tags": [
-      "tradie",
-      "swms",
-      "compliance",
-      "quote packs",
-      "australia",
-      "business management"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["compliance", "swms", "licences", "insurance", "document-control"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
   {
-    "id": "blog",
-    "title": "Crafting Effective Claims and Maintaining Brand Voice",
-    "description": "Learn how to write compelling claims backed by evidence and ensure your content aligns with a practical, no-nonsense brand voice.",
-    "category": "claims",
-    "level": "intermediate",
-    "content": "## Writing Strong Claims and Maintaining Your Brand Voice\n\nIn the competitive landscape of business communication, particularly for tradies, clarity, credibility, and a consistent brand voice are paramount. This lesson focuses on two critical aspects: substantiating your claims and adhering to a practical, direct brand persona. We'll explore how to move beyond vague promises to deliver impactful messages that resonate with your target audience while avoiding common pitfalls.\n\n### The Power of Substantiated Claims\n\nOne of the most significant ways to build trust and authority is by backing up every claim you make with solid evidence or a verifiable source. Vague or unsubstantiated claims, such as 'guaranteed results,' can erode credibility and leave potential clients questioning your reliability. Instead of making broad promises, aim for specificity and transparency.\n\n**Why Substantiate Claims?**\n\n*   **Builds Trust:** When you provide proof, you demonstrate honesty and transparency, fostering trust with your audience.\n*   **Enhances Credibility:** Backed claims position you as an expert who understands their subject matter deeply.\n*   **Improves Persuasion:** Evidence-based statements are far more persuasive than mere assertions.\n*   **Reduces Risk:** Clearly defined terms and demonstrable results minimize misunderstandings and potential disputes.\n\n**How to Substantiate Claims:**\n\n1.  **Use Data and Statistics:** If you have performance metrics, customer satisfaction rates, or project completion times, present them clearly. For example, instead of saying 'We offer the fastest service,' say 'Our average project completion time is 3 days, based on over 100 completed jobs last year.'\n2.  **Cite Sources:** If your claim is based on industry standards, research, or certifications, mention the source. For instance, 'Our materials meet Australian Standard AS/NZS 3000:2018 for electrical safety.'\n3.  **Provide Case Studies or Testimonials:** Real-world examples are powerful. Referencing a specific project or quoting a satisfied client adds weight to your claims. 'As seen in our recent project for Smith & Co., we reduced energy costs by 20% through our new insulation techniques.'\n4.  **Explain Your Process:** Sometimes, the 'how' is the substantiation. Detailing a unique methodology or a rigorous quality control process can justify a claim about superior outcomes.\n5.  **Be Specific:** Replace subjective adjectives with objective descriptions. Instead of 'the best,' use 'award-winning,' 'certified,' or 'recommended by X authority.'\n\n**Example Transformation:**\n\n*   **Weak Claim:** 'We guarantee you'll be happy with our work.'\n*   **Stronger Claim:** 'Our customer satisfaction rate is over 98%, based on post-project surveys from the last two years. We also offer a 12-month workmanship warranty on all installations.'\n\n### Maintaining a Practical Brand Voice\n\nFor tradies, the brand voice is typically direct, no-nonsense, and focused on delivering solutions. It's about clarity, efficiency, and reliability. Incorporating slang or overly casual language, even with good intentions, can dilute this message and create a disconnect with the audience. The goal is to sound professional, knowledgeable, and approachable, without being overly familiar.\n\n**Characteristics of a Practical Tradie Brand Voice:**\n\n*   **Direct and Concise:** Get to the point quickly. Avoid jargon unless it's industry-standard and understood by the client.\n*   **Action-Oriented:** Focus on what you do and how it benefits the client.\n*   **Reliable and Trustworthy:** The tone should convey competence and dependability.\n*   **Clear and Unambiguous:** Leave no room for misinterpretation.\n*   **Professional yet Approachable:** Friendly without being overly casual.\n\n**Avoiding Common Pitfalls:**\n\n*   **Slang:** Terms like 'mate-to-mate' or overly colloquial phrases can undermine professionalism. While the intention might be to sound friendly, it can come across as unprofessional or even condescending.\n*   **Excessive Jargon:** While some technical terms are necessary, explain them if the client might not be familiar.\n*   **Overly Casual Tone:** A tone that is too relaxed can make the service seem less serious or less reliable.\n\n**Example Transformation:**\n\n*   **Original:** 'We'll sort you out, mate. Just give us a yell, and we'll have a yarn about what needs doing.'\n*   **Revised:** 'We are ready to address your needs. Please contact us to schedule a consultation and discuss the required work.'\n\n**Putting It All Together**\n\nBy focusing on substantiated claims and a consistent, practical brand voice, you build a stronger, more trustworthy brand. This approach not only enhances your communication but also reinforces your professionalism and expertise in the eyes of your clients. Regularly review your content to ensure it meets these standards, and always strive for clarity, accuracy, and reliability in every message you send.\n",
-    "duration": "12 min",
-    "durationMinutes": 12,
-    "learningOutcomes": [
-      "Write claims supported by evidence and sources.",
-      "Identify and replace unsubstantiated or vague claims.",
-      "Align communication with a practical and professional brand voice."
+    id: "blog",
+    title: "Writing Clear Client-Facing Documents",
+    description:
+      "How to write quotes, variations, and site notes in plain professional language that a client, builder, or insurer can act on.",
+    category: "business",
+    level: "intermediate",
+    content: `## Writing Clear Client-Facing Documents
+
+Most payment and scope arguments start as unclear writing. This lesson covers tone and structure for documents a client or builder will read. It is not brand strategy and it is not legal advice.
+
+### What "clear" means here
+
+A clear document lets the other person answer four questions without calling you:
+
+1. Who is sending this?
+2. What work does it cover?
+3. What will it cost, and when is money due?
+4. What happens if the scope changes?
+
+If any answer is only in a phone call, write it down.
+
+### Tone: direct, not casual
+
+Professional does not mean stiff. It means specific.
+
+- Prefer "Please confirm the variation before we start the extra work" over slang or jokes.
+- Prefer "The quote excludes asbestos removal and council applications" over "we'll sort the extras later".
+- Prefer "Due 14 days from the invoice date" over "pay when you can".
+
+Avoid language that sounds like a personal favour. You are describing a commercial agreement. Humour on a quote or a notice of variation is easy to misread later.
+
+### Structure that works on a phone screen
+
+Many clients open your email on a phone. Use short headings and short paragraphs.
+
+**Recommended order for a quote email**
+
+1. Job address and a one-sentence scope
+2. Attached quote (or the itemised list)
+3. Price, GST treatment, and validity period
+4. What is excluded
+5. How to accept (reply, signature, or deposit)
+6. Your name, licence number if required, and phone number
+
+**Recommended order for a variation notice**
+
+1. Reference to the original quote or order
+2. What changed and why
+3. Cost and time effect
+4. Request for written approval
+5. Statement that work will not start until approved (unless a documented emergency)
+
+### Claims still need evidence
+
+If you state a performance figure, a standard, or a warranty, say where it comes from. "Installed to AS/NZS [number] as applicable to this work" is only useful if that standard actually applies and you are competent to work to it. If you are not sure, describe the work you will do instead of naming a standard.
+
+### Records that sit beside the document
+
+Keep the email or message that accepted the quote. Keep photos of the area before you start hidden work. Keep the signed variation. When a client says "I never agreed to that", the record is the answer — not a reconstructed conversation.
+
+### Words to remove before you send
+
+- Filler: "just touching base", "as per our chat" with no date or summary
+- Absolutes you cannot prove: always, never, guaranteed, forever
+- Blame: "as you failed to tell us"
+- Open-ended extras: "and anything else that comes up"
+
+Replace blame with a fact: "The wall cavity was not accessible at the quoting inspection on [date]. Opening it showed [condition]. Additional labour and materials are listed below."
+
+### A 60-second send checklist
+
+- Business name, ABN, and contact details are on the document
+- Site address is correct
+- Inclusions and exclusions are both present
+- GST is shown correctly for your registration status
+- Dates: quote validity or invoice due date
+- Next step for the client is one action
+- You would be comfortable reading this aloud in a meeting
+
+Written template files for quotes and variations are **Coming Soon**. Until they are available, this checklist is the standard to apply to whatever document you already use.`,
+    duration: "10 min",
+    durationMinutes: 10,
+    learningOutcomes: [
+      "Structure a quote or variation so a client can act without a follow-up call",
+      "Use direct professional language instead of casual or absolute claims",
+      "Run a short checklist before sending a client-facing document",
     ],
-    "tags": [
-      "claims",
-      "brand voice",
-      "marketing",
-      "credibility",
-      "tradie marketing",
-      "professional communication"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["communication", "quoting", "variations", "writing", "clients"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
-    {
-    "id": "do-you-need-a-swms",
-    "title": "Do You Need a Safe Work Method Statement (SWMS)?",
-    "description": "Understand when a Safe Work Method Statement (SWMS) is required for your construction or trade business to ensure compliance and worker safety. Learn to identify high-risk construction work.",
-    "category": "safety",
-    "level": "beginner",
-    "content": "## When is a Safe Work Method Statement (SWMS) Required?\n\nIf you're running a trade business, especially in construction, you've likely heard the term SWMS. But what exactly is it, and when do you actually *need* one? Let's break it down in a way that makes sense for the tradie on the tools.\n\n### What is a SWMS?\n\nA Safe Work Method Statement (SWMS) is a document that outlines the high-risk construction work activities to be carried out at a workplace for a particular job. It identifies the hazards associated with those activities and puts in place controls to manage the risks. Think of it as a detailed plan to make sure a specific, potentially dangerous job is done safely.\n\n### The Golden Rule: High-Risk Construction Work\n\nThe main trigger for needing an SWMS is when you're performing **high-risk construction work (HRCW)**. This is the key phrase to remember. If the work you're doing falls into this category, you absolutely must have a SWMS in place *before* the work starts.\n\n### What Counts as High-Risk Construction Work?\n\nThis is where it can get a bit tricky, as the definition can vary slightly between states and territories in Australia. However, most jurisdictions have a common list of activities that are generally considered HRCW. Here are some of the most common ones you'll encounter:\n\n*   **Work at heights:** This is a big one. If there's a risk of falling more than 2 metres, you're likely looking at HRCW.\n*   **Demolition:** Taking down structures is inherently risky.\n*   **Using a pre-fabricated or pre-assembled unit:** Especially if it involves lifting or requires special precautions.\n*   **Working in or near a confined space:** Think tanks, silos, or trenches where ventilation is poor and entry/exit is difficult.\n*   **Working in or near a trench or shaft:** Especially if it's deeper than 1.5 metres or requires shoring.\n*   **Working in or adjacent to a tunnel or an excavation:** Similar to trenches, but often larger scale.\n*   **Working on or near a telecommunications tower:** Height and structural integrity are major concerns.\n*   **Using explosives:** Obvious risks here.\n*   **Carrying out structural support for, or in, or adjacent to a mine or quarry:** Involves earth stability and potential collapses.\n*   **Working on, or in, or adjacent to a bridge, or other structure where there is a risk of collapse:** Structural integrity is paramount.\n*   **Manual handling of heavy or awkward loads:** Particularly if it poses a risk of musculoskeletal injury.\n*   **Using plant or equipment in a way that poses a risk of entanglement, electrocution, or being struck by an object:** This covers a wide range of machinery operations.\n*   **Working with or near energised electrical installations:** Electrical hazards are serious.\n*   **Carrying out work in relation to which there is a risk of engulfment or asphyxiation:** Related to confined spaces and certain materials.\n\n**Important Note:** Always check your specific state or territory's Work Health and Safety (WHS) regulations. They will have the definitive list and any specific thresholds (like the 2-metre fall height).\n\n### Beyond High-Risk: When Else Might You Need One?\n\nWhile HRCW is the primary driver, there are other situations where a SWMS is a really good idea, even if not strictly mandated by law for that specific task:\n\n1.  **Client Requirements:** Many larger projects or commercial clients will stipulate that SWMS must be provided for *all* work on site, not just HRCW. It's always best to check your contract and site inductions.\n2.  **Complex or Unusual Tasks:** If a job is particularly complex, involves multiple trades, or has unique hazards that aren't covered by standard operating procedures, a SWMS can help you think through all the steps and risks.\n3.  **Insurance Purposes:** In the unfortunate event of an incident, having documented safe work procedures like a SWMS can demonstrate you took reasonable steps to manage risks.\n4.  **Best Practice:** Even for seemingly straightforward jobs, documenting potential hazards and controls is simply good business practice. It ensures everyone is on the same page and promotes a safety-first culture.\n\n### Who Creates the SWMS?\n\nIdeally, the SWMS should be developed by people who are competent to do the work and understand the risks involved. This often means the supervisor, team leader, or experienced workers involved in the task. It’s not just an office job; it needs practical input.\n\n### What Should Be in a SWMS?\n\nA typical SWMS includes:\n\n*   The specific job or task description.\n*   The name of the person or people developing the SWMS.\n*   The date it was prepared and reviewed.\n*   A list of identified hazards.\n*   The control measures to manage those hazards.\n*   Who is responsible for implementing the controls.\n*   How the controls will be monitored and reviewed.\n\n### The Takeaway\n\nYour primary focus for needing a SWMS is **high-risk construction work**. If you're unsure whether your task falls into this category, err on the side of caution and check your local WHS regulations or consult with a safety professional. It's better to have one and not need it, than to need one and not have it. Keeping your team safe and your business compliant is what it's all about, mate.",
-    "duration": "12 min",
-    "durationMinutes": 12,
-    "learningOutcomes": [
-      "Identify when a SWMS is legally required.",
-      "Recognise common types of high-risk construction work.",
-      "Understand the purpose and basic components of a SWMS."
+  {
+    id: "do-you-need-a-swms",
+    title: "Do You Need a Safe Work Method Statement (SWMS)?",
+    description:
+      "When a SWMS is required for construction work in Australia, how high-risk construction work is defined, and what to do if you are unsure.",
+    category: "safety",
+    level: "beginner",
+    content: `## When is a Safe Work Method Statement (SWMS) required?
+
+A Safe Work Method Statement is a document for **high-risk construction work**. It describes the work, the hazards, and the control measures. It is prepared before that work starts. This lesson explains the usual trigger. Always confirm the definition that applies on your site with the WHS (or OHS) regulator in that state or territory. [Safe Work Australia](https://www.safeworkaustralia.gov.au) publishes model WHS material; Victoria operates under the Occupational Health and Safety framework, which is similar in purpose but not identical in wording.
+
+This is general information. It is not a determination for your job and it is not legal advice.
+
+### What a SWMS is — and is not
+
+A SWMS is a job-specific plan for a listed high-risk activity. It is not:
+
+- A generic safety poster
+- A SWMS written for a different site and reprinted without review
+- A substitute for licences, training, or plant that the work still requires
+- Legal advice or a guarantee that an incident cannot occur
+
+Workers who will do the work should be involved in developing it. The document should be written so those workers can understand it.
+
+### The usual legal trigger: high-risk construction work
+
+In jurisdictions that use the model WHS Regulations, a SWMS is required for **high-risk construction work (HRCW)**. The list is defined in the regulations, not by job value or by how routine the task feels. A short job can still be high-risk construction work. A long job on the ground may not be.
+
+Common categories that appear on the model list include (confirm the current list and any local wording before you rely on this):
+
+- Construction work where a person could fall more than two metres
+- Work on or near chemical, fuel, or refrigerant lines
+- Work on or near energised electrical installations or services
+- Work in or near a confined space
+- Work in or adjacent to a shaft, trench, or tunnel
+- Work involving demolition
+- Work involving the disturbance or removal of asbestos
+- Structural alterations that require temporary support to prevent collapse
+- Work on or near pressurised gas pipes or mains
+- Work on a telecommunications tower
+- Work in an area that may have a contaminated or flammable atmosphere
+- Tilt-up or precast concrete work
+- Work on or adjacent to a road or railway in use by traffic
+- Work at a workplace where there is any movement of powered mobile plant
+- Work in an area with artificial extremes of temperature
+- Work in, over, or adjacent to water or other liquid where there is a risk of drowning
+- Diving work
+- Work involving explosives
+- Excavation of a trench or shaft deeper than 1.5 metres (confirm the exact threshold in your regulations)
+
+Your site may use different numbering or extra local categories. **Read the regulation that applies to the site, not a memory of a previous job.**
+
+### Other reasons you may still be asked for a SWMS
+
+Even when you believe the work is not HRCW, you may still be asked for a SWMS because:
+
+- The principal contractor or client requires one for all trades
+- The contract or site rules say so
+- The work sits near another trade's high-risk activity
+- An insurer or head contractor uses SWMS as their standard onboarding document
+
+In those cases the document is a site or contract requirement. Treat it as mandatory for access, and still make it site-specific.
+
+### Who prepares it
+
+The duty sits with the person who has management or control of the high-risk construction work — often the contractor doing that work. In practice it should be written by people who understand the task, then checked by the person responsible for the work. Office-only templates that never meet the crew are a common failure.
+
+### What a usable SWMS contains
+
+At a minimum, a useful SWMS states:
+
+- The high-risk construction work it covers
+- The hazards and risks from that work
+- The control measures, in an order that prefers elimination and engineering over PPE alone
+- Who is responsible for putting each control in place
+- How controls will be monitored
+- The date it was prepared and when it was last reviewed
+- Names or roles of people who developed it, and evidence that workers were consulted
+
+Everyone doing the work should understand it before they start. Keep a copy available at the workplace.
+
+### If you are not sure
+
+1. Read your state or territory regulator's page on high-risk construction work and SWMS.
+2. If the task is close to a listed category, prepare a SWMS before work starts.
+3. Do not start the high-risk activity while you "write it later".
+4. If the site has a principal contractor, ask how they want SWMS submitted and displayed.
+
+A missing SWMS for high-risk construction work can lead to notices that stop the job. Writing one after an incident is not a substitute for having one before the work.
+
+Related lessons: [SWMS vs JSA vs Risk Assessment](/lessons/swms-vs-jsa-vs-risk-assessment) and [How to Fill Out a SWMS](/lessons/how-to-fill-out-a-swms). Editable SWMS files for specific trades are **Coming Soon**.`,
+    duration: "12 min",
+    durationMinutes: 12,
+    learningOutcomes: [
+      "Identify the usual legal trigger for a SWMS: high-risk construction work",
+      "Recognise common high-risk categories and the need to confirm the local list",
+      "Know what a usable SWMS contains and when to prepare it",
     ],
-    "tags": [
-      "swms",
-      "high risk construction work",
-      "work safety",
-      "wfs",
-      "construction safety",
-      "tradie safety"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["swms", "high-risk construction work", "whs", "construction safety"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
-    {
-    "id": "swms-vs-jsa-vs-risk-assessment",
-    "title": "SWMS vs JSA vs Risk Assessment: Understanding the Differences",
-    "description": "Clarify the distinctions between Safe Work Method Statements (SWMS), Job Safety Analyses (JSAs), and general risk assessments in a practical, tradie-focused way. Understand when each is required and how they contribute to workplace safety.",
-    "category": "safety",
-    "level": "beginner",
-    "content": "## SWMS vs JSA vs Risk Assessment: What's the Difference?\n\nIn the building and construction game, safety is king. You've probably heard terms like SWMS, JSA, and Risk Assessment thrown around a lot. While they all aim to keep everyone safe on the job, they're not quite the same thing. Knowing the difference can save you headaches, fines, and most importantly, keep you and your mates out of harm's way. Let's break it down in plain English, no fluff.\n\n### What is a Risk Assessment?\n\nThink of a risk assessment as the big picture. It's the process of identifying hazards (what could go wrong) and assessing the risks associated with them (how likely is it to go wrong, and how bad would it be?). This is a fundamental part of workplace safety for *any* job, big or small.\n\n*   **What it is:** A systematic process to identify hazards, assess risks, and decide on control measures.\n*   **When you need it:** Always! Before starting any task or at the beginning of a project.\n*   **Key questions:** What could cause harm? Who might be harmed and how? What are we doing to control the risk? What further controls can we put in place?\n*   **Example:** Identifying that working at heights poses a risk of falls, assessing the likelihood and severity, and deciding that using a harness and proper scaffolding is necessary.\n\n### What is a Job Safety Analysis (JSA)?\n\nA JSA (sometimes called a Job Hazard Analysis or JHA) is a bit more specific than a general risk assessment. It breaks down a particular job or task into steps, identifies the hazards associated with each step, and outlines the controls needed to manage those hazards.\n\n*   **What it is:** A step-by-step breakdown of a specific job, identifying hazards and controls for each step.\n*   **When you need it:** For routine or non-routine tasks, especially those that involve specific hazards or risks.\n*   **Key questions:** What are the steps of the job? What are the hazards at each step? How can we control these hazards?\n*   **Example:** For installing a roof, a JSA might break it down into: 'Set up scaffolding' (hazard: falls, control: secure footing, guardrails), 'Cut roof sheeting' (hazard: sharp edges, control: gloves, eye protection), 'Fix sheeting' (hazard: working at heights, control: safety harness).\n\nJSAs are often done before starting a task and discussed with the team performing the work. They're a great way to ensure everyone understands the risks and controls for the specific job they're about to do.\n\n### What is a Safe Work Method Statement (SWMS)?\n\nA SWMS takes things a step further, particularly for high-risk construction work. It's a formal document that outlines the high-risk construction work activities to be carried out at a workplace, the hazards arising from these activities, and the measures to be put in place to control the risks.\n\n*   **What it is:** A formal, documented process for managing risks associated with high-risk construction work.\n*   **When you need it:** Specifically required by law in Australia for 'high-risk construction work' as defined by regulations (e.g., work at heights, demolition, working with electricity, asbestos removal, confined spaces).\n*   **Key questions:** What is the high-risk activity? What are the specific hazards and risks? What are the control measures, and who is responsible for implementing them? How will risks be monitored and reviewed?\n*   **Example:** For a project involving working on a roof that is more than two metres above the ground, a SWMS would be mandatory. It would detail the specific steps, the hazards (like falls from height, falling objects), and the controls (like edge protection, safety nets, specific harness procedures, exclusion zones below).\n\n### Key Differences and When to Use Each\n\nThe main differences lie in their scope and when they are legally required:\n\n*   **Risk Assessment:** The foundational process, always needed.\n*   **JSA:** Breaks down a specific job into steps, good for most tasks.\n*   **SWMS:** Mandatory for specific 'high-risk construction work' and is a more formal, documented record.\n\nIn many cases, a SWMS will incorporate elements of a JSA and a risk assessment. The key is to understand the requirements for the specific work you are doing and the jurisdiction you are in.\n\n**Always consult your state or territory regulator (like SafeWork NSW, WorkSafe Victoria, etc.) for the definitive legal requirements in your area.** This information is a guide, not a substitute for legal advice or official regulatory guidance.\n\nBy understanding these documents, you're not just ticking boxes; you're actively contributing to a safer worksite for everyone. Stay safe out there!",
-    "duration": "10 min",
-    "durationMinutes": 10,
-    "learningOutcomes": [
-      "Distinguish between SWMS, JSA, and general risk assessments.",
-      "Identify when each type of safety document is typically required.",
-      "Understand the foundational role of risk assessment in workplace safety."
+  {
+    id: "swms-vs-jsa-vs-risk-assessment",
+    title: "SWMS vs JSA vs Risk Assessment: Understanding the Differences",
+    description:
+      "How Safe Work Method Statements, job safety analyses, and general risk assessments differ — and when each is typically used on an Australian site.",
+    category: "safety",
+    level: "beginner",
+    content: `## SWMS vs JSA vs Risk Assessment
+
+These three names are used interchangeably on some sites and strictly on others. Mixing them up causes two problems: you produce the wrong document, or you produce none because you thought a toolbox talk was enough. This lesson separates them in practical terms. Confirm what your site or regulator requires. This is not legal advice.
+
+### Risk assessment — the foundation
+
+A risk assessment is the process of identifying hazards, considering who could be harmed and how badly, and deciding on control measures. It applies to work generally, not only construction and not only high-risk construction work.
+
+Typical questions:
+
+- What could cause harm?
+- Who might be harmed, including other trades and the public?
+- What are we already doing?
+- What else is reasonably practicable?
+- Who will check that the controls stay in place?
+
+You can record a risk assessment as a matrix, a form, or notes in a safe work procedure. The record should be enough for someone else to see what you decided and why.
+
+### Job Safety Analysis (JSA)
+
+A JSA (sometimes called a Job Hazard Analysis) breaks **one job** into steps. For each step you list hazards and controls. It is more detailed than a one-line risk rating and less formal than many SWMS templates.
+
+Typical use:
+
+- A non-routine task
+- A task with several steps and mixed hazards
+- A crew briefing before a specific activity that is not high-risk construction work
+- Input that later becomes part of a SWMS
+
+Example steps for a short roof-sheet replacement (illustrative only): set exclusion zone; inspect access; cut sheets at ground level where practicable; fix sheets using the agreed access system. Each step gets its own hazards (cuts, falls, falling objects) and controls (cut-resistant gloves, edge protection, tool lanyards).
+
+A JSA that is never discussed with the people doing the steps is only a form.
+
+### Safe Work Method Statement (SWMS)
+
+A SWMS is the document the WHS regulations require for **high-risk construction work**. It is more than a JSA with a different title. It must cover the high-risk activity, the hazards from that activity, and the measures to control the risks, and it must be in place before that work starts.
+
+A SWMS should be site-specific. Changing the letterhead on a document written for another address is not developing a SWMS for this work.
+
+In many businesses a good SWMS includes the step-by-step thinking of a JSA plus the formal fields a regulator or principal contractor expects (consultation, monitoring, review, sign-on).
+
+### How they sit together
+
+- **Risk assessment:** always relevant. It is how you decide what the hazards are.
+- **JSA:** useful for breaking a task into steps. Often used for work that is not HRCW, or as working notes.
+- **SWMS:** required for high-risk construction work in jurisdictions that use that framework. Use the local definition.
+
+Do not assume a signed JSA meets a SWMS duty. Do not assume a SWMS removes the need to think about other risks on the same site (housekeeping, other trades, public interface).
+
+### Victoria and other local differences
+
+Victoria uses the Occupational Health and Safety Act and Regulations. Duties to control risk still apply. Document names and construction-project duties can differ from the model WHS wording. If the site is in Victoria, use [WorkSafe Victoria](https://www.worksafe.vic.gov.au) guidance for the documents they expect. Other jurisdictions publish their own codes and fact sheets.
+
+### A practical decision path
+
+1. Describe the actual task and location.
+2. Check whether it is construction work and whether it is high-risk construction work under the local regulations.
+3. If it is HRCW, prepare a SWMS before that work starts.
+4. If it is not HRCW, still assess the risks. Use a JSA or procedure if the task is complex or the client asks for one.
+5. Brief the crew. Record who was present.
+6. Review if the method, plant, or conditions change.
+
+Related: [Do You Need a SWMS?](/lessons/do-you-need-a-swms) and [How to Fill Out a SWMS](/lessons/how-to-fill-out-a-swms).
+
+Trade-specific SWMS files are **Coming Soon**. Until those downloads exist, use the structure in these lessons and the official regulator pages.`,
+    duration: "11 min",
+    durationMinutes: 11,
+    learningOutcomes: [
+      "Distinguish a general risk assessment, a JSA, and a SWMS",
+      "Choose a document type based on whether the work is high-risk construction work",
+      "Allow for local regulator differences, including Victoria's OHS framework",
     ],
-    "tags": [
-      "swms",
-      "jsa",
-      "risk assessment",
-      "workplace safety",
-      "construction safety",
-      "australia"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["swms", "jsa", "risk assessment", "workplace safety", "australia"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
   {
     id: "how-to-fill-out-a-swms",
     title: "How to Fill Out a SWMS",
-    description: "Step-by-step guide to completing a SWMS properly — work steps, hazards, controls, and sign-off.",
+    description:
+      "A section-by-section method for completing a Safe Work Method Statement so it matches the site, the crew, and the high-risk work.",
     category: "safety",
     level: "beginner",
     content: `## How to Fill Out a SWMS
 
-A SWMS isn't complicated — but it does need to be done properly. Here's the step-by-step.
+A SWMS is only useful if it describes the job in front of you. This lesson is a sequence for completing one. Use it with the high-risk definition that applies on your site. It is not a completed SWMS and it is not legal advice.
 
-### Section 1: Job Details
+Editable SWMS files are **Coming Soon**. There is no pack to download on this page. You can still apply this sequence to any blank form your site accepts.
 
-Fill in the basics: your business name, ABN, site address, date, and a description of the high-risk work you'll be doing.
+### Before you write
 
-### Section 2: Work Steps
+- Confirm the work is (or may be) high-risk construction work.
+- Walk the area. Note access, other trades, services, public interface, and plant paths.
+- Talk to the people who will do the work. Consultation is part of developing the document, not a signature at the end.
+- Have licence and competency records available for tasks that require them.
 
-Break the job into individual steps, in order. Be specific — "install cables" is too vague; "pull new cable through ceiling cavity from switchboard to bedroom 2" tells someone what's actually happening.
+### Section 1: Job and document control
+
+Fill in fields that let someone else identify the document six months later:
+
+- Business name, ABN, and contact
+- Site address and, if relevant, the area or level
+- Description of the high-risk construction work (not only the trade name)
+- Principal contractor, if any
+- Date prepared, version number, and review date
+- Names or roles of people who developed it
+
+If you reuse a previous SWMS, create a new version. Change the site, the date, and every step that does not match.
+
+### Section 2: Work steps
+
+List the work in the order it will happen. Each step should be specific enough that a competent person can picture it.
+
+Too vague: "Do electrical work."
+Usable: "Isolate and prove de-energised the circuit feeding bedroom 2, then pull new TPS from the switchboard through the ceiling space to the new point."
+
+Include setup and pack-down when those steps carry the hazard (establishing exclusion zones, erecting edge protection, restoring power, removing waste).
 
 ### Section 3: Hazards
 
-For each step, identify what could go wrong. Common hazards:
-- Falls from height
-- Electrical contact
-- Falling objects
-- Manual handling injuries
-- Exposure to dust, fumes, or chemicals
+For each step, write what could harm someone — including other trades and the public. Common construction hazards include falls, falling objects, electricity, plant movement, hazardous chemicals, silica dust, noise, manual handling, and engulfment in excavations. Only list hazards that apply to this method. A long copied list that includes asbestos when there is no asbestos work makes the real hazards harder to see.
 
-### Section 4: Risk Rating
+### Section 4: Risk rating (if your form uses one)
 
-Rate each hazard using a risk matrix (likelihood × consequence). This helps you prioritise which controls to focus on.
+Many forms use likelihood times consequence. Use the matrix your business or principal contractor specifies. Rating is a way to prioritise controls. It does not replace putting the controls in place. If you do not understand the matrix, ask the person responsible for the WHS system before you invent scores.
 
-### Section 5: Control Measures
+### Section 5: Control measures
 
-For each hazard, list what you'll do to eliminate or reduce the risk. Use the hierarchy of controls: eliminate → substitute → engineer → admin → PPE.
+Write controls as actions that can be checked on site.
 
-### Section 6: Sign-Off
+Weak: "Be careful." / "Use PPE."
+Usable: "Install guardrails before work within two metres of the open edge." / "Prove isolation with a tested two-pole tester. Lock and tag the isolator. PPE: cut-rated gloves and eye protection during cutting."
 
-Everyone doing the work must read and sign the SWMS before starting. Keep the signed copy on-site.
+Apply the hierarchy of controls in order: eliminate the hazard if reasonably practicable, then substitute, then engineering, then administration, then PPE. PPE can be part of the system. It should not be the only control for a high-risk activity if something higher on the hierarchy is reasonably practicable.
 
-### Common Mistakes
+Name who is responsible for each control (role is enough: leading hand, licensed electrician, dogman).
 
-- Copying a generic SWMS without adjusting for the actual job
-- Listing "use PPE" as the only control
-- Not getting workers to sign before work starts
-- Not reviewing when conditions change`,
-    duration: "6 min",
-    durationMinutes: 6,
+### Section 6: Monitoring and review
+
+State how you will check that controls stay in place (supervisor checks at start of shift, permit on isolation, exclusion zone inspected after breaks). State when the SWMS will be reviewed (change of method, new plant, incident, new workers on the task).
+
+### Section 7: Sign-on
+
+Workers who will follow the SWMS should confirm they have been briefed and understand it **before** the high-risk work starts. Keep the signed copy available on site. If someone joins mid-job, brief and sign them on before they start that work.
+
+### Common mistakes
+
+- Copying another site's SWMS and only changing the address
+- Listing "PPE" as the sole control for work at height or live electrical work
+- Writing steps the crew does not actually use
+- Signing after the work has started
+- Leaving the document in a vehicle that is not at the work area
+- Not reviewing when the method changes
+
+### After you finish the form
+
+Brief the crew on the actual steps. Point out the controls that must be in place before starting. If a control cannot be used that day, stop and revise the SWMS — do not "make do" in contradiction of the document.
+
+Related: [Do You Need a SWMS?](/lessons/do-you-need-a-swms).`,
+    duration: "12 min",
+    durationMinutes: 12,
     learningOutcomes: [
-      "Complete each section of a SWMS correctly",
-      "Write site-specific hazards and controls",
-      "Avoid the most common SWMS mistakes",
+      "Complete each SWMS section with site-specific information",
+      "Write work steps, hazards, and controls that can be checked on site",
+      "Avoid the usual copy-paste and PPE-only mistakes",
     ],
-    tags: ["swms", "safety", "how-to"],
+    tags: ["swms", "safety", "how-to", "whs"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
-    {
-    "id": "licensing-electrical",
-    "title": "Electrical Licensing Requirements Across States",
-    "description": "A comprehensive guide to understanding electrical licensing, including mutual recognition, state-specific requirements, and the application process.",
-    "category": "licensing",
-    "level": "intermediate",
-    "content": "## Navigating Electrical Licensing: State by State\n\nFor electricians, holding the correct license is not just a legal requirement; it's a fundamental aspect of ensuring safety and professionalism in the trade. While the core skills of electrical work are universal, the licensing landscape can vary significantly from one state to another. This guide aims to demystify the process, particularly focusing on the concept of mutual recognition and highlighting key differences.\n\n### The Myth of Universal Mutual Recognition\n\nA common misconception is that most states offer seamless mutual recognition for electrical licenses. While many states do participate in some form of mutual recognition, it's rarely a blanket agreement. The phrase 'Most states have mutual recognition, but you must apply before working' is vague and lacks evidence. In reality, the process often involves a formal application, verification of your existing license, and sometimes additional requirements specific to the state you wish to work in.\n\n**What is Mutual Recognition?**\n\nMutual recognition agreements (MRAs) are designed to reduce barriers for tradespeople looking to work across state lines. Under an MRA, a person who holds a license or registration in one participating state may be eligible to obtain a similar license in another participating state without having to complete all the original qualification requirements again. However, this doesn't mean you can simply pack your tools and start working.\n\n**States with Strong Mutual Recognition:**\n\nMany states, particularly those that have adopted the National Occupational Licensing Framework, have robust mutual recognition processes. For example:\n\n*   **New South Wales (NSW) and Victoria (VIC):** These states generally have strong mutual recognition for electrical licenses. An electrician licensed in NSW can typically apply for and obtain a Victorian license, and vice versa, provided their existing license is current and they meet any specific state-based administrative requirements.\n*   **Queensland (QLD) and South Australia (SA):** Similar to NSW and VIC, these states often work under reciprocal agreements, simplifying the process for licensed electricians moving between them.\n\n**States with Limited or No Mutual Recognition:**\n\nIt's crucial to understand that not all states are equal in their MRAs. Some states may have limited recognition, requiring additional assessments or experience. Others might not have formal MRAs for certain trades, meaning you'll likely need to meet their full initial licensing requirements.\n\n*   **Western Australia (WA):** While WA participates in some MRAs, its licensing requirements and processes can sometimes differ substantially, potentially requiring additional competency assessments or specific experience relevant to WA's regulations.\n*   **Tasmania (TAS):** Tasmania, while often cooperative, may have specific administrative hurdles or require you to demonstrate knowledge of local regulations and standards.\n\n**The Application Process: A Universal Step**\n\nRegardless of the level of mutual recognition, the critical step is *always* to apply for the license in the new state *before* you commence work. This application process typically involves:\n\n1.  **Verification:** The licensing body will verify your existing license with the issuing state authority.\n2.  **Application Form:** Completing a detailed application form, which may include personal details, license history, and contact information.\n3.  **Proof of Identity and Qualifications:** Providing certified copies of your current license, qualifications, and identification.\n4.  **Fees:** Paying the required application and licensing fees.\n5.  **State-Specific Requirements:** Potentially demonstrating knowledge of local electrical acts, regulations, and standards. This might involve a specific exam or submitting evidence of experience relevant to the state's jurisdiction.\n\n**Practical Considerations for Tradies**\n\nWhen planning to work in a new state, it's best practice for you guys to:\n\n*   **Research Thoroughly:** Visit the official website of the electrical licensing authority in the state you intend to work in. Look for sections on 'mutual recognition,' 'interstate applications,' or 'licensing requirements.'\n*   **Contact the Authority:** If the information is unclear, don't hesitate to contact the licensing body directly. They can provide the most accurate and up-to-date information.\n*   **Allow Ample Time:** The application and approval process can take several weeks, sometimes longer. Factor this into your project timelines.\n*   **Understand the Scope:** Ensure the license you obtain covers the specific type of electrical work you intend to perform.\n\nIn conclusion, while mutual recognition simplifies interstate electrical licensing, it is not an automatic process. Proactive research, diligent application, and adherence to each state's specific regulations are essential for any electrician looking to expand their work opportunities across state borders. Always apply before you start the job, and ensure you understand the nuances of the licensing system in your target state.",
-    "duration": "15 min",
-    "durationMinutes": 15,
-    "learningOutcomes": [
-      "Understand the concept and limitations of mutual recognition for electrical licenses.",
-      "Identify key differences in licensing requirements between states.",
-      "Outline the necessary steps to apply for an interstate electrical license."
+  {
+    id: "licensing-electrical",
+    title: "Electrical Licensing Requirements Across States",
+    description:
+      "How electrical licensing works across Australian jurisdictions, what mutual recognition usually requires, and why you apply before you start work.",
+    category: "licensing",
+    level: "intermediate",
+    content: `## Electrical licensing across Australian jurisdictions
+
+Electrical work is licensed work. The licence class you need depends on the work (for example installing, fault-finding, or contracting) and on the state or territory. This lesson explains the usual pattern. It is not a licence application and it is not legal advice. Confirm classes, fees, and mutual recognition with the electrical regulator in the place you will work.
+
+### Why interstate work is not automatic
+
+Holding a current licence in one jurisdiction does not by itself authorise you to start electrical work in another. Some jurisdictions participate in mutual recognition or automatic mutual recognition arrangements. Those arrangements still involve an application or a notice to the receiving regulator, and some occupations or licence classes can be excluded. **Apply or notify before you start work.**
+
+Do not rely on a verbal "you'll be right" from a builder. The person who performs unlicensed electrical work can face enforcement action. The principal contractor can also refuse site access.
+
+### Typical licence layers (names vary)
+
+Most jurisdictions separate at least:
+
+- **A tradesperson / worker licence** — you may perform electrical work of the class stated, often as an employee or under a contracting structure the law allows
+- **A contractor licence** — your business may contract electrical work to clients
+- **Restricted or specialised classes** — for example restricted electrical work for another trade, or work on particular systems
+
+Apprentices work under supervision rules set by that jurisdiction. Do not treat an apprentice as an unsupervised licensed electrician.
+
+Read the class on the card or digital licence. "Electrician" in conversation is not a substitute for the class that covers the work.
+
+### Illustrative regulators (confirm before you apply)
+
+Names and portfolios change. Use the official site on the day you apply.
+
+- **NSW** — NSW Fair Trading (electrical contractor and tradesperson licensing)
+- **Victoria** — Energy Safe Victoria / Victorian licensing arrangements for electrical workers and contractors
+- **Queensland** — Electrical Safety Office (within the Queensland framework)
+- **South Australia** — Consumer and Business Services / Office of the Technical Regulator as applicable
+- **Western Australia** — Building and Energy
+- **Tasmania** — Consumer, Building and Occupational Services (CBOS)
+- **Northern Territory** — the NT electrical licensing authority listed on the NT government site
+- **ACT** — Access Canberra
+
+If a page has moved, search from the state or territory government homepage rather than an old bookmark.
+
+### Mutual recognition — a working method
+
+1. Confirm your current licence is current and covers the same kind of work.
+2. Open the receiving regulator's page for interstate or mutual recognition applications.
+3. Check whether your class is eligible, excluded, or needs extra conditions.
+4. Lodge the application or notice and pay the fee.
+5. Wait for confirmation before you book work that requires that licence.
+6. Carry evidence of the receiving licence or recognised registration on site.
+
+Automatic Mutual Recognition (Commonwealth framework) may apply to some licences. States can still impose requirements or exclusions. Read the receiving regulator's AMR page, not a summary from a forum.
+
+### Extra checks beyond the licence card
+
+- The work may also require a **high-risk work licence** (for example if you are operating certain plant), which is separate from an electrical licence.
+- Testing, commissioning, and certificates of electrical safety have local rules. Use the form the jurisdiction requires.
+- Insurance and contractor licensing are separate from holding a tradesperson licence.
+
+### If you employ or engage others
+
+If you contract electrical work, confirm the people doing the work hold the correct class. Supervision arrangements for apprentices and restricted workers are set by the local electrical safety law. Misdescribing an employee as a contractor does not remove licensing duties — see [Subcontractor vs Employee](/lessons/subcontractor-vs-employee).
+
+### Before you accept an interstate job
+
+- Time the licence application into the programme. Approval is not same-day in every case.
+- Confirm the scope: extra-low voltage, high voltage, or restricted work may sit in different classes.
+- Ask the site which evidence they want at induction (licence number, photo ID, insurance).
+
+This site does not issue licences and does not lodge applications for you. Use the regulator. Written lessons here are for orientation only.`,
+    duration: "14 min",
+    durationMinutes: 14,
+    learningOutcomes: [
+      "Understand that electrical licensing is jurisdiction-specific",
+      "Apply or notify in the receiving state or territory before starting work",
+      "Separate tradesperson, contractor, and high-risk plant licences",
     ],
-    "tags": [
-      "electrical license",
-      "mutual recognition",
-      "interstate licensing",
-      "trades",
-      "licensing requirements",
-      "electrician"
-    ],
-    "dateAdded": "2026-08-20",
-    "lastUpdated": "2026-08-20",
-    "status": "published"
+    tags: ["electrical license", "mutual recognition", "interstate licensing", "electrician"],
+    dateAdded: "2026-08-20",
+    lastUpdated: "2026-09-04",
+    status: "published",
   },
   {
     id: "licensing-plumbing",
     title: "Licensing by State: Plumbing",
-    description: "Plumbing trade licensing requirements across all Australian states and territories.",
+    description:
+      "How plumbing, drainage, and gas-fitting credentials are typically structured in Australia, and how to check the class you need before you start.",
     category: "compliance",
     level: "intermediate",
     content: `## Licensing by State: Plumbing
 
-Plumbing is licensed in every state. Here's the breakdown.
+Plumbing work is licensed or registered in every Australian state and territory. The class names differ. Gas fitting is usually a separate endorsement or licence. This lesson is a map of what to look up. It is not a list of current fees, and it is not permission to perform work.
 
-### Licence Types
+### Typical licence layers
 
-- **Plumbing apprentice/trainee** — supervised work only
-- **Licensed/registered plumber** — can perform plumbing work
-- **Plumbing contractor** — can contract plumbing work to clients
-- **Specialist endorsements** — gas fitting, roof plumbing, mechanical services, fire protection, backflow prevention
+You will usually see some combination of:
 
-### State-by-State
+- **Apprentice or trainee** — work only as allowed under supervision
+- **Tradesperson / journeyman / registered plumber** — may perform plumbing work of the stated class
+- **Contractor / licensed plumber (contracting)** — may contract plumbing work to clients; some places require a separate contractor registration or a qualified supervisor
+- **Specialist endorsements** — commonly gas fitting, roof plumbing, mechanical services, fire protection, backflow prevention, or drainage, depending on the jurisdiction
 
-| State | Regulator | Notes |
-|-------|-----------|-------|
-| NSW | NSW Fair Trading | Requires Qualified Supervisor Certificate for contracting |
-| VIC | Victorian Building Authority (VBA) | Registered/Licensed Plumber, separate gas endorsement |
-| QLD | QBCC | Plumbing licence classes 1–4 based on scope |
-| SA | Consumer and Business Services (CBS) | Licensed Plumber + Contractor Registration |
-| WA | Building and Energy | Plumber's Licence (tradesperson or contractor) |
-| TAS | CBOS | Licensed Plumber + Contractor Licence |
-| NT | Plumbers and Drainers Licensing Board | Licensed Plumber |
-| ACT | Access Canberra | Plumber Licence (journeyman or contractor) |
+Read the class. "I have a plumbing licence" is not enough if the job is gas, backflow, or roof plumbing and your class does not include it.
 
-> Regulator names and structures change over time. Confirm the current licensing body and requirements with your state regulator before applying.
+### Illustrative regulators
 
-### Gas Fitting
+Confirm the current body and application form on the official site. Portfolios move.
 
-Gas fitting requires a separate endorsement or licence in all states. Never do gas work without the correct credential — the penalties are severe and the safety risks are real.
+- **NSW** — NSW Fair Trading. Contracting often requires the appropriate contractor licence or qualified supervisor certificate.
+- **Victoria** — Victorian Building Authority (VBA) for plumbing registration and licensing. Gas work needs the correct plumbing registration class or endorsement.
+- **Queensland** — Queensland Building and Construction Commission (QBCC) plumbing licence classes by scope.
+- **South Australia** — Consumer and Business Services for plumbing contractor and worker licensing.
+- **Western Australia** — Building and Energy plumber licensing (tradesperson and contractor pathways).
+- **Tasmania** — CBOS plumber and contractor licensing.
+- **Northern Territory** — Plumbers and Drainers licensing as listed by the NT government.
+- **ACT** — Access Canberra plumber licence classes.
 
-### Cross-State Work
+If you cannot find the page, start from the state or territory government homepage and search "plumber licence".
 
-Mutual recognition applies but you must apply to the receiving state before starting work.`,
-    duration: "5 min",
-    durationMinutes: 5,
+### Gas fitting
+
+Gas fitting is not a casual extra on a plumbing job. In every jurisdiction it requires the credential that covers gas work. Penalties for unlicensed gas work are serious because the harm is serious. If the quote includes gas, confirm the class before you accept the job.
+
+### Work that is easy to mis-classify
+
+- **Roof plumbing** versus general plumbing
+- **Sanitary drainage** versus stormwater
+- **Backflow prevention** testable devices
+- **Thermostatic mixing valves** and heated water work
+- **Fire hydrant or sprinkler** work (often a separate fire class)
+- **Medical gas** (specialised; do not assume a general plumbing licence covers it)
+
+If the drawing names a system you have not been licensed for, stop and check.
+
+### Interstate plumbing work
+
+Mutual recognition or automatic mutual recognition may be available for some plumbing licences. You still apply or notify in the receiving jurisdiction before you start. Exclusions exist. Do not book a fly-in job on the assumption that your home-state card is enough.
+
+### Contractor versus worker
+
+Doing the work and contracting the work are different permissions in several states. If you invoice the client directly, you may need the contractor pathway, a qualified supervisor, or both. If you only work as an employee for a licensed contractor, the contractor's licensing still has to cover the work.
+
+### A short check before you quote
+
+1. What systems are on the drawing or in the client's request?
+2. Which licence class in this jurisdiction covers each system?
+3. Do you (or the licensed person who will do the work) hold that class, current today?
+4. Is gas involved? If yes, who holds the gas credential?
+5. If the site is in another state or territory, has recognition been granted?
+
+This site does not assess licence applications. Printed plumbing SWMS or form packs are **Coming Soon** and are not a substitute for a licence.`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Know which plumbing licences exist in your state",
-      "Understand gas fitting endorsement requirements",
-      "Know the process for cross-state recognition",
+      "Identify the usual plumbing licence layers and specialist endorsements",
+      "Treat gas fitting as a separate credential check",
+      "Confirm class and interstate recognition before quoting or starting",
     ],
-    tags: ["licensing", "plumbing", "compliance"],
+    tags: ["licensing", "plumbing", "gas-fitting", "compliance"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "licensing-building-carpentry",
     title: "Licensing by State: Building & Carpentry",
-    description: "Building and carpentry licensing requirements — when you need a licence, monetary thresholds, and state variations.",
+    description:
+      "When building or carpentry work requires a licence in Australia, why dollar thresholds change, and how owner-builder rules differ from contracting.",
     category: "compliance",
     level: "intermediate",
-    content: `## Licensing by State: Building & Carpentry
+    content: `## Licensing by State: Building and Carpentry
 
-Building and carpentry licensing is more complex than electrical or plumbing because the requirements vary significantly by state and by the value of work.
+Unlike electrical and plumbing work, building and carpentry licensing often depends on **what** you are doing, **for whom**, and **the value of the work**. Thresholds and class names change. This lesson tells you what to check. It does not state a current dollar threshold as if it were fixed.
 
-### When Do You Need a Licence?
+### When a licence is commonly required
 
-Unlike electrical and plumbing (which are always licensed), building/carpentry licensing often depends on:
-- **The value of the work** — many states set a dollar threshold
-- **The type of work** — structural vs. non-structural
-- **Whether you're contracting** — doing work for a builder vs. contracting directly to homeowners
+Ask all three questions:
 
-### State-by-State
+1. **Value** — many jurisdictions set a dollar amount above which residential building work must be done by a licensed contractor. That amount is updated. Look it up; do not use a number you remember from a few years ago.
+2. **Type of work** — structural work, waterproofing, kitchen and bathroom renovations, and complete dwellings are treated more strictly than minor non-structural carpentry in some places.
+3. **Who you contract to** — working as a trade contractor to a licensed builder is different from contracting directly to a homeowner.
 
-| State | Regulator | Licence threshold |
-|-------|-----------|-------------------|
-| NSW | NSW Fair Trading | Set by the regulator — check current threshold |
-| VIC | Victorian Building Authority | Set by the regulator — check current threshold |
-| QLD | QBCC | Set by the regulator — check current threshold |
-| SA | Consumer and Business Services | Set by the regulator — check current threshold |
-| WA | Building and Energy | Set by the regulator — check current threshold |
-| TAS | CBOS | All building work requires registration |
-| NT | Building Practitioners Board | All building work |
-| ACT | Access Canberra | Set by the regulator — check current threshold |
+If you advertise to the public and take deposits for renovations, assume you need to check contractor licensing even if the job "feels small".
 
-Licence thresholds are dollar-value cut-offs set by each state and are updated periodically. Always confirm the current threshold with your state regulator before deciding whether you need a licence.
+### Illustrative regulators
 
-### Licence Classes
+- **NSW** — NSW Fair Trading (contractor licensing; thresholds published by the regulator)
+- **Victoria** — Victorian Building Authority (registered building practitioners; carpentry and builder classes)
+- **Queensland** — QBCC licence classes and financial requirements
+- **South Australia** — Consumer and Business Services building work contractor licensing
+- **Western Australia** — Building and Energy registration
+- **Tasmania** — CBOS builder and building services licensing
+- **Northern Territory** — Building Practitioners Board
+- **ACT** — Access Canberra construction occupations
 
-Most states have tiered builder licences:
-- **Unlimited** — any value of work
-- **Medium rise** — up to 3 storeys
-- **Low rise** — houses and small commercial
-- **Trade contractor** — specific trade work only
+Open the current "do I need a licence" page for that jurisdiction before you quote.
 
-### Owner-Builder
+### Common class families (names vary)
 
-Most states allow homeowners to do their own work under an owner-builder permit, but there are restrictions on selling within a set period (the timeframe varies by state — check your state regulator).`,
-    duration: "6 min",
-    durationMinutes: 6,
+- **Builder — unlimited / open** — typically any value within the class
+- **Medium rise / low rise** — storey or building-type limits
+- **Trade contractor — carpentry** — carpentry work, not necessarily the whole dwelling as head contractor
+- **Specialist building work** — for example waterproofing, where separately licensed
+
+Do not take on head-contractor duties (calling other trades, holding the homeowner contract) on a trade-only licence unless the local law allows it.
+
+### Owner-builder
+
+Most jurisdictions allow a homeowner to obtain an owner-builder permit or equivalent for their own home, with conditions. Those conditions often include education, value limits, and restrictions on selling the property within a stated period. An owner-builder permit does **not** automatically let you contract building work to other people's homes. If a client says "we'll go owner-builder and you invoice me", check whether that structure is lawful for the work and who holds the duties.
+
+### Carpentry that still triggers other licences
+
+Carpentry on a site does not replace:
+
+- Electrical or plumbing licences for those services
+- High-risk work licences for scaffolding or certain plant
+- A builder licence when you are the contracting builder above the local threshold
+
+### Insurance and contracts sit beside the licence
+
+Several jurisdictions require home warranty or similar insurance for residential building work above a threshold, and require a written contract in a stated form. Those rules are separate from holding a licence card. Confirm both.
+
+### A working method
+
+1. Write down the scope and an estimated contract value including GST if applicable.
+2. Look up the current threshold and class list for the site's jurisdiction.
+3. If you are over the threshold or the work type is restricted, stop quoting as an unlicensed head contractor.
+4. If you are a trade to a licensed builder, confirm what the builder needs from you (licence copy, insurance, SWMS).
+5. Recheck thresholds when they are updated — do not laminate last year's number.
+
+Related: [Public Liability vs Income Protection](/lessons/public-liability-vs-income-protection). Template contracts are **Coming Soon**; they will not replace a required builder licence.`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Know the licensing threshold in your state",
-      "Understand the difference between licence classes",
-      "Know when owner-builder rules apply",
+      "Check value, work type, and contracting role before deciding a licence is unnecessary",
+      "Use the current regulator threshold instead of a remembered dollar figure",
+      "Separate owner-builder permits from contracting to the public",
     ],
     tags: ["licensing", "building", "carpentry", "compliance"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "anatomy-of-a-winning-quote",
     title: "The Anatomy of a Quote That Wins Jobs",
-    description: "What to include in a tradie quote, how to present it professionally, and what separates winners from the pile.",
+    description:
+      "What to include in a trade quote so the client can accept it, the scope is clear, and extras are handled as variations.",
     category: "business",
     level: "beginner",
     content: `## The Anatomy of a Quote That Wins Jobs
 
-A good quote wins the job AND protects your margin.
+A useful quote does two jobs: it helps the client say yes, and it still matches the work you intend to do. Price matters. Ambiguity loses more money than a slightly higher number. This is general business practice, not legal advice. Some residential building work requires a contract in a form set by state law once a value threshold is crossed — check that separately.
 
-### What Every Quote Needs
+Quote layouts as downloadable files are **Coming Soon**. Use this structure in whatever document you already send.
 
-- **Your business details** — name, ABN, licence number, contact info
-- **Client details** — name, site address
-- **Scope of work** — exactly what's included and what's not
-- **Itemised pricing** — materials, labour, and any allowances
-- **GST** — shown separately if you're registered
-- **Validity period** — 14–30 days is standard
-- **Acceptance method** — signature block or written confirmation
-- **Variations clause** — "any work outside this scope will be quoted separately"
+### Identity and site
 
-### What Separates Winners
+Include:
 
-1. **Professional presentation** — typed, with your logo. Not handwritten on the back of a receipt
-2. **Clear exclusions** — "does not include asbestos removal, council approvals, or painting"
-3. **Payment terms** — deposit, progress payments, final payment on completion
-4. **A brief scope description in plain English** — so the client knows exactly what they're getting
+- Business name, ABN, and contact details
+- Licence or registration number when the work requires it
+- Client name and site address
+- Quote number and date
+- Validity period (many businesses use 14–30 days; materials prices move)
 
-### Pricing Strategies
+If GST is included or excluded, say so in words, not only in a column the client might miss.
 
-- **Fixed price** — most common for residential. You carry the risk
-- **Cost-plus** — actual costs plus a margin. Better for uncertain scopes
-- **Day rate** — simple but clients may question how long you take
+### Scope of work
 
-### The Follow-Up
+Write what you will do in the order the job will happen, in plain language. Name rooms, quantities, and products where you already know them.
 
-Send the quote within 24 hours of the site visit. Follow up 3 days later if you haven't heard back. Most tradies lose jobs by being slow, not expensive.`,
-    duration: "5 min",
-    durationMinutes: 5,
+Example: "Supply and install 12 listed LED downlights in the existing plasterboard ceiling of the living room, including cutting openings and connecting to the existing lighting circuit after isolation by a licensed electrician" — only if that is actually the arrangement. Do not describe electrical work you are not licensed to do.
+
+### Inclusions and exclusions
+
+Exclusions prevent the "while you are here" argument. Common exclusions (use only those that apply):
+
+- Asbestos or other hazardous-material removal
+- Council applications, development consent, or certification
+- Making good paint or surfaces beyond the stated patch
+- Furniture moving, storage, or after-hours work
+- Hidden services or structural repairs not visible at inspection
+- Temporary power or amenities
+
+If something is unknown until you open a wall, write an allowance or a clear exclusion and a variation path.
+
+### Price presentation
+
+Itemise enough that the client can see labour, materials, and any provisional sums. A single lump sum with no breakdown invites suspicion and makes variations harder to explain.
+
+State:
+
+- Each item or trade
+- Provisional sums or prime-cost items, and how they will be reconciled
+- GST treatment
+- Total
+
+### Commercial terms on the quote
+
+- How the client accepts (signed return, email confirmation, deposit)
+- Deposit and progress payments, if any
+- When work can be scheduled after acceptance
+- A variations sentence: work outside this scope will be quoted and approved in writing before it starts
+
+For residential building work above your state's contract threshold, a quote alone may not meet the contract-form rules. Confirm with the licensing or consumer agency.
+
+### Quote versus estimate
+
+A **quote** is usually understood as a fixed price for the described scope. An **estimate** is a considered indication that can move. Do not let a client treat an estimate as a cap if you meant it as an estimate — label the document. Australian Consumer Law cares about misleading representations. If you are not sure which you are sending, get advice.
+
+### Follow-up without pressure tactics
+
+Send the quote promptly after the inspection — the same day or the next business day is a common standard. If you have not heard back, one polite follow-up after a few days is reasonable. Record what you sent and when.
+
+### Before you hit send
+
+- Does the scope match the site visit notes and photos?
+- Can a licensed person actually do every line you wrote?
+- Is the validity period long enough for the client and short enough for your suppliers?
+- Would you be willing to do the job for this number if every exclusion is enforced?
+
+Related: [How to Price Jobs So You Actually Make Money](/lessons/pricing-jobs-to-make-money) and [Variations](/lessons/variations-scope-creep).`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Include all essential elements in your quotes",
-      "Present quotes that look professional",
-      "Choose the right pricing strategy for each job",
+      "Include identity, scope, exclusions, GST, and acceptance on every quote",
+      "Label quotes and estimates so the client knows which they received",
+      "Leave a written path for variations instead of verbal extras",
     ],
-    tags: ["quoting", "business", "pricing"],
+    tags: ["quoting", "business", "pricing", "scope"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "pricing-jobs-to-make-money",
     title: "How to Price Jobs So You Actually Make Money",
-    description: "Calculating your real hourly rate, accounting for overheads, and avoiding the trap of underquoting.",
+    description:
+      "How to build a charge-out rate from labour, overheads, and downtime, then apply it to fixed-price and charge-up work.",
     category: "business",
     level: "intermediate",
     content: `## How to Price Jobs So You Actually Make Money
 
-Most tradies undercharge. Here's how to fix that.
+Underquoting is usually a costing problem, not a market problem. This lesson is a costing method. It is not financial advice and it is not a guarantee of profit. Tax, superannuation, and award rates change — confirm current figures with the [ATO](https://www.ato.gov.au), your accountant, and Fair Work sources.
 
-### Know Your Real Hourly Rate
+### Separate three numbers
 
-Your charge-out rate isn't your take-home. You need to cover:
-- **Your wage** — what you'd pay yourself as an employee
-- **Super** — the legislated Super Guarantee rate on top (confirm the current rate at ato.gov.au)
-- **Insurance** — public liability, income protection, tool cover
-- **Vehicle costs** — fuel, rego, insurance, depreciation, servicing
-- **Tools and equipment** — replacement, maintenance, calibration
-- **Admin time** — quoting, invoicing, bookkeeping, emails (usually 20–30% of your week)
-- **Downtime** — rain days, cancellations, gaps between jobs
+1. **What you want to take home** (or pay yourself) for an hour of productive work
+2. **What an hour of the business actually costs** once overheads and unpaid time are included
+3. **What you charge the client** for an hour, or the fixed price derived from that
 
-### The Formula
+If you only use number 1, you fund the business from your own pay.
 
-A rough guide: take the hourly wage you want to earn, then multiply by 2.5 to 3x. That's your minimum charge-out rate.
+### Costs people forget
 
-If you want to take home $50/hour, you need to charge $125–150/hour.
+Build an annual or monthly list, then divide by **billable hours**, not clock hours.
 
-### Common Traps
+Include:
 
-- **Not accounting for travel time** — you're not earning while driving
-- **Underestimating job duration** — add 20% to your time estimate
-- **Forgetting small costs** — consumables, tips, connectors, tape
-- **Competing on price alone** — the cheapest quote often loses money
+- Your labour (or the wage you would pay someone competent to do the work)
+- Superannuation at the current Super Guarantee rate on eligible wages — check the rate; do not use a remembered percentage
+- Public liability, income protection if you carry it, tools, and vehicle (fuel, registration, insurance, servicing, depreciation)
+- Phones, software, accounting, bank fees
+- Consumables that never appear as a materials line
+- Non-billable time: quoting, invoicing, supplier runs, wet weather, gaps between jobs, training, and leave
+- Defects and callbacks you do not recharge
 
-### Fixed-Price Jobs
+A common pattern is that only a portion of the week is billable. If you ignore that, every job is cheaper on paper than in the bank.
 
-For fixed-price quotes, estimate hours × your rate + materials + 15–20% contingency. Review your estimates after every job to improve your accuracy.`,
-    duration: "5 min",
-    durationMinutes: 5,
+### A simple rate method
+
+1. Add annual business costs (including the pay you need).
+2. Estimate realistic billable hours for the year (be conservative).
+3. Divide. That is a break-even charge-out before profit.
+4. Add a profit margin you can explain (materials handling, risk, and growth).
+
+A rough multiplier (for example 2.5 to 3 times a target hourly wage) is only a sense-check. If your overheads or downtime are high, the multiplier is higher. If you have low overheads and high utilisation, it may be lower. Do the division.
+
+### Job estimates
+
+For a fixed-price job:
+
+- Hours for each trade or stage
+- Materials with current supplier prices, not last year's docket
+- Hire plant
+- Statutory fees if you are paying them
+- Contingency for uncertainty you have already disclosed (or a variation path for uncertainty you have excluded)
+- Your charge-out on the hours, plus margin on materials if that is your method
+
+After the job, compare estimated hours and materials to actual. Adjust the next estimate. Pricing improves from records, not from optimism.
+
+### Charge-up and cost-plus
+
+Charge-up (hourly) and cost-plus (costs plus an agreed margin) shift risk toward the client. They still need a written rate, a definition of recoverable costs, and a reporting habit. Clients accept these methods when the scope is genuinely uncertain — not when the method is used to hide a vague quote.
+
+### Traps
+
+- Travel time that is never charged and never built into the rate
+- "I'll beat their price" without seeing their exclusions
+- Using employee wage rates as if they were charge-out rates
+- Forgetting GST treatment when comparing to a competitor who is not registered
+- No contingency and no variation clause on a renovation with hidden work
+
+### When the cheapest quote wins
+
+Sometimes a client will only take the lowest number. You can decline. A job that pays less than break-even is a donation. If you take it for strategic reasons (fill a gap, a follow-on stage), write down why, and do not use that price as your new standard.
+
+Related: [The Anatomy of a Quote That Wins Jobs](/lessons/anatomy-of-a-winning-quote). Pricing spreadsheets are **Coming Soon**; they are not required to run this method on paper.`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Calculate your true hourly cost including overheads",
-      "Set a charge-out rate that covers all costs plus profit",
-      "Avoid the most common pricing traps",
+      "Build a charge-out rate from real overheads and billable hours",
+      "Estimate a fixed-price job with materials, labour, and a stated uncertainty path",
+      "Recognise common underquoting traps",
     ],
-    tags: ["pricing", "business", "margins"],
+    tags: ["pricing", "business", "margins", "charge-out"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "getting-paid-invoice-terms",
     title: "Getting Paid: Invoice Terms",
-    description: "ATO tax invoice requirements, payment terms for tradies, and what to do when clients don't pay.",
+    description:
+      "What a tax invoice usually needs, how to set payment terms you can operate on, and a calm sequence when an invoice is overdue.",
     category: "business",
     level: "beginner",
     content: `## Getting Paid: Invoice Terms
 
-You've done the work — now make sure you get paid.
+Work that is finished but not invoiced is an unpaid loan. This lesson covers tax-invoice basics, payment terms, and a measured follow-up sequence. It is not debt-collection advice and it is not tax advice. Confirm invoice rules with the [ATO](https://www.ato.gov.au). Construction payment claims may also sit under your state's security of payment legislation — those timeframes are strict if you use them.
 
-### ATO Tax Invoice Requirements
+Invoice templates are **Coming Soon**. There is no file download on this page.
 
-If you're registered for GST, your invoice must include:
-- The words "Tax Invoice"
-- Your business name and ABN
-- Date of issue
-- Description of what was supplied
-- GST amount (or a statement that the total includes GST)
-- Total amount payable
+### Tax invoice contents (GST-registered)
 
-### Payment Terms
+If you are registered for GST, the ATO specifies what a tax invoice must include. Typical required elements include the words "Tax Invoice", your identity and ABN, the date of issue, a description of what was supplied, the price, and the GST amount or a statement that the total includes GST. Thresholds and rules for amounts and recipient-created tax invoices are on the ATO site. Check them if the invoice is large or unusual.
 
-Standard terms in the trades:
-- **7 days** — aggressive but common for small jobs
-- **14 days** — the sweet spot for most tradies
-- **30 days** — standard for commercial work and builders
+If you are **not** registered for GST, do not add GST. You can still issue a professional invoice with your ABN (if you have one), description, date, and payment details.
 
-### When They Don't Pay
+### Payment terms you can live with
 
-1. **Friendly reminder** at 7 days overdue — email or text
-2. **Firm follow-up** at 14 days — phone call + written notice
-3. **Final notice** at 30 days — letter of demand, mention debt collection
-4. **Small claims** — for amounts under the threshold (varies by state)
+Nothing requires you to offer 30 days. Many small trade businesses use 7 or 14 days for residential clients and longer terms only where a head contractor's process requires it. Write the term on the quote and repeat it on the invoice: "Due within 14 days of the invoice date."
 
-### Tips
+Deposits and progress payments reduce exposure on longer jobs. State them before you start. A deposit is a commercial term, not a moral judgement about the client.
 
-- Invoice on the day you finish, not a week later
-- Include bank details and consider card payments
-- Keep records of all communication about payment
-- For large jobs, use progress payments — don't wait until completion`,
-    duration: "5 min",
-    durationMinutes: 5,
+If you want interest or a stated late fee, put it in the terms **before** the work is accepted, keep it reasonable, and get advice if you deal with standard-form contracts — unfair contract term rules can apply.
+
+### Send the invoice when the work is billable
+
+Invoice when the agreed milestone is met — often the day the stage is complete — not when you next sit down on a Sunday. Late invoices are paid late. Include:
+
+- How to pay (BSB and account, PayID if you use it)
+- Invoice number and the quote or order it relates to
+- Any retention or progress-claim reference the contract uses
+
+### When payment is late — a sequence
+
+Stay factual. Keep copies.
+
+1. **Friendly reminder** shortly after the due date — the invoice number, amount, due date, and payment details again.
+2. **Phone call plus written follow-up** if there is no response — ask whether anything on the invoice is disputed.
+3. **Final notice** stating that you may start recovery action if there is no payment or written dispute by a stated date.
+4. **Recovery options** — your state's small claims or civil claims process, a licensed collection agency, or (for construction work) a security of payment claim if you are still inside the statutory time limits.
+
+Do not take a client's goods, change locks, or "recover" materials in a way that could be unlawful. If the debt is large or contested, get advice.
+
+### Security of payment (construction)
+
+Each state and territory has security of payment legislation for certain construction work. It can provide a structured way to claim progress payments. The forms, service rules, and deadlines are easy to miss. If you intend to use that path, read the current guide for your jurisdiction before you need it — not on the afternoon a payment is late.
+
+### Habits that reduce overdue invoices
+
+- Quote terms match invoice terms
+- Variations approved before you invoice them
+- Bank details correct and easy to copy
+- One person (you or a bookkeeper) reviews unpaid invoices weekly
+
+Related: [ABN, GST, and BAS](/lessons/abn-gst-bas-tradie-tax-basics).`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Create ATO-compliant tax invoices",
-      "Set appropriate payment terms",
-      "Follow a process when clients don't pay",
+      "List the usual contents of a GST tax invoice and where to confirm them",
+      "Set payment terms that match how the business actually operates",
+      "Follow a written sequence when an invoice is overdue",
     ],
-    tags: ["invoicing", "payments", "business"],
+    tags: ["invoicing", "payments", "business", "tax-invoice"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "variations-scope-creep",
     title: "Variations: How to Charge for Scope Creep",
-    description: "Handling scope changes professionally — documenting variations, getting sign-off, and avoiding payment disputes.",
+    description:
+      "How to recognise a variation, write it down, get approval, and invoice it so extra work does not disappear into the original price.",
     category: "business",
     level: "intermediate",
     content: `## Variations: How to Charge for Scope Creep
 
-"While you're here, can you just..." — the five most expensive words in the trades.
+A variation is a change to the agreed scope: extra work, a different product, a different method, or a site condition that was not reasonably visible when you quoted. Verbal extras are the usual source of unpaid work. This lesson is a process. Some building contracts set a mandatory variation form — use that form when the contract requires it.
 
-### What's a Variation?
+Variation templates are **Coming Soon**. You can still write a short notice in an email today.
 
-Any change to the original scope: additional work, changed specs, or unforeseen site conditions.
+### Recognise the moment
 
-### Why Document Them?
+Examples:
 
-Verbal agreements about changes are the number one cause of payment disputes. If it's not in writing, it didn't happen.
+- The client asks for an additional point, fitting, or room
+- The specified product is unavailable and a substitute costs more
+- Opening up reveals rotten timber, illegal wiring, or no noggings
+- Another trade is late and you are asked to demobilise and return
+- The client changes a finish after materials are ordered
 
-### How to Handle Variations
+If the cost or time will change, stop long enough to write it down. Continuing "to keep things moving" is how extras become arguments.
 
-1. **Stop and document** — don't start extra work until it's agreed in writing
-2. **Write a variation notice** — describe the change, the reason, and the cost impact
-3. **Get sign-off** — the client or builder must approve before you proceed
-4. **Adjust your invoice** — reference the variation number on your final invoice
+### Write a variation notice
 
-### What to Include
+Include:
 
-- Reference to the original quote/contract
-- Description of the change
-- Reason for the change
-- Cost impact (additional materials + labour)
-- Time impact (if any)
-- Signature/approval block
+- Reference to the original quote, order, or contract number
+- Date and site address
+- Description of the change in plain language
+- Reason (client request, hidden condition, substitute product)
+- Effect on price (labour, materials, other)
+- Effect on programme, if any
+- A line for written approval (email reply is enough if the contract allows it)
+- A statement that the extra work will not start until approved, except where a documented safety issue requires immediate make-safe
 
-### The Hard Conversation
+Send it to the person who can approve money — not only to a tenant or a leading hand who cannot.
 
-Some clients push back on variation costs. Stand your ground — politely. The original quote covered the original scope. Changes cost money. If they want it done, they need to approve the cost first.`,
-    duration: "4 min",
-    durationMinutes: 4,
+### Make-safe versus extra scope
+
+If you uncover a hazard (unsafe wiring, unsupported structure), make the area safe as required by WHS duties. Then separate:
+
+- Immediate make-safe (record what you did and why)
+- The additional repair or upgrade, which is a variation
+
+Do not use "safety" as a way to expand the commercial scope without approval. Do not ignore a real hazard because a variation is unsigned. If you are in that bind, pause the non-essential work and communicate in writing.
+
+### After approval
+
+- Do the extra work as described
+- Photograph the condition that justified a hidden-work variation
+- Invoice with the variation number and the original job reference
+- Do not bury extras inside a round-number final invoice with no explanation
+
+### When the client refuses the variation
+
+You can:
+
+- Leave the original scope as quoted
+- Agree a smaller extra in a new written notice
+- Decline further extras and complete only the original scope
+- If the original work cannot proceed without the extra (for example a wet area that failed a flood test), explain that in writing and wait. Do not install finishes over a known failure.
+
+Standing your ground is a commercial conversation. Stay polite and specific. The original price was for the original scope.
+
+### Contract-required processes
+
+Many commercial and residential building contracts say that variations must be in a particular format, approved by a named superintendent, or claimed within a time bar. If you are on that kind of job, the email method still helps as a record, but the **contract method** is what gets paid. Read the clause before the first extra.
+
+### Habits
+
+- Train everyone on site to call you before starting extras
+- Keep a running variation register on larger jobs (number, date, status, amount)
+- Do not start a habit of "we'll sort it at the end"
+
+Related: [Writing Clear Client-Facing Documents](/lessons/blog) and [Getting Paid: Invoice Terms](/lessons/getting-paid-invoice-terms).`,
+    duration: "10 min",
+    durationMinutes: 10,
     learningOutcomes: [
-      "Document variations properly before starting extra work",
-      "Write a variation notice that protects you",
-      "Handle pushback on variation costs",
+      "Recognise a variation before the extra work starts",
+      "Write a notice that covers scope, reason, cost, and approval",
+      "Separate make-safe duties from commercial extras",
     ],
-    tags: ["variations", "contracts", "business"],
+    tags: ["variations", "contracts", "business", "scope"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "abn-gst-bas-tradie-tax-basics",
     title: "ABN, GST, and BAS: Tradie Tax Basics",
-    description: "When you need an ABN, when to register for GST, BAS obligations, and common tax mistakes tradies make.",
+    description:
+      "When a trade business typically needs an ABN, how GST registration is decided, and what a BAS is for — with pointers to current ATO rules.",
     category: "compliance",
     level: "beginner",
     content: `## ABN, GST, and BAS: Tradie Tax Basics
 
-Getting your tax set-up right from the start saves headaches later.
+Tax setup is easier to do once, correctly, than to unwind later. This lesson is an orientation. Thresholds and rates change. Confirm everything on the [ATO website](https://www.ato.gov.au) or with a registered tax agent. This is not tax advice.
 
-### Do You Need an ABN?
+### ABN
 
-If you're operating a business — quoting for jobs, providing your own tools, controlling how the work is done — you need an ABN.
+An Australian Business Number identifies the business to the ATO and to clients. If you are carrying on an enterprise — quoting, invoicing, supplying your own tools and deciding how the work is done — you generally need an ABN.
 
-### GST Registration
+Clients and builders will ask for it. Some will withhold tax from payments if you do not quote an ABN when one is required. Apply through the official ABR / ATO process. Do not buy an ABN from a random website.
 
-- **Mandatory** once your annual turnover reaches the ATO's GST registration threshold (check the current threshold at ato.gov.au)
-- **Voluntary** below that — useful if you want to claim GST credits on tools and materials
+Using an ABN does not, by itself, make a worker a contractor. See [Subcontractor vs Employee](/lessons/subcontractor-vs-employee).
 
-### BAS Obligations
+### GST registration
 
-Once registered for GST, lodge a Business Activity Statement:
-- **Quarterly** — most common for small businesses
-- Report GST collected, GST paid, and PAYG withholding (if applicable)
+GST registration is **mandatory** once your GST turnover reaches the ATO's current registration threshold. It is **optional** below that threshold. The dollar figure is published by the ATO and is updated from time to time — look it up; do not rely on a remembered number from a course years ago.
 
-### Common Mistakes
+If you register:
 
-- **Not separating business and personal money** — open a dedicated business account
-- **Forgetting to charge GST** — if registered, it's not optional
-- **Not keeping receipts** — no receipt, no GST credit
-- **Lodging BAS late** — penalties and interest add up fast
-- **Not putting aside money for GST/tax** — set aside 30% of every invoice into a separate savings account`,
-    duration: "5 min",
-    durationMinutes: 5,
+- You generally charge GST on taxable supplies
+- You can usually claim GST credits on creditable purchases used in the business, if you hold the right records
+- You lodge activity statements on the cycle the ATO assigns (often quarterly for small businesses)
+
+If you are registered, GST collected is not extra profit. Set it aside. "I spent it on tools" is not a payment method the ATO accepts.
+
+### BAS (Business Activity Statement)
+
+A BAS is how you report GST and, if relevant, PAYG withholding and other obligations the ATO includes on that form. Lodge on time. Late lodgement and late payment attract penalties and interest.
+
+Keep:
+
+- Tax invoices for sales
+- Tax invoices for purchases you claim credits on
+- A simple record of what you have set aside for GST and income tax
+
+No receipt or valid tax invoice usually means no GST credit. Photograph dockets the day you get them.
+
+### Income tax is separate
+
+GST is not income tax. Sole traders still declare business income on an individual return. Companies have their own returns. Superannuation, PAYG instalments, and payroll obligations depend on your structure and whether you have workers. Get a tax agent involved when you hire, buy a vehicle through the business, or change structure.
+
+### Common mistakes
+
+- Mixing personal and business spending in one account with no records
+- Charging GST when not registered, or forgetting to charge it when registered
+- Treating the GST component as spending money
+- Missing BAS due dates
+- Assuming an ABN means you have no PAYG or super duties for people who work like employees
+
+### A practical starting setup
+
+1. Decide whether you are operating a business. If yes, apply for an ABN through official channels.
+2. Check the current GST threshold and register if you must, or if you have chosen to.
+3. Open a dedicated bank account for the business.
+4. Decide who will lodge BAS (you, a bookkeeper, or a tax agent) and put the due dates in a calendar.
+5. Set aside a percentage of each receipt for GST and income tax — your agent can help you choose a working percentage. A figure such as "about 30 percent" is only a starting conversation, not a rule.
+
+Related: [Getting Paid: Invoice Terms](/lessons/getting-paid-invoice-terms).`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Know when ABN and GST registration are required",
-      "Understand your BAS obligations",
-      "Avoid the most common tradie tax mistakes",
+      "Know when an ABN is typically required and where to apply",
+      "Check the current ATO GST threshold instead of using a remembered figure",
+      "Understand what a BAS reports and why records matter",
     ],
     tags: ["abn", "gst", "bas", "tax", "compliance"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "public-liability-vs-income-protection",
     title: "Public Liability vs Income Protection",
-    description: "What each insurance covers, which is mandatory, and what builders require before you step on-site.",
+    description:
+      "What public liability and income protection usually cover, what builders ask to see, and why the two policies are not substitutes for each other.",
     category: "compliance",
     level: "beginner",
     content: `## Public Liability vs Income Protection
 
-Two different insurances that protect two different things. Both matter.
+These policies protect different things. One responds when someone claims you caused injury or property damage. The other may replace part of your income if you cannot work. This lesson is general information. It is not insurance advice. Policy wordings differ. Read the Product Disclosure Statement and ask a licensed adviser about your situation.
 
-### Public Liability Insurance
+### Public liability
 
-**What it covers:** Claims against you if someone is injured or their property is damaged because of your work.
+**Typical purpose:** claims by third parties for personal injury or property damage arising from your business activities, subject to exclusions.
 
-**Examples:**
-- A client trips over your tools and breaks their wrist
-- You accidentally damage a water main while excavating
-- A piece of material falls from a scaffold and hits a car
+**Illustrative situations** (whether a policy responds depends on the wording and the facts):
 
-**Is it mandatory?** Not by law in most states, but most builders and principal contractors require $10–20 million coverage before you step on-site. In practice, you can't work without it.
+- A person trips on a lead you ran across a public access way
+- You damage a water service while excavating
+- Material falls from a work area and damages a vehicle
 
-**Cost:** ~$500–$2,000/year depending on trade and coverage level.
+**On sites:** public liability is often not optional in practice. Many principal contractors specify a minimum limit (commonly expressed as $5 million, $10 million, or $20 million — the contract wins). They will ask for a **certificate of currency** that covers the dates on site.
 
-### Income Protection Insurance
+Cost varies by trade, claims history, limit, and excess. Treat any dollar range you hear on a site as rumour until you have a quote.
 
-**What it covers:** Pays a portion of your income (usually 75%) if you can't work due to injury or illness.
+### Income protection
 
-**Examples:**
-- You tear your rotator cuff and can't work for 3 months
-- You're diagnosed with a condition requiring extended treatment
-- You break your leg on a weekend and miss 8 weeks of work
+**Typical purpose:** a portion of your income for a time if illness or injury stops you working, after a waiting period, subject to exclusions (including how the injury happened and whether you can do other work).
 
-**Is it mandatory?** No. But tradies' bodies take a beating, and this is the insurance that keeps your mortgage paid.
+It does not replace public liability. It does not pay the client for their damaged ceiling. It may help you meet personal bills if you cannot trade.
 
-**Cost:** Varies based on age, trade, and benefit period. Typically $100–$300/month.
+Premiums depend on age, occupation class, benefit period, waiting period, and medical history. Compare waiting periods to the cash buffer you actually have.
 
-### What Builders Require
+### Related covers people confuse with these two
 
-Before you start on most sites, you'll need:
-- Certificate of Currency for Public Liability ($10M or $20M)
-- Workers' Comp certificate (if you have employees)
-- Your trade licence details`,
-    duration: "5 min",
-    durationMinutes: 5,
+- **Workers compensation** — compulsory if you have workers (and in some cases for deemed workers). It is not optional "if you are careful". Confirm with your state scheme.
+- **Tools and equipment** — first-party cover for your kit, not for claims against you.
+- **Contract works / construction all risks** — often arranged by the builder for the project; do not assume it covers your tools or your liability.
+- **Professional indemnity** — more relevant if you provide design or certified advice. Many hands-on trade policies exclude pure design.
+
+### What to hand over at induction
+
+Typically:
+
+- Certificate of currency for public liability, showing the limit and period
+- Workers compensation certificate if you have workers
+- Licence details
+- Any higher or extra policy the subcontract asks for
+
+Send a new certificate when you renew mid-project. An expired certificate is a gate problem, not a paperwork nicety.
+
+### Buying decisions (questions for an adviser)
+
+- What activities are excluded (hot works, height, demolition, asbestos, work around live services)?
+- Are labour-hire or subcontracted workers covered, and on what basis?
+- Is the limit any-one-occurrence, and is there an aggregate?
+- For income protection: own-occupation versus any-occupation definitions; waiting period; how pre-existing conditions are treated
+
+Do not sign a subcontract that requires covers you do not have. Either buy the cover, renegotiate the clause, or decline the job.
+
+Related: [Keeping Compliance Documents Current](/lessons/updates). This site does not sell insurance. Pack files that include a checklist of certificates to take to site are **Coming Soon**.`,
+    duration: "11 min",
+    durationMinutes: 11,
     learningOutcomes: [
-      "Understand what public liability and income protection each cover",
-      "Know what documentation builders require",
-      "Make an informed decision about which insurances to carry",
+      "Explain what public liability and income protection each address",
+      "Prepare the certificates a principal contractor typically asks for",
+      "Know which related policies are not substitutes",
     ],
     tags: ["insurance", "public-liability", "income-protection", "compliance"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "subcontractor-vs-employee",
     title: "Subcontractor vs Employee",
-    description: "The ATO's criteria for distinguishing contractors from employees, and the consequences of getting it wrong.",
+    description:
+      "How the ATO and workplace agencies look at the whole working relationship — and why the label on an invoice is not enough.",
     category: "compliance",
     level: "intermediate",
     content: `## Subcontractor vs Employee
 
-Getting this wrong can cost you tens of thousands in back-taxes, super, and penalties.
+Calling someone a subcontractor does not make them one. If the relationship operates like employment, you can owe superannuation, PAYG withholding, workers compensation, leave, and penalties. This lesson summarises the usual factors. It is not a determination and it is not legal advice. Use the [ATO employee/contractor guidance](https://www.ato.gov.au) and get advice on borderline arrangements.
 
-### Why It Matters
+Sham contracting — presenting an employee as a contractor to avoid entitlements — is unlawful under workplace laws. The cost of getting this wrong is often larger than the labour you thought you saved.
 
-If the ATO decides your "subcontractor" is actually an employee, **you** owe:
-- Superannuation (at the legislated Super Guarantee rate — check the current rate at ato.gov.au)
-- PAYG withholding
-- Workers' compensation premiums
-- Payroll tax (if over threshold)
-- Leave entitlements
-- Plus interest and penalties
+### Why the distinction matters
 
-### ATO Criteria
+If a worker is an employee (or a deemed worker under a state scheme), you may have to:
 
-The ATO looks at the **whole relationship**:
+- Pay superannuation at the current Super Guarantee rate on eligible earnings — check the rate
+- Withhold PAYG
+- Hold workers compensation insurance
+- Meet award or agreement conditions, including leave
+- Consider payroll tax if you are over the state threshold
 
-**Points toward contractor:**
-- Has their own ABN and invoices for work
-- Provides their own tools and equipment
-- Controls how and when the work is done
+Interest and penalties can apply on top. A written "contractor agreement" that does not match the facts will not save the arrangement.
+
+### Factors the ATO commonly considers
+
+There is no single tick-box. The whole relationship matters.
+
+**More like a contractor**
+
+- Has an ABN and invoices per job or milestone
+- Provides their own specialised tools and equipment
+- Controls how the work is done (you specify the outcome)
 - Can delegate or subcontract
-- Bears commercial risk (fixes defects at own cost)
-- Works for multiple clients
+- Bears commercial risk (rectifies defects at their own cost)
+- Advertises to others and works for multiple clients
+- Quotes a job price rather than a weekly wage
 
-**Points toward employee:**
-- You direct how, when, and where they work
-- You provide tools, materials, and equipment
-- They work exclusively or mainly for you
-- You pay them by the hour/day (not per job)
-- They can't subcontract or delegate
+**More like an employee**
 
-### The Safest Approach
+- You control hours, place, and method in detail
+- You supply the tools and materials as a matter of course
+- They work only or mainly for you
+- They are paid by the hour or day with no genuine job price
+- They cannot send someone else in their place
+- They wear your uniform and are presented as your staff
+- You pay them regularly like wages regardless of output
 
-- Use a written subcontractor agreement
-- Ensure the subbie has their own ABN, insurance, and licence
-- Let them control how they do the work
-- Pay per job or milestone, not by the hour
-- Don't require exclusivity`,
-    duration: "5 min",
-    durationMinutes: 5,
+A person can have an ABN and still be an employee on the facts.
+
+### Superannuation for some contractors
+
+Even when someone is a contractor for some purposes, superannuation may still be payable if they are paid wholly or principally for their labour. That rule catches arrangements people thought were "safe". Read the current ATO page on super for contractors.
+
+### Workers compensation and WHS
+
+State workers compensation schemes sometimes treat certain contractors as workers. WHS duties to workers and others on site exist regardless of the invoice layout. You cannot contract out of providing a safe workplace.
+
+### A safer operating pattern (still get advice)
+
+- Use a written agreement that matches how you will actually work
+- Engage businesses that have their own ABN, relevant licence, and public liability
+- Pay for a defined scope or milestone
+- Do not roster them as if they were on your award
+- Do not prohibit other clients unless you have advice that the arrangement is still a genuine contract
+- Keep their invoices, licences, and insurance certificates
+
+If you need someone on your hours, in your van, with your tools, every week, they are probably an employee. Hire them as one.
+
+### Fair Work and awards
+
+Awards may apply to employees in your trade. Misclassification can mean underpayment claims as well as tax claims. If you are unsure, use the official tools and then speak to an adviser or employer association.
+
+Related: [ABN, GST, and BAS](/lessons/abn-gst-bas-tradie-tax-basics). A subcontractor agreement file is **Coming Soon** and will not, by itself, convert an employee into a contractor.`,
+    duration: "12 min",
+    durationMinutes: 12,
     learningOutcomes: [
-      "Apply the ATO criteria to determine contractor vs employee",
-      "Structure subcontractor relationships to minimise risk",
-      "Know the financial consequences of misclassification",
+      "Apply whole-of-relationship factors instead of relying on an ABN",
+      "Recognise that superannuation can still apply to some contractors",
+      "Structure genuine contracting — or employ the person — with advice on edge cases",
     ],
-    tags: ["subcontractor", "employee", "ato", "compliance"],
+    tags: ["subcontractor", "employee", "ato", "superannuation", "compliance"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "toolbox-talks-5-minute-templates",
     title: "Toolbox Talks: 5-Minute Templates",
-    description: "Running effective toolbox talks — what to cover, how to keep them engaging, and how to document them.",
+    description:
+      "How to run a short, job-specific safety briefing, what to record, and topic starters you can adapt — without treating a talk as a SWMS.",
     category: "safety",
     level: "beginner",
     content: `## Toolbox Talks: 5-Minute Templates
 
-A toolbox talk is a short safety briefing held on-site before work starts or at the beginning of a shift.
+A toolbox talk is a short briefing before work or at the start of a shift. It is not a SWMS. It does not replace high-risk work licences or isolation procedures. It is how you point the crew at today's hazards and confirm they heard them. This is general practice, not a required script under every regulation.
 
-### How Often?
+Printed toolbox-talk sheets are **Coming Soon**. Until those files exist, use a dated attendance list and the structure below.
 
-- **Daily** on high-risk sites
-- **Weekly** on lower-risk sites
-- **Every time** conditions change (new task, new workers, weather)
+### When to hold one
 
-### What to Cover
+- Daily on higher-risk or multi-crew sites
+- When the task, plant, weather, or crew changes
+- When a new person arrives (together with a proper induction)
+- After an incident or near miss, focused on what will change
 
-Pick one topic per talk:
-- Manual handling and lifting
-- Working at heights
-- Electrical safety
-- Heat stress and hydration
-- PPE requirements for the day's tasks
-- Housekeeping and trip hazards
-- Hazardous substances on-site
-- Mobile plant and traffic management
-- Fatigue management
-- Trenching and excavation safety
+A weekly talk on a quiet, low-risk site is better than no talk. A daily talk that only repeats "work safe" is worse than a two-minute talk about the actual crane lift at 10:00.
 
-### How to Make Them Stick
+### How to run five minutes
 
-- Keep it under 5 minutes
-- Ask questions — "who can spot the hazard?" — don't just read a sheet
-- Use real examples from the site or recent incidents
-- Get workers to sign an attendance sheet
+1. **One topic** tied to today's work.
+2. **Where it is** — point at the edge, the excavation, the live board, the access path.
+3. **What we will do** — the control, not a slogan.
+4. **Two questions** — "Where is the exclusion zone?" "Who has the isolation permit?"
+5. **Names on a sheet** — date, topic, presenter, printed names, signatures or site-accepted equivalent.
 
-### Documentation
+Stand where people can hear you. Do not hold the only briefing in a radio-up machine cabin while others start work.
 
-Record the date, topic, who presented, and who attended. Keep the records — they're evidence of your safety management system and will be the first thing an inspector asks for.`,
-    duration: "4 min",
-    durationMinutes: 4,
+### Topic starters (adapt to the site)
+
+Use one per talk. Delete anything that does not apply.
+
+- **Manual handling** — what is being lifted, team lift or mechanical aid, path clear
+- **Work at height** — access system today, edge protection, tool lanyards, weather
+- **Electrical** — isolation authority, proving dead, exclusion around switchboards
+- **Heat and UV** — shade, water, work-rest pattern, signs of heat illness
+- **PPE for today's tasks** — eye, hearing, respiratory, gloves matched to the chemical or cut risk
+- **Housekeeping** — leads, offcuts, access for emergency services
+- **Hazardous chemicals** — SDS location, decanting, silica dust controls
+- **Mobile plant** — spotter, slew radius, reversing, exclusion zones
+- **Excavation** — services search, batter or shoring, spoil placement, access/egress
+- **Fatigue** — travel hours, second jobs, who to tell if they cannot work safely
+- **Other trades** — overhead work, shared scaffolds, changes to access
+- **Public interface** — hoarding, debris, after-hours security
+
+If the day's work is high-risk construction work, the SWMS is the document you work to. The toolbox talk can walk the relevant steps of that SWMS. It does not replace it.
+
+### Making it stick
+
+- Ask the crew to name a hazard you have not mentioned
+- Use a photo from this site, not a generic poster
+- Stop the talk if plant is about to move through the group
+- Repeat the talk when the afternoon crew starts
+
+### What to keep
+
+Keep records for the period your WHS system or principal contractor requires. An inspector will often ask for recent talks and inductions together. A stack of unsigned photocopies from last year is weaker than last week's signed sheet that matches the work on site.
+
+### What a talk is not
+
+- A substitute for training someone who cannot do the task
+- A way to "cover" missing edge protection with a warning
+- A meeting about timesheets or who is on the weekend roster (hold that separately)
+
+Related: [How to Fill Out a SWMS](/lessons/how-to-fill-out-a-swms) and [What Happens When WorkSafe Shows Up](/lessons/what-happens-when-worksafe-shows-up).`,
+    duration: "10 min",
+    durationMinutes: 10,
     learningOutcomes: [
-      "Run an effective 5-minute toolbox talk",
-      "Choose relevant topics for your site",
-      "Document talks for compliance purposes",
+      "Run a short briefing tied to today's hazards and controls",
+      "Record date, topic, presenter, and attendance",
+      "Use a talk to support a SWMS, not to replace one",
     ],
-    tags: ["toolbox-talks", "safety", "templates"],
+    tags: ["toolbox-talks", "safety", "consultation", "records"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
   {
     id: "what-happens-when-worksafe-shows-up",
     title: "What Happens When WorkSafe Shows Up",
-    description: "What to expect during a WorkSafe inspection, your rights, and how to prepare so it's not a disaster.",
+    description:
+      "What a WHS inspector can typically ask for, what notices they can issue, and how to keep documents available without treating this as legal representation.",
     category: "compliance",
     level: "advanced",
     content: `## What Happens When WorkSafe Shows Up
 
-A WorkSafe inspector can enter your site at any time without notice. Here's what to expect.
+Inspectors from the WHS (or OHS) regulator can visit workplaces. Names differ: SafeWork NSW, WorkSafe Victoria, Workplace Health and Safety Queensland, and equivalent bodies in other jurisdictions. This lesson describes a typical visit. Powers, notice types, and review rights are set by the local Act. This is not legal advice and it is not a script for resisting a lawful inspection.
 
-### Why They Visit
+### Why they attend
 
-- **Proactive inspections** — random or targeted campaigns (e.g., "falls from heights" blitz)
-- **Complaint-driven** — someone reported a concern
-- **Incident follow-up** — after a notifiable incident
+- Planned inspection programmes (for example a falls or silica campaign)
+- A complaint
+- A notifiable incident follow-up
+- A visit related to a nearby workplace or a principal contractor
 
-### What They'll Ask For
+You may get little or no notice.
 
-1. **Your SWMS** — for any high-risk work happening on-site
-2. **Risk assessments** — evidence you've assessed hazards
-3. **Induction records** — proof workers were inducted
-4. **Licences** — for licensed trades (electrical, plumbing, high-risk work)
-5. **Insurance certificates** — public liability, workers' comp
-6. **Incident records** — your incident register
-7. **Training records** — evidence of safety training
+### What to do in the first minutes
 
-### Your Rights
+- Stay calm. Stop work in the immediate area if they ask, or if it is unsafe to continue around the inspection.
+- Ask to see identification.
+- Ask what the visit is about, so you can fetch the right people and documents.
+- You may have a representative present (health and safety representative, or another person), subject to local rules.
+- Do not invent answers. If you do not know, say you will get the person who does.
+- Do not hide documents or move people off site to avoid questions. That tends to make the visit worse.
 
-- You can ask to see the inspector's ID
-- You can have a representative present
-- You can ask what the inspection is about
-- You must be given a copy of any notice issued
-- You can request a review of any notice
+### Documents commonly requested
 
-### What They Can Do
+Have these findable — on site or immediately reachable — when the work they relate to is happening:
 
-- Issue an **improvement notice** — fix the issue within a set timeframe
-- Issue a **prohibition notice** — stop work immediately until the issue is resolved
-- Issue **on-the-spot fines**
-- Refer matters for prosecution
+- SWMS for any high-risk construction work underway
+- Risk assessments or procedures for the tasks in progress
+- Induction records for people on site
+- Licences and high-risk work licences for the work being done
+- Insurance certificates if the site requires them (inspectors may still ask)
+- Plant records (logbooks, maintenance, hire dockets)
+- Incident and near-miss records
+- Training or competency records for the tasks underway
+- Asbestos or services information if that work is in progress
 
-### How to Prepare
+If a document is at the office, say so and retrieve it. Do not guess its contents.
 
-Keep your documentation current and accessible on-site:
-- SWMS signed and dated
-- Induction records
-- Toolbox talk records
-- Licence copies
-- Insurance certificates of currency
+### What they can typically do
 
-The best time to get your paperwork in order is before the inspector arrives. The second-best time is right now.`,
-    duration: "6 min",
-    durationMinutes: 6,
+Subject to the local Act, inspectors may:
+
+- Enter workplaces and inspect work, plant, and documents
+- Interview people and take photographs or samples
+- Issue an **improvement notice** — fix a stated issue within a stated time
+- Issue a **prohibition notice** — stop specified work until a risk is remedied
+- Issue infringement notices (on-the-spot penalties) where that scheme exists
+- Recommend prosecution for alleged offences
+
+You should receive a copy of notices that are issued. Read the notice: what must change, by when, and how to seek a review. Review rights and time limits are on the notice and the regulator's website.
+
+### Notifiable incidents
+
+If someone is killed, or suffers a serious injury or illness, or a dangerous incident as defined in the local law occurs, there is usually a duty to notify the regulator immediately and not disturb the site except as allowed (to help an injured person, to avoid further harm, or as directed). Confirm the current notifiable list before you need it. Do not wait for this lesson in an emergency — call emergency services first, then notify as required.
+
+### Your rights (typical)
+
+- See the inspector's identification
+- Understand the purpose of the visit
+- Have a representative present where the law allows
+- Receive copies of notices
+- Seek an internal or external review of a notice within the stated time
+- Get advice from a lawyer or employer association if a notice or investigation is serious
+
+Cooperation is not the same as agreeing that a breach occurred. Answer factually. If you are asked to sign a statement, read it. You can ask for time to get advice on a formal interview.
+
+### How to be prepared without theatre
+
+Keep a site folder (physical or digital) that matches today's work:
+
+- Current signed SWMS
+- Today's induction and toolbox records
+- Licence copies for people on site
+- Current insurance certificates
+- Plant and isolation permits in use
+
+The best time to organise that folder is before anyone asks. Related: [Keeping Compliance Documents Current](/lessons/updates) and [Toolbox Talks](/lessons/toolbox-talks-5-minute-templates).
+
+Regulator pages: [Safe Work Australia](https://www.safeworkaustralia.gov.au) for model material, then your state or territory inspectorate for the rules that apply on the site.
+
+Checklist packs for inspections are **Coming Soon**. They will not replace legal advice on a notice or a prosecution.`,
+    duration: "12 min",
+    durationMinutes: 12,
     learningOutcomes: [
-      "Know what to expect during a WorkSafe inspection",
-      "Understand your rights during an inspection",
-      "Keep the right documentation on-site and accessible",
+      "Know what documents an inspector commonly asks to see",
+      "Recognise improvement and prohibition notices and the need to read review rights",
+      "Keep a current site folder instead of reconstructing paperwork during a visit",
     ],
-    tags: ["worksafe", "inspection", "compliance"],
+    tags: ["worksafe", "inspection", "compliance", "notices"],
     dateAdded: "2026-07-01",
-    lastUpdated: "2026-07-01",
+    lastUpdated: "2026-09-04",
     status: "published",
   },
 ]
@@ -849,3 +1659,9 @@ export const MODULE_MAP = Object.fromEntries(
 export function getModuleById(id: string): Module | undefined {
   return MODULE_MAP[id]
 }
+
+export const PUBLISHED_MODULES: Module[] = ALL_MODULES.filter(
+  (m) => m.status === "published"
+)
+
+export const PUBLISHED_LESSON_COUNT = PUBLISHED_MODULES.length

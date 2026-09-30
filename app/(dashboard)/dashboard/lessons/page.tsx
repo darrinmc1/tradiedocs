@@ -1,12 +1,12 @@
 import Link from "next/link"
-import { ALL_MODULES } from "@/data/modules"
+import { PUBLISHED_MODULES } from "@/data/modules"
 
 export default function DashboardLessonsPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold mb-6">My Lessons</h1>
       <div className="space-y-3">
-        {ALL_MODULES.filter((m) => m.status === "published").map((mod) => (
+        {PUBLISHED_MODULES.map((mod) => (
           <Link
             key={mod.id}
             href={`/lessons/${mod.id}`}

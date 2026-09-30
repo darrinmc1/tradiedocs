@@ -21,26 +21,27 @@ export default function AboutPage() {
       <div className="mx-auto max-w-3xl px-6 py-12">
         <article className="rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-10 space-y-6 text-slate-300 leading-relaxed">
           <p>
-            TradieDocs exists because tradies shouldn&apos;t have to spend their
-            evenings writing SWMS from scratch or formatting invoices in Word.
+            TradieDocs publishes written lessons on the documents Australian sole
+            traders and small crews are asked for: SWMS, quotes, invoices,
+            variations, licensing orientation, insurance, and tax basics.
           </p>
           <p>
-            Australian tradies — especially sole traders and small crews — are great
-            at their trade but buried in compliance paperwork. Builders want a SWMS
-            before you start. The ATO wants compliant invoices. WorkSafe wants
-            documented risk assessments. Clients want professional-looking quotes.
+            Builders may ask for a SWMS before you start. The ATO sets tax-invoice
+            rules if you are GST-registered. WHS regulators expect high-risk
+            construction work to be planned and documented. Clients expect a clear
+            quote. These pages explain those documents in plain language.
           </p>
           <p>
-            TradieDocs is a library of pre-built, editable templates covering the
-            documents Australian tradies use every week: SWMS, quotes, invoices,
-            variation notices, incident reports, toolbox talks, subcontractor
-            agreements, and site induction checklists.
+            Template packs (SWMS starters, quote and invoice files, and a planned
+            compliance bundle) are <strong>Coming Soon</strong>. Checkout is not
+            live and there is no file to download yet. Planned prices are shown on
+            the products page for when those files exist.
           </p>
           <p>
-            Alongside the template packs, we publish free lessons covering the stuff
-            nobody teaches you at TAFE: how SWMS actually work, how to write quotes
-            that win jobs, your rights under security of payment laws, ABN and GST
-            basics, licensing across states, and more.
+            Lessons are free to read and do not require an account. They are
+            general information — not legal, financial, tax, or WHS advice. Confirm
+            current rules with your state regulator and the ATO before you rely on
+            anything here.
           </p>
           <p>
             Questions? Reach out at{" "}
