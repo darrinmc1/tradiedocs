@@ -22,10 +22,11 @@ export default function TermsPage() {
           </p>
           <h2>Payments and Refunds</h2>
           <p>
-            Paid template packs are not available for purchase yet. There is no
-            live checkout. Join a product waitlist if you want to be notified
-            when a pack can be bought. Refund terms will be published before any
-            paid sale goes live.
+            Template packs are not for sale on this site. Nothing here takes a
+            payment. Join the list on the{" "}
+            <a href="/pricing">coming soon page</a> if you want to hear when
+            packs are available. These terms will be updated before any sale
+            goes live.
           </p>
           <h2>Contact</h2>
           <p>

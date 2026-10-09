@@ -46,9 +46,9 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-6xl px-6 py-20" aria-labelledby="templates-heading">
         <div className="mb-12 text-center">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange-300">Useful before subscriptions</p>
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-orange-300">Start here</p>
           <h2 id="templates-heading" className="text-3xl font-extrabold"><span className="gradient-text-cyan">Working guides and template previews</span></h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-400">Paid checkout is not live, so TradieDocs is not publishing pack prices yet. The focus is making the paperwork useful first.</p>
+          <p className="mx-auto mt-3 max-w-2xl text-slate-400">Template packs are not available yet. The focus is making the paperwork useful first.</p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {templatePreviews.map((preview) => (
