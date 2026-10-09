@@ -1,7 +1,7 @@
 // =============================================================================
 // TRADIEDOCS — AEO (Answer Engine Optimization)
 // Generates /llms.txt + /llm.txt so AI assistants can read what the site is,
-// what it does, its key pages, pricing, and FAQs.
+// what it does, its key pages, and FAQs.
 // Reference pattern: Intel Academy / CertSprint lib/aeo.ts (verified live).
 // =============================================================================
 
@@ -34,9 +34,9 @@ export const tradieDocsFaqs = [
       "Not every job — SWMS are required for high-risk construction work as defined by WHS regulations. TradieDocs has a free lesson explaining when you do and don't need one, plus templates covering 20 trades.",
   },
   {
-    question: "How much do TradieDocs templates cost?",
+    question: "Are TradieDocs template packs available?",
     answer:
-      "One-time purchases only — no subscription. The SWMS Template Pack covering 20 trades is $79, the Quote + Invoice Pack is $49, and the Full Compliance Bundle (both packs plus bonus templates) is $119.",
+      "Not yet. Join the list on the site to hear when packs are ready.",
   },
   {
     question: "Is TradieDocs legal advice?",
@@ -80,12 +80,9 @@ ${moduleBlock}
 
 ${updateBlock}
 
-## Pricing
+## Availability
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+Template packs are not available yet. Join the list: ${base}/pricing
 
 ## FAQs
 
