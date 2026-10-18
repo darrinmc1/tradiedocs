@@ -13,7 +13,7 @@ Copy this template directory, rename it, then work through this list:
   - `name`, `domain`, `tagline`, `description`
   - `theme.emoji`, `theme.primaryColor`, `theme.gradientFrom/Via/To`
   - `nav.links` — add/remove navigation items
-  - `pricing` tiers — update names, prices, features, `stripePriceId`
+  - pack prices live in `data/products.ts` (one-off only; do not add the template founder/standard/premium subscription tiers)
   - `copy` — hero title, subtitle, CTA text
   - `contact` — support email, social links
   - `badges` — tier thresholds and names
@@ -26,7 +26,9 @@ Copy `.env.example` to `.env.local` and fill in all values:
 
 - [ ] `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` / `CLERK_SECRET_KEY`
 - [ ] `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` / `SUPABASE_SERVICE_ROLE_KEY`
-- [ ] `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET`
+- [ ] `STRIPE_ENABLED=false` / `NEXT_PUBLIC_STRIPE_ENABLED=false` (both must be the string `true` before any charge)
+- [ ] `STRIPE_SECRET_KEY` (TTPN test) / `STRIPE_WEBHOOK_SECRET` / `STRIPE_SITE_KEY`
+- [ ] `NEXT_PUBLIC_SUPPORT_EMAIL` (leave blank to show no address)
 - [ ] `MAILCHIMP_API_KEY` / `MAILCHIMP_LIST_ID` / `MAILCHIMP_DC`
 - [ ] `RESEND_API_KEY` / `FROM_EMAIL` / `ADMIN_EMAIL`
 - [ ] `SITE_KEY` (unique identifier for this site in shared tables)
@@ -60,10 +62,10 @@ Copy `.env.example` to `.env.local` and fill in all values:
 
 ### 4. Stripe Setup
 
-- [ ] Create products and prices in Stripe Dashboard
-- [ ] Copy price IDs into `data/products.ts` (`stripePriceId` field) and `config/site.config.ts` (pricing tiers)
-- [ ] Set up webhook endpoint pointing to `https://yourdomain.com/api/stripe/webhook`
-- [ ] Subscribe to `checkout.session.completed` event
+- [ ] In the TTPN Stripe account (test mode), create AUD Prices with lookup keys `tradiedocs_swms_once_aud79`, `tradiedocs_quote_invoice_once_aud49`, and `tradiedocs_compliance_bundle_once_aud119`. Do not paste Price IDs into the app, and do not delete the retired sandbox Prices. Leave each product's `available` flag false until its pack file is a real download.
+- [ ] Leave `STRIPE_ENABLED` and `NEXT_PUBLIC_STRIPE_ENABLED` as `false` until a Preview check passes
+- [ ] Set up a webhook endpoint pointing to `https://yourdomain.com/api/stripe/webhook`
+- [ ] Subscribe to `checkout.session.completed`
 
 ### 5. Mailchimp / Waitlist Popup
 

@@ -1,6 +1,11 @@
 // =============================================================================
 // TRADIEDOCS — DIGITAL PRODUCTS
+// One-off packs only. Amounts are unchanged. Currency is AUD (AU$79 / AU$49 / AU$119).
+// available stays false until a real pack file exists for that downloadPath.
 // =============================================================================
+
+export const PACK_LEGAL_NOTICE =
+  "Example only, not legal advice. Have a qualified lawyer check it suits your circumstances and meets your local laws (including signing and witnessing rules) before using it."
 
 export interface Product {
   id: string
@@ -8,7 +13,16 @@ export interface Product {
   description: string
   content: string
   price: number
-  stripePriceId: string
+  /**
+   * Stripe Price lookup_key. Checkout resolves this on the server.
+   * Never send a Price ID from the browser.
+   */
+  lookupKey: string
+  /**
+   * False when the pack file is missing or only a placeholder.
+   * Buy stays on "Coming soon" until this is true, even if Stripe is enabled.
+   */
+  available: boolean
   features: string[]
   category: string
   downloadPath: string
@@ -20,8 +34,7 @@ export interface Product {
 const swmsPack: Product = {
   id: "swms-pack",
   name: "SWMS Template Pack — 20 Trades",
-  description:
-    "Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator.",
+  description: `Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator. ${PACK_LEGAL_NOTICE}`,
   content: `## SWMS Template Pack — 20 Trades
 
 Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled Safe Work Method Statements covering the most common high-risk construction activities.
@@ -44,7 +57,8 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 
 Sole-trader tradies and small crews who need compliant SWMS but don't have a safety officer to write them.`,
   price: 79,
-  stripePriceId: "price_1U4JsxPVyAgWnzPr9hwzd20r",
+  lookupKey: "tradiedocs_swms_once_aud79",
+  available: false,
   features: [
     "20 pre-filled SWMS templates (electrical, plumbing, carpentry, roofing + 16 more)",
     "Editable Word format",
@@ -62,8 +76,7 @@ Sole-trader tradies and small crews who need compliant SWMS but don't have a saf
 const quoteInvoicePack: Product = {
   id: "quote-invoice-pack",
   name: "Quote + Invoice Pack",
-  description:
-    "Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate.",
+  description: `Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate. ${PACK_LEGAL_NOTICE}`,
   content: `## Quote + Invoice Pack
 
 Win more jobs with professional quotes and get paid faster with clear invoices.
@@ -86,7 +99,8 @@ Win more jobs with professional quotes and get paid faster with clear invoices.
 
 Tradies who are great at the work but hate the paperwork. If you've lost a job because your quote looked unprofessional or waited months to get paid because your invoice was unclear — these templates fix that.`,
   price: 49,
-  stripePriceId: "price_1U4JsyPVyAgWnzPrnk8G5Jbo",
+  lookupKey: "tradiedocs_quote_invoice_once_aud49",
+  available: false,
   features: [
     "Professional quote template",
     "Tax invoice template (ATO-compliant)",
@@ -104,20 +118,19 @@ Tradies who are great at the work but hate the paperwork. If you've lost a job b
 const complianceBundle: Product = {
   id: "compliance-bundle",
   name: "Full Compliance Bundle",
-  description:
-    "Everything in both packs, plus incident report templates, 10 toolbox talk templates, subcontractor agreement, and site induction checklist.",
+  description: `Everything in both packs, plus incident report templates, 10 toolbox talk templates, subcontractor agreement, and site induction checklist. ${PACK_LEGAL_NOTICE}`,
   content: `## Full Compliance Bundle
 
 The complete paperwork toolkit for tradies who want every document they'll ever need on a job site.
 
 ### What You Get
 
-**Everything in the SWMS Template Pack ($79):**
+**Everything in the SWMS Template Pack (AU$79):**
 - 20 pre-filled SWMS templates
 - High-risk work checklist
 - State-aware SWMS structure (confirm with your regulator)
 
-**Everything in the Quote + Invoice Pack ($49):**
+**Everything in the Quote + Invoice Pack (AU$49):**
 - Professional quote template
 - ATO-compliant tax invoice
 - Variation template
@@ -131,11 +144,12 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 - **Subcontractor agreement** — scope, payment terms, insurance requirements, safety obligations
 - **Site induction checklist** — emergency procedures, hazard identification, PPE requirements
 
-### Save $9 vs. Buying Separately
+### Save AU$9 vs. Buying Separately
 
-Bundle price: $119 (vs. $128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
+Bundle price: AU$119 (vs. AU$128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
   price: 119,
-  stripePriceId: "price_1U4Jt0PVyAgWnzPrXAEWTDFH",
+  lookupKey: "tradiedocs_compliance_bundle_once_aud119",
+  available: false,
   features: [
     "Everything in both packs",
     "Incident report template",
@@ -162,4 +176,23 @@ export const PRODUCT_MAP = Object.fromEntries(
 
 export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
+}
+
+// Retired sandbox Price IDs. Checkout no longer sends these.
+// Do not delete the Prices in Stripe; they are retired only in this app.
+// swms-pack: price_1U4JsxPVyAgWnzPr9hwzd20r
+// quote-invoice-pack: price_1U4JsyPVyAgWnzPrnk8G5Jbo
+// compliance-bundle: price_1U4Jt0PVyAgWnzPrXAEWTDFH
+
+/**
+ * Map a client sku to a catalogue product.
+ * Accepts the lookup key (preferred) or the product id.
+ * Rejects raw Stripe Price IDs (`price_…`).
+ */
+export function resolveCheckoutProduct(sku: string): Product | undefined {
+  const key = sku.trim()
+  if (!key || key.startsWith("price_")) return undefined
+  return ALL_PRODUCTS.find(
+    (product) => product.lookupKey === key || product.id === key
+  )
 }

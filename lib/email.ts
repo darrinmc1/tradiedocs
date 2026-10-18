@@ -1,7 +1,6 @@
 import { Resend } from "resend"
 
 const apiKey = process.env.RESEND_API_KEY
-const FROM = process.env.RESEND_FROM ?? "noreply@example.com"
 const REPLY_TO = process.env.RESEND_REPLY_TO ?? undefined
 const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME ?? "Our site"
 const NOTIFY = process.env.NOTIFY_EMAIL
@@ -10,17 +9,29 @@ const resend = apiKey ? new Resend(apiKey) : null
 
 type SendResult = { ok: true } | { ok: false; reason: string }
 
+function configuredFrom(): string | null {
+  const from = process.env.RESEND_FROM?.trim()
+  if (!from) return null
+  if (/example\.(com|org|net)\b/i.test(from)) return null
+  return from
+}
+
 async function send(
   to: string | string[],
   subject: string,
   html: string
 ): Promise<SendResult> {
+  const from = configuredFrom()
   if (!resend) {
     console.warn("[email] RESEND_API_KEY not set — skipping send")
     return { ok: false, reason: "resend_not_configured" }
   }
+  if (!from) {
+    console.warn("[email] RESEND_FROM is missing or a placeholder — skipping send")
+    return { ok: false, reason: "from_not_configured" }
+  }
   const { error } = await resend.emails.send({
-    from: FROM,
+    from,
     to,
     subject,
     html,
