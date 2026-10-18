@@ -1,14 +1,18 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
 import { ALL_PRODUCTS } from "@/data/products"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
+import { BuyButton } from "@/components/buy-button"
 import { Disclaimer } from "@/components/disclaimer"
+import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 import { Check } from "lucide-react"
+
+const checkoutEnabled = stripeCheckoutVisible()
 
 export const metadata = {
   title: `Templates | ${siteConfig.name}`,
-  description:
-    "SWMS, quote, invoice, and compliance template packs for Australian tradies. Checkout is coming soon — join the waitlist.",
+  description: checkoutEnabled
+    ? "SWMS, quote, invoice, and compliance template packs for Australian tradies. One-time purchase."
+    : "SWMS, quote, invoice, and compliance template packs for Australian tradies. Checkout is coming soon — join the waitlist.",
 }
 
 export default function ProductsPage() {
@@ -20,8 +24,9 @@ export default function ProductsPage() {
             <span className="gradient-text-cyan">Template packs</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-400">
-            Priced packs for when checkout is live. Nothing here is for sale yet —
-            use Notify me if you want an email when a pack is available.
+            {checkoutEnabled
+              ? "One-time packs. Pay once, then download from your account."
+              : "Priced packs for when checkout is live. Nothing here is for sale yet — use Notify me if you want an email when a pack is available."}
           </p>
         </div>
       </div>
@@ -37,9 +42,11 @@ export default function ProductsPage() {
                 <span className="text-4xl" aria-hidden="true">
                   {product.emoji}
                 </span>
-                <span className="shrink-0 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-400">
-                  Coming soon
-                </span>
+                {!checkoutEnabled && (
+                  <span className="shrink-0 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-400">
+                    Coming soon
+                  </span>
+                )}
               </div>
               <h2 className="text-xl font-bold text-white mb-2">{product.name}</h2>
               <p className="text-sm text-slate-400 flex-1 mb-4">{product.description}</p>
@@ -55,7 +62,8 @@ export default function ProductsPage() {
                 ${product.price}
                 <span className="ml-1 text-sm font-normal text-slate-500">one-time</span>
               </p>
-              <ComingSoonCta
+              <BuyButton
+                sku={product.lookupKey}
                 price={product.price}
                 source={`product-waitlist-${product.id}`}
                 layout="card"

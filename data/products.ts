@@ -1,5 +1,7 @@
 // =============================================================================
 // TRADIEDOCS — DIGITAL PRODUCTS
+// One-off packs only. Prices stay as the existing dollar amounts.
+// Lookup keys follow the USD ladder; AUD vs USD is still an open question.
 // =============================================================================
 
 export interface Product {
@@ -8,7 +10,11 @@ export interface Product {
   description: string
   content: string
   price: number
-  stripePriceId: string
+  /**
+   * Stripe Price lookup_key. Checkout resolves this on the server.
+   * Never send a Price ID from the browser.
+   */
+  lookupKey: string
   features: string[]
   category: string
   downloadPath: string
@@ -44,7 +50,7 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 
 Sole-trader tradies and small crews who need compliant SWMS but don't have a safety officer to write them.`,
   price: 79,
-  stripePriceId: "price_1U4JsxPVyAgWnzPr9hwzd20r",
+  lookupKey: "tradiedocs_swms_once_usd79",
   features: [
     "20 pre-filled SWMS templates (electrical, plumbing, carpentry, roofing + 16 more)",
     "Editable Word format",
@@ -86,7 +92,7 @@ Win more jobs with professional quotes and get paid faster with clear invoices.
 
 Tradies who are great at the work but hate the paperwork. If you've lost a job because your quote looked unprofessional or waited months to get paid because your invoice was unclear — these templates fix that.`,
   price: 49,
-  stripePriceId: "price_1U4JsyPVyAgWnzPrnk8G5Jbo",
+  lookupKey: "tradiedocs_quote_invoice_once_usd49",
   features: [
     "Professional quote template",
     "Tax invoice template (ATO-compliant)",
@@ -135,7 +141,7 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 
 Bundle price: $119 (vs. $128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
   price: 119,
-  stripePriceId: "price_1U4Jt0PVyAgWnzPrXAEWTDFH",
+  lookupKey: "tradiedocs_compliance_bundle_once_usd119",
   features: [
     "Everything in both packs",
     "Incident report template",
@@ -162,4 +168,23 @@ export const PRODUCT_MAP = Object.fromEntries(
 
 export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
+}
+
+// Retired sandbox Price IDs. Checkout no longer sends these.
+// Do not delete the Prices in Stripe; they are retired only in this app.
+// swms-pack: price_1U4JsxPVyAgWnzPr9hwzd20r
+// quote-invoice-pack: price_1U4JsyPVyAgWnzPrnk8G5Jbo
+// compliance-bundle: price_1U4Jt0PVyAgWnzPrXAEWTDFH
+
+/**
+ * Map a client sku to a catalogue product.
+ * Accepts the lookup key (preferred) or the product id.
+ * Rejects raw Stripe Price IDs (`price_…`).
+ */
+export function resolveCheckoutProduct(sku: string): Product | undefined {
+  const key = sku.trim()
+  if (!key || key.startsWith("price_")) return undefined
+  return ALL_PRODUCTS.find(
+    (product) => product.lookupKey === key || product.id === key
+  )
 }

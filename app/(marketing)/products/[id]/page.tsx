@@ -4,7 +4,7 @@ import { ALL_PRODUCTS, getProductById } from "@/data/products"
 import { siteConfig } from "@/config/site.config"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import { Disclaimer } from "@/components/disclaimer"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
+import { BuyButton } from "@/components/buy-button"
 import { Check } from "lucide-react"
 
 export function generateStaticParams() {
@@ -75,7 +75,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         </div>
 
         <div className="mt-8">
-          <ComingSoonCta
+          <BuyButton
+            sku={product.lookupKey}
             price={product.price}
             source={`product-waitlist-${product.id}`}
           />

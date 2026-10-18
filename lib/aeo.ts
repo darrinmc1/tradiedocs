@@ -9,6 +9,8 @@ import { siteConfig } from "@/config/site.config"
 import { ALL_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
+import { getSupportEmail } from "@/lib/support-email"
+import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
 const siteUrl = () =>
   process.env.NEXT_PUBLIC_SITE_DOMAIN
@@ -59,13 +61,21 @@ export function buildLlmTxt(): string {
   const faqBlock = tradieDocsFaqs
     .map((f) => `Q: ${f.question}\nA: ${f.answer}`)
     .join("\n\n")
+  const priceBlock = ALL_PRODUCTS.map(
+    (p) => `- ${p.name}: $${p.price} one-time — ${base}/products/${p.id}`,
+  ).join("\n")
+  const supportEmail = getSupportEmail()
+  const contactLine = supportEmail ? `Contact: ${supportEmail}\n` : ""
+  const checkoutLine = stripeCheckoutVisible()
+    ? "Checkout is available for the one-time packs below."
+    : "Checkout is not live. The pack prices below are not currently for sale."
 
   return `# ${siteConfig.name}
 
 > ${siteConfig.description}
 
 Site: ${base}
-Job: Downloadable SWMS templates, quote packs, and compliance documents for Australian tradies — fill in, done, no subscription.
+${contactLine}Job: Downloadable SWMS templates, quote packs, and compliance documents for Australian tradies — fill in, done, no subscription.
 Not: a legal firm; not legal advice; templates must be customised to the job and state requirements.
 
 ## Products
@@ -82,10 +92,10 @@ ${updateBlock}
 
 ## Pricing
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+One-time packs only. There is no subscription.
+${checkoutLine}
+
+${priceBlock}
 
 ## FAQs
 

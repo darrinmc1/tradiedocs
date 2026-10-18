@@ -23,7 +23,7 @@ We've launched with everything a sole trader or small crew needs to get their pa
 ### What's Available Now
 
 **SWMS Template Pack — 20 Trades ($79)**
-Pre-filled Safe Work Method Statements for electrical, plumbing, carpentry, roofing, concreting, and 15 more trades. Editable Word format, compliant across all Australian states.
+Pre-filled Safe Work Method Statements for electrical, plumbing, carpentry, roofing, concreting, and 15 more trades. Editable Word format. Confirm current WHS rules with your state regulator before use.
 
 **Quote + Invoice Pack ($49)**
 Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate.
@@ -41,9 +41,9 @@ We've also published 15 lessons covering SWMS basics, quoting, invoicing, licens
 - State-specific compliance checklists
 - Video walkthroughs for filling in templates
 
-### Founding Member Pricing
+### Launch notes
 
-Early supporters get locked-in pricing. Prices will go up as we add more templates.`,
+Early supporters will hear about launch pricing first.`,
   date: "2026-07-01",
   tags: ["launch", "announcement"],
   category: "Announcement",

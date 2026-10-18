@@ -1,9 +1,12 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
 import { ALL_PRODUCTS } from "@/data/products"
-import { ComingSoonCta } from "@/components/coming-soon-cta"
+import { BuyButton } from "@/components/buy-button"
 import { Disclaimer } from "@/components/disclaimer"
+import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 import { Check } from "lucide-react"
+
+const checkoutEnabled = stripeCheckoutVisible()
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
@@ -18,11 +21,15 @@ const faqs = [
   },
   {
     q: "Can I buy a pack today?",
-    a: "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
+    a: checkoutEnabled
+      ? "Yes. Each pack is a one-time payment. After checkout, the download is on your account page."
+      : "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
   },
   {
     q: "Is this a subscription?",
-    a: "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
+    a: checkoutEnabled
+      ? "No. Each pack is a one-off payment — no recurring fee."
+      : "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
   },
   {
     q: "What if I only need one or two templates?",
@@ -39,8 +46,9 @@ export default function PricingPage() {
             <span className="gradient-text-cyan">Simple, one-time pack prices</span>
           </h1>
           <p className="text-lg text-slate-400">
-            Same catalogue as the products page. Checkout is coming soon — no
-            live purchase and no file download yet.
+            {checkoutEnabled
+              ? "Same catalogue as the products page. Each pack is a one-time payment."
+              : "Same catalogue as the products page. Checkout is coming soon — no live purchase and no file download yet."}
           </p>
         </div>
       </section>
@@ -66,7 +74,8 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <ComingSoonCta
+              <BuyButton
+                sku={product.lookupKey}
                 price={product.price}
                 source={`product-waitlist-${product.id}`}
                 layout="card"
