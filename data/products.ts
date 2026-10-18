@@ -4,6 +4,9 @@
 // available stays false until a real pack file exists for that downloadPath.
 // =============================================================================
 
+export const PACK_LEGAL_NOTICE =
+  "Example only, not legal advice. Have a qualified lawyer check it suits your circumstances and meets your local laws (including signing and witnessing rules) before using it."
+
 export interface Product {
   id: string
   name: string
@@ -31,8 +34,7 @@ export interface Product {
 const swmsPack: Product = {
   id: "swms-pack",
   name: "SWMS Template Pack — 20 Trades",
-  description:
-    "Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator.",
+  description: `Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator. ${PACK_LEGAL_NOTICE}`,
   content: `## SWMS Template Pack — 20 Trades
 
 Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled Safe Work Method Statements covering the most common high-risk construction activities.
@@ -74,8 +76,7 @@ Sole-trader tradies and small crews who need compliant SWMS but don't have a saf
 const quoteInvoicePack: Product = {
   id: "quote-invoice-pack",
   name: "Quote + Invoice Pack",
-  description:
-    "Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate.",
+  description: `Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate. ${PACK_LEGAL_NOTICE}`,
   content: `## Quote + Invoice Pack
 
 Win more jobs with professional quotes and get paid faster with clear invoices.
@@ -117,8 +118,7 @@ Tradies who are great at the work but hate the paperwork. If you've lost a job b
 const complianceBundle: Product = {
   id: "compliance-bundle",
   name: "Full Compliance Bundle",
-  description:
-    "Everything in both packs, plus incident report templates, 10 toolbox talk templates, subcontractor agreement, and site induction checklist.",
+  description: `Everything in both packs, plus incident report templates, 10 toolbox talk templates, subcontractor agreement, and site induction checklist. ${PACK_LEGAL_NOTICE}`,
   content: `## Full Compliance Bundle
 
 The complete paperwork toolkit for tradies who want every document they'll ever need on a job site.

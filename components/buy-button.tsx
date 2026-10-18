@@ -1,6 +1,7 @@
 import { NewsletterForm } from "@/components/newsletter-form"
 import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record-disclosure"
 import { RefundPolicy } from "@/components/refund-policy"
+import { PACK_LEGAL_NOTICE } from "@/data/products"
 import { formatPackPrice } from "@/lib/currency"
 import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
@@ -49,11 +50,15 @@ export function BuyButton({
   )
 
   const disclosure = <MerchantOfRecordDisclosure />
+  const legalNotice = (
+    <p className="text-xs leading-relaxed text-slate-400">{PACK_LEGAL_NOTICE}</p>
+  )
 
   if (layout === "card") {
     return (
       <div className="space-y-3">
         {control}
+        {legalNotice}
         {disclosure}
         <RefundPolicy className="text-xs leading-relaxed text-slate-500" />
         {!enabled && <NewsletterForm source={source} buttonLabel="Notify me" />}
@@ -70,6 +75,7 @@ export function BuyButton({
         </div>
         <div className="flex max-w-xl flex-col gap-2">
           {control}
+          {legalNotice}
           {disclosure}
           <RefundPolicy className="text-xs leading-relaxed text-slate-500" />
         </div>
