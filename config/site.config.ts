@@ -76,6 +76,8 @@ export interface SiteConfig {
   tagline: string
   description: string
   domain: string
+  /** ISO currency for pack prices. Display prices use the AU$ prefix. */
+  currency: "AUD"
   theme: ThemeConfig
   badges: BadgeConfig
   categories: Category[]
@@ -125,6 +127,7 @@ export function getBadgeDisplay(config: SiteConfig, xp: number) {
 export const siteConfig: SiteConfig = {
   name: "TradieDocs",
   tagline: "Compliance paperwork sorted. Get back on the tools.",
+  currency: "AUD",
   description:
     "SWMS templates, quote packs, and compliance documents for Australian tradies. Download, fill in, done — no subscriptions, no fluff.",
   domain: "tradiedocs.com.au",

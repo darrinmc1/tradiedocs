@@ -1,7 +1,7 @@
 // =============================================================================
 // TRADIEDOCS — DIGITAL PRODUCTS
-// One-off packs only. Prices stay as the existing dollar amounts.
-// Lookup keys follow the USD ladder; AUD vs USD is still an open question.
+// One-off packs only. Amounts are unchanged. Currency is AUD (AU$79 / AU$49 / AU$119).
+// available stays false until a real pack file exists for that downloadPath.
 // =============================================================================
 
 export interface Product {
@@ -15,6 +15,11 @@ export interface Product {
    * Never send a Price ID from the browser.
    */
   lookupKey: string
+  /**
+   * False when the pack file is missing or only a placeholder.
+   * Buy stays on "Coming soon" until this is true, even if Stripe is enabled.
+   */
+  available: boolean
   features: string[]
   category: string
   downloadPath: string
@@ -50,7 +55,8 @@ Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled 
 
 Sole-trader tradies and small crews who need compliant SWMS but don't have a safety officer to write them.`,
   price: 79,
-  lookupKey: "tradiedocs_swms_once_usd79",
+  lookupKey: "tradiedocs_swms_once_aud79",
+  available: false,
   features: [
     "20 pre-filled SWMS templates (electrical, plumbing, carpentry, roofing + 16 more)",
     "Editable Word format",
@@ -92,7 +98,8 @@ Win more jobs with professional quotes and get paid faster with clear invoices.
 
 Tradies who are great at the work but hate the paperwork. If you've lost a job because your quote looked unprofessional or waited months to get paid because your invoice was unclear — these templates fix that.`,
   price: 49,
-  lookupKey: "tradiedocs_quote_invoice_once_usd49",
+  lookupKey: "tradiedocs_quote_invoice_once_aud49",
+  available: false,
   features: [
     "Professional quote template",
     "Tax invoice template (ATO-compliant)",
@@ -118,12 +125,12 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 
 ### What You Get
 
-**Everything in the SWMS Template Pack ($79):**
+**Everything in the SWMS Template Pack (AU$79):**
 - 20 pre-filled SWMS templates
 - High-risk work checklist
 - State-aware SWMS structure (confirm with your regulator)
 
-**Everything in the Quote + Invoice Pack ($49):**
+**Everything in the Quote + Invoice Pack (AU$49):**
 - Professional quote template
 - ATO-compliant tax invoice
 - Variation template
@@ -137,11 +144,12 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 - **Subcontractor agreement** — scope, payment terms, insurance requirements, safety obligations
 - **Site induction checklist** — emergency procedures, hazard identification, PPE requirements
 
-### Save $9 vs. Buying Separately
+### Save AU$9 vs. Buying Separately
 
-Bundle price: $119 (vs. $128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
+Bundle price: AU$119 (vs. AU$128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
   price: 119,
-  lookupKey: "tradiedocs_compliance_bundle_once_usd119",
+  lookupKey: "tradiedocs_compliance_bundle_once_aud119",
+  available: false,
   features: [
     "Everything in both packs",
     "Incident report template",

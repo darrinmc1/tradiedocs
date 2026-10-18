@@ -3,15 +3,18 @@ import { siteConfig } from "@/config/site.config"
 import { ALL_PRODUCTS } from "@/data/products"
 import { BuyButton } from "@/components/buy-button"
 import { Disclaimer } from "@/components/disclaimer"
+import { formatPackPrice } from "@/lib/currency"
+import { REFUND_POLICY } from "@/lib/refund-policy"
 import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 import { Check } from "lucide-react"
 
 const checkoutEnabled = stripeCheckoutVisible()
+const packsOnSale = checkoutEnabled && ALL_PRODUCTS.some((product) => product.available)
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
   description:
-    "One-time prices for TradieDocs template packs. Checkout is not live — join the waitlist to be notified.",
+    "One-time AUD prices for TradieDocs template packs (AU$79, AU$49, AU$119). Checkout is not live — join the waitlist to be notified.",
 }
 
 const faqs = [
@@ -21,8 +24,8 @@ const faqs = [
   },
   {
     q: "Can I buy a pack today?",
-    a: checkoutEnabled
-      ? "Yes. Each pack is a one-time payment. After checkout, the download is on your account page."
+    a: packsOnSale
+      ? "Yes. Each pack on sale is a one-time payment in AUD. After checkout, the download is on your account page."
       : "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
   },
   {
@@ -35,6 +38,10 @@ const faqs = [
     q: "What if I only need one or two templates?",
     a: "The Quote + Invoice Pack and SWMS Template Pack are sold separately. The Full Compliance Bundle is the combined option when checkout is live.",
   },
+  {
+    q: "What is the refund policy?",
+    a: REFUND_POLICY,
+  },
 ]
 
 export default function PricingPage() {
@@ -46,8 +53,8 @@ export default function PricingPage() {
             <span className="gradient-text-cyan">Simple, one-time pack prices</span>
           </h1>
           <p className="text-lg text-slate-400">
-            {checkoutEnabled
-              ? "Same catalogue as the products page. Each pack is a one-time payment."
+            {packsOnSale
+              ? "Same catalogue as the products page. Each pack is a one-time payment in AUD."
               : "Same catalogue as the products page. Checkout is coming soon — no live purchase and no file download yet."}
           </p>
         </div>
@@ -62,7 +69,7 @@ export default function PricingPage() {
             >
               <h2 className="text-xl font-bold text-white mb-1">{product.name}</h2>
               <div className="flex items-end gap-1 mb-2">
-                <span className="text-4xl font-extrabold text-white">${product.price}</span>
+                <span className="text-4xl font-extrabold text-white">{formatPackPrice(product.price)}</span>
                 <span className="text-sm text-slate-500 mb-1">one-time</span>
               </div>
               <p className="text-sm text-slate-400 mb-6">{product.description}</p>
@@ -77,6 +84,7 @@ export default function PricingPage() {
               <BuyButton
                 sku={product.lookupKey}
                 price={product.price}
+                available={product.available}
                 source={`product-waitlist-${product.id}`}
                 layout="card"
               />

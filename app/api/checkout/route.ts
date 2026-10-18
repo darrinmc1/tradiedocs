@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server"
 import { stripe } from "@/lib/stripe"
 import { getProductById, resolveCheckoutProduct } from "@/data/products"
 import { getUserEntitlements, getSignedDownloadUrl } from "@/lib/entitlements"
+import { STRIPE_CURRENCY } from "@/lib/currency"
 import { STATEMENT_DESCRIPTOR_SUFFIX } from "@/lib/merchant-of-record"
 import { stripePaymentsEnabled, stripeSiteKey } from "@/lib/stripe-flags"
 
@@ -59,6 +60,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Unknown product" }, { status: 400 })
   }
 
+  if (!product.available) {
+    return NextResponse.json(
+      { error: "This pack is not available yet" },
+      { status: 503 }
+    )
+  }
+
   const prices = await stripe.prices.list({
     lookup_keys: [product.lookupKey],
     active: true,
@@ -68,16 +76,24 @@ export async function POST(req: NextRequest) {
   if (!price) {
     return NextResponse.json({ error: "Price not available" }, { status: 503 })
   }
+  if (price.currency !== STRIPE_CURRENCY) {
+    return NextResponse.json(
+      { error: "Price must be in AUD" },
+      { status: 503 }
+    )
+  }
 
   const origin = req.headers.get("origin") ?? req.nextUrl.origin
   const metadata = {
     site: stripeSiteKey(),
     sku: product.lookupKey,
     userId,
+    currency: STRIPE_CURRENCY,
   }
 
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
+    currency: STRIPE_CURRENCY,
     line_items: [{ price: price.id, quantity: 1 }],
     success_url: `${origin}/account?purchased=${product.id}`,
     cancel_url: `${origin}/products/${product.id}`,

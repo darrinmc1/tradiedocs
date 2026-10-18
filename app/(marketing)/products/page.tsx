@@ -3,15 +3,17 @@ import { siteConfig } from "@/config/site.config"
 import { ALL_PRODUCTS } from "@/data/products"
 import { BuyButton } from "@/components/buy-button"
 import { Disclaimer } from "@/components/disclaimer"
+import { formatPackPrice } from "@/lib/currency"
 import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 import { Check } from "lucide-react"
 
 const checkoutEnabled = stripeCheckoutVisible()
+const packsOnSale = checkoutEnabled && ALL_PRODUCTS.some((product) => product.available)
 
 export const metadata = {
   title: `Templates | ${siteConfig.name}`,
-  description: checkoutEnabled
-    ? "SWMS, quote, invoice, and compliance template packs for Australian tradies. One-time purchase."
+  description: packsOnSale
+    ? "SWMS, quote, invoice, and compliance template packs for Australian tradies. One-time purchase in AUD."
     : "SWMS, quote, invoice, and compliance template packs for Australian tradies. Checkout is coming soon — join the waitlist.",
 }
 
@@ -24,8 +26,8 @@ export default function ProductsPage() {
             <span className="gradient-text-cyan">Template packs</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-400">
-            {checkoutEnabled
-              ? "One-time packs. Pay once, then download from your account."
+            {packsOnSale
+              ? "One-time packs in Australian dollars. Pay once, then download from your account."
               : "Priced packs for when checkout is live. Nothing here is for sale yet — use Notify me if you want an email when a pack is available."}
           </p>
         </div>
@@ -42,7 +44,7 @@ export default function ProductsPage() {
                 <span className="text-4xl" aria-hidden="true">
                   {product.emoji}
                 </span>
-                {!checkoutEnabled && (
+                {!(checkoutEnabled && product.available) && (
                   <span className="shrink-0 rounded-md border border-amber-500/30 bg-amber-500/10 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-amber-400">
                     Coming soon
                   </span>
@@ -59,12 +61,13 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <p className="text-2xl font-extrabold text-white mb-4">
-                ${product.price}
+                {formatPackPrice(product.price)}
                 <span className="ml-1 text-sm font-normal text-slate-500">one-time</span>
               </p>
               <BuyButton
                 sku={product.lookupKey}
                 price={product.price}
+                available={product.available}
                 source={`product-waitlist-${product.id}`}
                 layout="card"
               />

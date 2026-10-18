@@ -62,7 +62,7 @@ Copy `.env.example` to `.env.local` and fill in all values:
 
 ### 4. Stripe Setup
 
-- [ ] In the TTPN Stripe account (test mode), create Prices with lookup keys `tradiedocs_swms_once_usd79`, `tradiedocs_quote_invoice_once_usd49`, and `tradiedocs_compliance_bundle_once_usd119`. Do not paste Price IDs into the app, and do not delete the retired sandbox Prices.
+- [ ] In the TTPN Stripe account (test mode), create AUD Prices with lookup keys `tradiedocs_swms_once_aud79`, `tradiedocs_quote_invoice_once_aud49`, and `tradiedocs_compliance_bundle_once_aud119`. Do not paste Price IDs into the app, and do not delete the retired sandbox Prices. Leave each product's `available` flag false until its pack file is a real download.
 - [ ] Leave `STRIPE_ENABLED` and `NEXT_PUBLIC_STRIPE_ENABLED` as `false` until a Preview check passes
 - [ ] Set up a webhook endpoint pointing to `https://yourdomain.com/api/stripe/webhook`
 - [ ] Subscribe to `checkout.session.completed`

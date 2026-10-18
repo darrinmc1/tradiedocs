@@ -78,6 +78,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
           <BuyButton
             sku={product.lookupKey}
             price={product.price}
+            available={product.available}
             source={`product-waitlist-${product.id}`}
           />
         </div>
