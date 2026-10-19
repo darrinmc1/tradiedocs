@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
   },
+  alternates: {
+    // "./" resolves against each page's path, so every route gets its own canonical.
+    canonical: "./",
+  },
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
@@ -48,6 +52,21 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "TradieDocs — compliance paperwork for Australian tradies",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og.png"],
   },
   metadataBase: new URL(siteUrl),
 }

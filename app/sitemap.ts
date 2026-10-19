@@ -22,7 +22,7 @@ export default function sitemap() {
     { url: `${base}/terms`, lastModified: new Date(), priority: 0.3 },
   ]
 
-  const lessonPages = ALL_MODULES.map((mod) => ({
+  const lessonPages = ALL_MODULES.filter((mod) => mod.status === "published").map((mod) => ({
     url: `${base}/lessons/${mod.id}`,
     lastModified: new Date(mod.lastUpdated),
     priority: 0.8,
