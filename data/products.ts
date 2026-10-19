@@ -112,24 +112,28 @@ The complete paperwork toolkit for tradies who want every document they'll ever 
 
 ### What You Get
 
-**Everything in the SWMS Template Pack:**
+**Everything in the SWMS Template Pack ($79):**
 - 20 pre-filled SWMS templates
 - High-risk work checklist
 - State-aware SWMS structure (confirm with your regulator)
 
-**Everything in the Quote + Invoice Pack:**
+**Everything in the Quote + Invoice Pack ($49):**
 - Professional quote template
 - ATO-compliant tax invoice
 - Variation template
 - Payment reminder scripts
 - Terms & conditions boilerplate
 
-**Plus these bundle extras:**
+**Plus these Bundle exclusives:**
 
 - **Incident report template** — structured form for recording workplace incidents and near-misses
 - **Toolbox talk templates × 10** — pre-written 5-minute safety talks (manual handling, heights, electrical, heat stress, PPE, housekeeping, hazardous substances, mobile plant, trenching, fatigue)
 - **Subcontractor agreement** — scope, payment terms, insurance requirements, safety obligations
-- **Site induction checklist** — emergency procedures, hazard identification, PPE requirements`,
+- **Site induction checklist** — emergency procedures, hazard identification, PPE requirements
+
+### Save $9 vs. Buying Separately
+
+Bundle price: $119 (vs. $128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
   price: 119,
   stripePriceId: "price_1U4Jt0PVyAgWnzPrXAEWTDFH",
   features: [

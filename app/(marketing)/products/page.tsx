@@ -8,7 +8,7 @@ import { Check } from "lucide-react"
 export const metadata = {
   title: `Templates | ${siteConfig.name}`,
   description:
-    "SWMS, quote, invoice, and compliance template packs for Australian tradies. Packs are not available yet — join the list.",
+    "SWMS, quote, invoice, and compliance template packs for Australian tradies. Checkout is coming soon — join the waitlist.",
 }
 
 export default function ProductsPage() {
@@ -20,8 +20,8 @@ export default function ProductsPage() {
             <span className="gradient-text-cyan">Template packs</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-400">
-            These packs are not available yet. Join the list if you want an
-            email when one is ready.
+            Priced packs for when checkout is live. Nothing here is for sale yet —
+            use Notify me if you want an email when a pack is available.
           </p>
         </div>
       </div>
@@ -51,8 +51,13 @@ export default function ProductsPage() {
                   </li>
                 ))}
               </ul>
+              <p className="text-2xl font-extrabold text-white mb-4">
+                ${product.price}
+                <span className="ml-1 text-sm font-normal text-slate-500">one-time</span>
+              </p>
               <ComingSoonCta
-                source="pricing-coming-soon"
+                price={product.price}
+                source={`product-waitlist-${product.id}`}
                 layout="card"
               />
               <Link

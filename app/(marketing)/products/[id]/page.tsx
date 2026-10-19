@@ -75,7 +75,10 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         </div>
 
         <div className="mt-8">
-          <ComingSoonCta source="pricing-coming-soon" />
+          <ComingSoonCta
+            price={product.price}
+            source={`product-waitlist-${product.id}`}
+          />
         </div>
 
         <div className="mt-6 flex flex-wrap gap-2">
