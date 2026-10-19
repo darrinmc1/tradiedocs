@@ -9,6 +9,10 @@ import { siteConfig } from "@/config/site.config"
 import { ALL_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
+import { formatPackPrice } from "@/lib/currency"
+import { REFUND_POLICY } from "@/lib/refund-policy"
+import { getSupportEmail } from "@/lib/support-email"
+import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
 const siteUrl = () =>
   process.env.NEXT_PUBLIC_SITE_DOMAIN
@@ -35,8 +39,11 @@ export const tradieDocsFaqs = [
   },
   {
     question: "How much do TradieDocs templates cost?",
-    answer:
-      "One-time purchases only — no subscription. The SWMS Template Pack covering 20 trades is $79, the Quote + Invoice Pack is $49, and the Full Compliance Bundle (both packs plus bonus templates) is $119.",
+    answer: `One-time purchases only — no subscription. Prices are in ${siteConfig.currency}. ${ALL_PRODUCTS.map((product) => `${product.name} is ${formatPackPrice(product.price)}`).join(". ")}.`,
+  },
+  {
+    question: "What is the refund policy?",
+    answer: REFUND_POLICY,
   },
   {
     question: "Is TradieDocs legal advice?",
@@ -59,13 +66,23 @@ export function buildLlmTxt(): string {
   const faqBlock = tradieDocsFaqs
     .map((f) => `Q: ${f.question}\nA: ${f.answer}`)
     .join("\n\n")
+  const priceBlock = ALL_PRODUCTS.map(
+    (p) => `- ${p.name}: ${formatPackPrice(p.price)} one-time — ${base}/products/${p.id}`,
+  ).join("\n")
+  const supportEmail = getSupportEmail()
+  const contactLine = supportEmail ? `Contact: ${supportEmail}\n` : ""
+  const packsOnSale =
+    stripeCheckoutVisible() && ALL_PRODUCTS.some((product) => product.available)
+  const checkoutLine = packsOnSale
+    ? "Checkout is available for the one-time AUD packs marked available below."
+    : "Checkout is not live. The pack prices below are not currently for sale."
 
   return `# ${siteConfig.name}
 
 > ${siteConfig.description}
 
 Site: ${base}
-Job: Downloadable SWMS templates, quote packs, and compliance documents for Australian tradies — fill in, done, no subscription.
+${contactLine}Job: Downloadable SWMS templates, quote packs, and compliance documents for Australian tradies — fill in, done, no subscription.
 Not: a legal firm; not legal advice; templates must be customised to the job and state requirements.
 
 ## Products
@@ -82,10 +99,10 @@ ${updateBlock}
 
 ## Pricing
 
-- Founder: USD ${siteConfig.pricing.founder.monthly}/month — ${base}/pricing
-- Standard: USD ${siteConfig.pricing.standard.monthly}/month — ${base}/pricing
-- Premium: USD ${siteConfig.pricing.premium.monthly}/month — ${base}/pricing
-- One-time product purchases: ${base}/products
+One-time packs only. There is no subscription. Prices are in ${siteConfig.currency}.
+${checkoutLine}
+
+${priceBlock}
 
 ## FAQs
 

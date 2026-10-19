@@ -66,12 +66,6 @@ export interface CopyConfig {
   feedbackPlaceholder: string
 }
 
-export interface PricingConfig {
-  founder: { monthly: number; yearly: number }
-  standard: { monthly: number; yearly: number }
-  premium: { monthly: number; yearly: number }
-}
-
 export interface ContactConfig {
   email: string
   github: string
@@ -82,12 +76,13 @@ export interface SiteConfig {
   tagline: string
   description: string
   domain: string
+  /** ISO currency for pack prices. Display prices use the AU$ prefix. */
+  currency: "AUD"
   theme: ThemeConfig
   badges: BadgeConfig
   categories: Category[]
   nav: NavConfig
   copy: CopyConfig
-  pricing: PricingConfig
   contact: ContactConfig
 }
 
@@ -132,6 +127,7 @@ export function getBadgeDisplay(config: SiteConfig, xp: number) {
 export const siteConfig: SiteConfig = {
   name: "TradieDocs",
   tagline: "Compliance paperwork sorted. Get back on the tools.",
+  currency: "AUD",
   description:
     "SWMS templates, quote packs, and compliance documents for Australian tradies. Download, fill in, done — no subscriptions, no fluff.",
   domain: "tradiedocs.com.au",
@@ -209,21 +205,19 @@ export const siteConfig: SiteConfig = {
     ctaSecondary: "Read the Guides",
     loginTitle: "Welcome back",
     signupTitle: "Create your account",
-    foundingMemberHeading: "Founding Member — Lock In Launch Pricing",
+    foundingMemberHeading: "Get notified when packs are available",
     emailCaptureHeading: "Get free compliance tips by email",
     emailCaptureSubheading:
       "Practical WHS and paperwork tips for sole traders and small crews. No spam — unsubscribe anytime.",
     feedbackPlaceholder: "What template do you need next?",
   },
 
-  pricing: {
-    founder: { monthly: 5, yearly: 48 },
-    standard: { monthly: 9, yearly: 90 },
-    premium: { monthly: 19, yearly: 180 },
-  },
+  // One-off packs only. The template founder/standard/premium subscription
+  // tiers are not part of this site. Pack prices live in data/products.ts.
 
   contact: {
-    email: "hello@tradiedocs.com.au",
+    // Displayed address is NEXT_PUBLIC_SUPPORT_EMAIL. Blank shows no address.
+    email: "",
     github: "https://github.com/darrinmc1",
   },
 } as const satisfies SiteConfig

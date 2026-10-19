@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import GAAnalytics from "./components/Analytics"
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
 import { Analytics } from "@vercel/analytics/react"
@@ -75,6 +76,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const supportEmail = getSupportEmail()
+  const organization: Record<string, unknown> = {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: siteConfig.name,
+    url: siteUrl,
+    description: siteConfig.description,
+    sameAs: [siteConfig.contact.github],
+  }
+  if (supportEmail) organization.email = supportEmail
+
   return (
     <html lang="en" className="dark">
       <body
@@ -92,15 +104,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": `${siteUrl}/#organization`,
-                  name: siteConfig.name,
-                  url: siteUrl,
-                  description: siteConfig.description,
-                  email: siteConfig.contact.email,
-                  sameAs: [siteConfig.contact.github],
-                },
+                organization,
                 {
                   "@type": "WebSite",
                   "@id": `${siteUrl}/#website`,

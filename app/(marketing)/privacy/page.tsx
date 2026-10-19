@@ -1,10 +1,13 @@
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `Privacy Policy | ${siteConfig.name}`,
 }
 
 export default function PrivacyPage() {
+  const supportEmail = getSupportEmail()
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className="mx-auto max-w-3xl px-6 py-20">
@@ -26,11 +29,15 @@ export default function PrivacyPage() {
             We use your information to provide our services, process payments, send
             updates you&apos;ve opted into, and improve our platform.
           </p>
-          <h2>Contact</h2>
-          <p>
-            Questions? Email us at{" "}
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>.
-          </p>
+          {supportEmail ? (
+            <>
+              <h2>Contact</h2>
+              <p>
+                Questions? Email us at{" "}
+                <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+              </p>
+            </>
+          ) : null}
         </article>
       </div>
     </div>
