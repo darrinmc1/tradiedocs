@@ -1,10 +1,10 @@
 import Link from "next/link"
-import { ALL_MODULES } from "@/data/modules"
+import { PUBLISHED_LESSON_COUNT, PUBLISHED_MODULES } from "@/data/modules"
 import { siteConfig } from "@/config/site.config"
 
 export const metadata = {
   title: `Lessons | ${siteConfig.name}`,
-  description: "Browse all available lessons.",
+  description: `${PUBLISHED_LESSON_COUNT} written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies. General information only — not legal advice.`,
 }
 
 export default function LessonsPage() {
@@ -16,14 +16,15 @@ export default function LessonsPage() {
             <span className="gradient-text-cyan">Lessons</span>
           </h1>
           <p className="text-lg text-slate-400">
-            Browse our complete curriculum.
+            {PUBLISHED_LESSON_COUNT} written lessons. Free to read. Template
+            file downloads are Coming Soon.
           </p>
         </div>
       </div>
 
       <div className="mx-auto max-w-4xl px-6 py-12">
         <div className="space-y-4">
-          {ALL_MODULES.filter((m) => m.status === "published").map((mod) => (
+          {PUBLISHED_MODULES.map((mod) => (
             <Link
               key={mod.id}
               href={`/lessons/${mod.id}`}

@@ -2,6 +2,14 @@ import React from "react"
 
 function inlineFormat(text: string): string {
   return text
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-orange-400 underline underline-offset-2 hover:text-orange-300">$1</a>'
+    )
+    .replace(
+      /\[([^\]]+)\]\((\/[^)\s]+)\)/g,
+      '<a href="$2" class="text-orange-400 underline underline-offset-2 hover:text-orange-300">$1</a>'
+    )
     .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
     .replace(/\*(.+?)\*/g, '<em class="text-cyan-300">$1</em>')
 }

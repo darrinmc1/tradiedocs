@@ -2,11 +2,10 @@
 // TRADIEDOCS — AEO (Answer Engine Optimization)
 // Generates /llms.txt + /llm.txt so AI assistants can read what the site is,
 // what it does, its key pages, pricing, and FAQs.
-// Reference pattern: Intel Academy / CertSprint lib/aeo.ts (verified live).
 // =============================================================================
 
 import { siteConfig } from "@/config/site.config"
-import { ALL_MODULES } from "@/data/modules"
+import { PUBLISHED_LESSON_COUNT, PUBLISHED_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
 import { formatPackPrice } from "@/lib/currency"
@@ -25,17 +24,17 @@ export const tradieDocsFaqs = [
   {
     question: "What is TradieDocs?",
     answer:
-      "TradieDocs provides SWMS templates, quote packs, and compliance documents for Australian tradies. Download, fill in, done — no subscriptions, no fluff.",
+      "TradieDocs publishes free written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies, and lists one-off template packs. General information only; not legal advice.",
   },
   {
     question: "What is a SWMS?",
     answer:
-      "A Safe Work Method Statement (SWMS) documents the high-risk construction work, the hazards involved, and the control measures to manage them. Many Australian states require a SWMS for high-risk construction work before work starts.",
+      "A Safe Work Method Statement (SWMS) documents high-risk construction work, the hazards involved, and the control measures. In jurisdictions that use the model WHS Regulations, a SWMS is required for high-risk construction work before that work starts. Confirm the local definition with the state or territory regulator.",
   },
   {
     question: "Do I need a SWMS for every job?",
     answer:
-      "Not every job — SWMS are required for high-risk construction work as defined by WHS regulations. TradieDocs has a free lesson explaining when you do and don't need one, plus templates covering 20 trades.",
+      "Not every job. A SWMS is required for high-risk construction work as defined in the WHS (or OHS) rules that apply to the site. TradieDocs has a free written lesson on when a SWMS is typically required.",
   },
   {
     question: "How much do TradieDocs templates cost?",
@@ -48,7 +47,11 @@ export const tradieDocsFaqs = [
   {
     question: "Is TradieDocs legal advice?",
     answer:
-      "No. TradieDocs templates are a starting point — you must customise them to your specific site, task, and state's WHS requirements. It is not legal advice.",
+      "No. TradieDocs provides general information and starting-point templates. It is not legal, financial, tax, or WHS advice. Confirm current rules with Safe Work Australia, your state regulator, and the ATO.",
+  },
+  {
+    question: "How many free lessons are on the site?",
+    answer: `There are ${PUBLISHED_LESSON_COUNT} free written lessons on the site.`,
   },
 ]
 
@@ -57,9 +60,9 @@ export function buildLlmTxt(): string {
   const productBlock = ALL_PRODUCTS.map(
     (p) => `- ${p.name} — ${p.description} — ${base}/products/${p.id}`,
   ).join("\n")
-  const moduleBlock = ALL_MODULES.filter((m) => m.status === "published")
-    .map((m) => `- ${m.title} — ${m.description} — ${base}/lessons/${m.id}`)
-    .join("\n")
+  const moduleBlock = PUBLISHED_MODULES.map(
+    (m) => `- ${m.title} — ${m.description} — ${base}/lessons/${m.id}`,
+  ).join("\n")
   const updateBlock = ALL_UPDATES.map(
     (u) => `- ${u.title} — ${base}/updates/${u.id}`,
   ).join("\n")
@@ -79,17 +82,18 @@ export function buildLlmTxt(): string {
 
   return `# ${siteConfig.name}
 
-> ${siteConfig.description}
+> Written SWMS and workplace-docs education for Australian tradies, plus one-off template packs. Not legal advice.
 
 Site: ${base}
-${contactLine}Job: Downloadable SWMS templates, quote packs, and compliance documents for Australian tradies — fill in, done, no subscription.
-Not: a legal firm; not legal advice; templates must be customised to the job and state requirements.
+${contactLine}Published written lessons: ${PUBLISHED_LESSON_COUNT}
+Job: Free written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies, plus one-off SWMS, quote, and compliance template packs (no subscription).
+Not: a legal firm; not legal, tax, or WHS advice; templates must be customised to the job and state requirements.
 
 ## Products
 
 ${productBlock}
 
-## Lessons (study guides)
+## Lessons (published written guides)
 
 ${moduleBlock}
 

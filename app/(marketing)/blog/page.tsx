@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site.config"
 export const metadata = {
   title: `Blog | ${siteConfig.name}`,
   description:
-    "Straight-talking guides on quotes, compliance, and getting paid for Australian tradies.",
+    "Written guides on SWMS, quotes, invoices, and contractor status for Australian tradies. General information only — not legal advice.",
 }
 
 function formatDate(iso: string) {
@@ -24,7 +24,7 @@ export default function BlogIndex() {
             <span className="gradient-text-cyan">Blog</span>
           </h1>
           <p className="text-lg text-slate-400">
-            Straight-talking guides on quotes, compliance, and getting paid.
+            Written guides on SWMS, quotes, invoices, and contractor status.
           </p>
         </div>
       </div>
