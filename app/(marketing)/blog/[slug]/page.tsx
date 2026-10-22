@@ -35,7 +35,7 @@ const content: Record<string, Section[]> = {
       paragraphs: [
         "Keep it site-specific and short enough to use. Consult the workers doing the task; they will name hazards a distant author misses. Write controls as actions that can be checked: 'Install guardrails before work within two metres of the open edge,' not 'be careful at height.'",
         "Review the SWMS when the method, plant, crew, or conditions change. A document written for a different site or a previous year is a record of that other job, not a plan for this one.",
-        "TradieDocs publishes a longer written lesson on this topic. Template SWMS files are Coming Soon — there is no download on this page.",
+        "TradieDocs publishes a longer written lesson on this topic.",
       ],
     },
   ],
@@ -65,7 +65,7 @@ const content: Record<string, Section[]> = {
       heading: "Identity, GST, and acceptance",
       paragraphs: [
         "Include your ABN, licence number if required, GST treatment, a validity period, and payment terms. GST registration is mandatory once turnover reaches the ATO's current threshold — look up that figure; do not rely on a remembered number. A quote that is silent on payment leaves the due date to later negotiation.",
-        "End with one acceptance action: signed return, email confirmation, or deposit. Quote templates as downloadable files are Coming Soon. The written lesson on this site uses the same structure.",
+        "End with one acceptance action: signed return, email confirmation, or deposit. The written quoting lesson on this site uses the same structure.",
       ],
     },
   ],
@@ -95,7 +95,7 @@ const content: Record<string, Section[]> = {
       heading: "Invoice contents that get paid",
       paragraphs: [
         "Include business name, ABN, date, a clear description, amount, due date, and payment details. If you are GST-registered, issue a tax invoice that meets current ATO rules. Send it when the milestone is met, not days later. Late invoices are paid late.",
-        "Invoice templates are Coming Soon. There is no file download on this page. See the written invoicing lesson for a longer checklist.",
+        "See the written invoicing lesson for a longer checklist.",
       ],
     },
   ],
@@ -131,7 +131,7 @@ const content: Record<string, Section[]> = {
       heading: "Habit five: one folder per job",
       paragraphs: [
         "Keep the quote, any contract, photos, invoices, and receipts for that job in one folder, with a backup that is not only on a device that lives in a vehicle. When a client asks a warranty question months later, you should be able to open that folder rather than search a camera roll.",
-        "These habits are small. They are easier to start in week one than after the first busy quarter. Downloadable form packs are Coming Soon; you do not need them to start a folder and a weekly review.",
+        "These habits are small. They are easier to start in week one than after the first busy quarter. You do not need a form pack to start a folder and a weekly review.",
       ],
     },
   ],

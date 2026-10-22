@@ -1,6 +1,11 @@
 // =============================================================================
 // TRADIEDOCS — DIGITAL PRODUCTS
+// One-off packs only. Amounts are unchanged. Currency is AUD (AU$79 / AU$49 / AU$119).
+// available stays false until a real pack file exists for that downloadPath.
 // =============================================================================
+
+export const PACK_LEGAL_NOTICE =
+  "Example only, not legal advice. Have a qualified lawyer check it suits your circumstances and meets your local laws (including signing and witnessing rules) before using it."
 
 export interface Product {
   id: string
@@ -8,7 +13,16 @@ export interface Product {
   description: string
   content: string
   price: number
-  stripePriceId: string
+  /**
+   * Stripe Price lookup_key. Checkout resolves this on the server.
+   * Never send a Price ID from the browser.
+   */
+  lookupKey: string
+  /**
+   * False when the pack file is missing or only a placeholder.
+   * Buy stays on "Coming soon" until this is true, even if Stripe is enabled.
+   */
+  available: boolean
   features: string[]
   category: string
   downloadPath: string
@@ -20,13 +34,10 @@ export interface Product {
 const swmsPack: Product = {
   id: "swms-pack",
   name: "SWMS Template Pack — 20 Trades",
-  description:
-    "Coming Soon. Planned pack of starting-point Safe Work Method Statements for 20 trades. No file is available to download yet. Confirm current WHS rules with your state regulator before use.",
+  description: `Pre-filled Safe Work Method Statements for 20 trades — electrical, plumbing, carpentry, roofing, concreting, and 15 more. Editable Word format. Starting-point templates — confirm current WHS rules with your state regulator. ${PACK_LEGAL_NOTICE}`,
   content: `## SWMS Template Pack — 20 Trades
 
-**Status: Coming Soon.** Checkout is not live and there is no zip or Word file on this site yet. The price below is the planned one-time amount for when the pack exists. Use Notify me if you want an email then.
-
-When it is available, this pack is intended as **starting-point** Safe Work Method Statements for common high-risk construction activities — not a finished SWMS for your site.
+Stop spending hours writing SWMS from scratch. This pack contains 20 pre-filled Safe Work Method Statements covering the most common high-risk construction activities.
 
 ### What You Get
 
@@ -44,9 +55,10 @@ When it is available, this pack is intended as **starting-point** Safe Work Meth
 
 ### Who It's For
 
-Sole traders and small crews who will want starting-point SWMS files when this pack exists. A template is not a finished, site-specific SWMS.`,
+Sole-trader tradies and small crews who need compliant SWMS but don't have a safety officer to write them.`,
   price: 79,
-  stripePriceId: "price_1U4JsxPVyAgWnzPr9hwzd20r",
+  lookupKey: "tradiedocs_swms_once_aud79",
+  available: false,
   features: [
     "20 pre-filled SWMS templates (electrical, plumbing, carpentry, roofing + 16 more)",
     "Editable Word format",
@@ -64,13 +76,10 @@ Sole traders and small crews who will want starting-point SWMS files when this p
 const quoteInvoicePack: Product = {
   id: "quote-invoice-pack",
   name: "Quote + Invoice Pack",
-  description:
-    "Coming Soon. Planned quote, tax invoice, variation, and payment-reminder starters. No file is available to download yet.",
+  description: `Professional quote template, ATO-compliant tax invoice, variation template, payment reminder scripts, and T&C boilerplate. ${PACK_LEGAL_NOTICE}`,
   content: `## Quote + Invoice Pack
 
-**Status: Coming Soon.** Checkout is not live and there is no downloadable file yet. The price below is planned for when the pack exists. Use Notify me if you want an email then.
-
-When it is available, the pack is intended to help you send a clearer quote and a clearer invoice — not to replace advice on a payment dispute.
+Win more jobs with professional quotes and get paid faster with clear invoices.
 
 ### What You Get
 
@@ -90,7 +99,8 @@ When it is available, the pack is intended to help you send a clearer quote and 
 
 Tradies who are great at the work but hate the paperwork. If you've lost a job because your quote looked unprofessional or waited months to get paid because your invoice was unclear — these templates fix that.`,
   price: 49,
-  stripePriceId: "price_1U4JsyPVyAgWnzPrnk8G5Jbo",
+  lookupKey: "tradiedocs_quote_invoice_once_aud49",
+  available: false,
   features: [
     "Professional quote template",
     "Tax invoice template (ATO-compliant)",
@@ -108,22 +118,19 @@ Tradies who are great at the work but hate the paperwork. If you've lost a job b
 const complianceBundle: Product = {
   id: "compliance-bundle",
   name: "Full Compliance Bundle",
-  description:
-    "Coming Soon. Planned bundle of both packs plus extra forms. No file is available to download yet. Not for sale today.",
+  description: `Everything in both packs, plus incident report templates, 10 toolbox talk templates, subcontractor agreement, and site induction checklist. ${PACK_LEGAL_NOTICE}`,
   content: `## Full Compliance Bundle
 
-**Status: Coming Soon.** Checkout is not live and there is no downloadable file yet. The price below is planned for when the files exist. Use Notify me if you want an email then.
-
-When it is available, this bundle is intended to combine the SWMS starters and the quote/invoice starters with extra forms. It is not a complete WHS system and it is not legal advice.
+The complete paperwork toolkit for tradies who want every document they'll ever need on a job site.
 
 ### What You Get
 
-**Everything in the SWMS Template Pack ($79):**
+**Everything in the SWMS Template Pack (AU$79):**
 - 20 pre-filled SWMS templates
 - High-risk work checklist
 - State-aware SWMS structure (confirm with your regulator)
 
-**Everything in the Quote + Invoice Pack ($49):**
+**Everything in the Quote + Invoice Pack (AU$49):**
 - Professional quote template
 - ATO-compliant tax invoice
 - Variation template
@@ -137,11 +144,12 @@ When it is available, this bundle is intended to combine the SWMS starters and t
 - **Subcontractor agreement** — scope, payment terms, insurance requirements, safety obligations
 - **Site induction checklist** — emergency procedures, hazard identification, PPE requirements
 
-### Save $9 vs. Buying Separately
+### Save AU$9 vs. Buying Separately
 
-Bundle price: $119 (vs. $128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
+Bundle price: AU$119 (vs. AU$128 for both packs individually), plus four bonus templates you can't buy anywhere else.`,
   price: 119,
-  stripePriceId: "price_1U4Jt0PVyAgWnzPrXAEWTDFH",
+  lookupKey: "tradiedocs_compliance_bundle_once_aud119",
+  available: false,
   features: [
     "Everything in both packs",
     "Incident report template",
@@ -168,4 +176,23 @@ export const PRODUCT_MAP = Object.fromEntries(
 
 export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
+}
+
+// Retired sandbox Price IDs. Checkout no longer sends these.
+// Do not delete the Prices in Stripe; they are retired only in this app.
+// swms-pack: price_1U4JsxPVyAgWnzPr9hwzd20r
+// quote-invoice-pack: price_1U4JsyPVyAgWnzPrnk8G5Jbo
+// compliance-bundle: price_1U4Jt0PVyAgWnzPrXAEWTDFH
+
+/**
+ * Map a client sku to a catalogue product.
+ * Accepts the lookup key (preferred) or the product id.
+ * Rejects raw Stripe Price IDs (`price_…`).
+ */
+export function resolveCheckoutProduct(sku: string): Product | undefined {
+  const key = sku.trim()
+  if (!key || key.startsWith("price_")) return undefined
+  return ALL_PRODUCTS.find(
+    (product) => product.lookupKey === key || product.id === key
+  )
 }

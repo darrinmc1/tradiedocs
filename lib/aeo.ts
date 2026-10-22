@@ -8,6 +8,10 @@ import { siteConfig } from "@/config/site.config"
 import { PUBLISHED_LESSON_COUNT, PUBLISHED_MODULES } from "@/data/modules"
 import { ALL_PRODUCTS } from "@/data/products"
 import { ALL_UPDATES } from "@/data/updates"
+import { formatPackPrice } from "@/lib/currency"
+import { REFUND_POLICY } from "@/lib/refund-policy"
+import { getSupportEmail } from "@/lib/support-email"
+import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
 const siteUrl = () =>
   process.env.NEXT_PUBLIC_SITE_DOMAIN
@@ -20,7 +24,7 @@ export const tradieDocsFaqs = [
   {
     question: "What is TradieDocs?",
     answer:
-      "TradieDocs publishes written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies. Template packs are Coming Soon — checkout is not live and there is no file to download yet. General information only; not legal advice.",
+      "TradieDocs publishes free written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies, and lists one-off template packs. General information only; not legal advice.",
   },
   {
     question: "What is a SWMS?",
@@ -30,21 +34,24 @@ export const tradieDocsFaqs = [
   {
     question: "Do I need a SWMS for every job?",
     answer:
-      "Not every job. A SWMS is required for high-risk construction work as defined in the WHS (or OHS) rules that apply to the site. TradieDocs has a free written lesson on when a SWMS is typically required. Template files are Coming Soon.",
+      "Not every job. A SWMS is required for high-risk construction work as defined in the WHS (or OHS) rules that apply to the site. TradieDocs has a free written lesson on when a SWMS is typically required.",
   },
   {
     question: "How much do TradieDocs templates cost?",
-    answer:
-      "Nothing is for sale today. Planned one-time prices when checkout opens: SWMS Template Pack $79, Quote + Invoice Pack $49, Full Compliance Bundle $119. There is no subscription and no downloadable file yet. Join the waitlist on a product page.",
+    answer: `One-time purchases only — no subscription. Prices are in ${siteConfig.currency}. ${ALL_PRODUCTS.map((product) => `${product.name} is ${formatPackPrice(product.price)}`).join(". ")}.`,
+  },
+  {
+    question: "What is the refund policy?",
+    answer: REFUND_POLICY,
   },
   {
     question: "Is TradieDocs legal advice?",
     answer:
-      "No. TradieDocs provides general information and, when files exist, starting-point templates. It is not legal, financial, tax, or WHS advice. Confirm current rules with Safe Work Australia, your state regulator, and the ATO.",
+      "No. TradieDocs provides general information and starting-point templates. It is not legal, financial, tax, or WHS advice. Confirm current rules with Safe Work Australia, your state regulator, and the ATO.",
   },
   {
     question: "How many free lessons are on the site?",
-    answer: `There are ${PUBLISHED_LESSON_COUNT} published written lessons. That count is the number of lessons with status published in the lesson data — not a marketing estimate.`,
+    answer: `There are ${PUBLISHED_LESSON_COUNT} free written lessons on the site.`,
   },
 ]
 
@@ -62,17 +69,27 @@ export function buildLlmTxt(): string {
   const faqBlock = tradieDocsFaqs
     .map((f) => `Q: ${f.question}\nA: ${f.answer}`)
     .join("\n\n")
+  const priceBlock = ALL_PRODUCTS.map(
+    (p) => `- ${p.name}: ${formatPackPrice(p.price)} one-time — ${base}/products/${p.id}`,
+  ).join("\n")
+  const supportEmail = getSupportEmail()
+  const contactLine = supportEmail ? `Contact: ${supportEmail}\n` : ""
+  const packsOnSale =
+    stripeCheckoutVisible() && ALL_PRODUCTS.some((product) => product.available)
+  const checkoutLine = packsOnSale
+    ? "Checkout is available for the one-time AUD packs marked available below."
+    : "Checkout is not live. The pack prices below are not currently for sale."
 
   return `# ${siteConfig.name}
 
-> Written SWMS and workplace-docs education for Australian tradies. Template packs are Coming Soon. Not legal advice.
+> Written SWMS and workplace-docs education for Australian tradies, plus one-off template packs. Not legal advice.
 
 Site: ${base}
-Published written lessons: ${PUBLISHED_LESSON_COUNT}
-Job: Free written lessons on SWMS, quoting, invoicing, licensing, and compliance. Priced template packs are listed but not sold or downloadable yet.
-Not: a law firm; not legal, tax, or WHS advice; not a live document shop until files exist.
+${contactLine}Published written lessons: ${PUBLISHED_LESSON_COUNT}
+Job: Free written lessons on SWMS, quoting, invoicing, licensing, and compliance for Australian tradies, plus one-off SWMS, quote, and compliance template packs (no subscription).
+Not: a legal firm; not legal, tax, or WHS advice; templates must be customised to the job and state requirements.
 
-## Products (Coming Soon — no download)
+## Products
 
 ${productBlock}
 
@@ -86,9 +103,10 @@ ${updateBlock}
 
 ## Pricing
 
-- Template packs: planned one-time prices on ${base}/products — checkout not live
-- Subscription tiers listed in site config are not a live offer
-- Waitlist / Notify me is the only current product action
+One-time packs only. There is no subscription. Prices are in ${siteConfig.currency}.
+${checkoutLine}
+
+${priceBlock}
 
 ## FAQs
 

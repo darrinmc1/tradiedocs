@@ -1,8 +1,12 @@
 import Link from "next/link"
 import { siteConfig } from "@/config/site.config"
 import { Disclaimer } from "./disclaimer"
+import { MerchantOfRecordDisclosure } from "./merchant-of-record-disclosure"
+import { getSupportEmail } from "@/lib/support-email"
 
 export function Footer() {
+  const supportEmail = getSupportEmail()
+
   return (
     <footer className="border-t border-white/10 bg-slate-950/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
@@ -42,14 +46,16 @@ export function Footer() {
               Connect
             </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="text-sm text-slate-400 hover:text-orange-400 transition-colors"
-                >
-                  Email Us
-                </a>
-              </li>
+              {supportEmail ? (
+                <li>
+                  <a
+                    href={`mailto:${supportEmail}`}
+                    className="text-sm text-slate-400 hover:text-orange-400 transition-colors"
+                  >
+                    Email Us
+                  </a>
+                </li>
+              ) : null}
               {process.env.NEXT_PUBLIC_SHOW_GITHUB_FOOTER === "true" && (
                 <li>
                   <a
@@ -67,8 +73,9 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5">
-          <div className="mb-6 max-w-3xl">
+          <div className="mb-6 max-w-3xl space-y-3">
             <Disclaimer variant="short" />
+            <MerchantOfRecordDisclosure />
           </div>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-slate-500">

@@ -1,4 +1,5 @@
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `About | ${siteConfig.name}`,
@@ -6,6 +7,8 @@ export const metadata = {
 }
 
 export default function AboutPage() {
+  const supportEmail = getSupportEmail()
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className={`${siteConfig.theme.heroGradient} py-16`}>
@@ -32,10 +35,9 @@ export default function AboutPage() {
             quote. These pages explain those documents in plain language.
           </p>
           <p>
-            Template packs (SWMS starters, quote and invoice files, and a planned
-            compliance bundle) are <strong>Coming Soon</strong>. Checkout is not
-            live and there is no file to download yet. Planned prices are shown on
-            the products page for when those files exist.
+            Template packs (SWMS starters, quote and invoice files, and a
+            compliance bundle) are listed on the products page. They are{" "}
+            <strong>Coming Soon</strong>: no pack files are ready to download yet.
           </p>
           <p>
             Lessons are free to read and do not require an account. They are
@@ -43,16 +45,18 @@ export default function AboutPage() {
             current rules with your state regulator and the ATO before you rely on
             anything here.
           </p>
-          <p>
-            Questions? Reach out at{" "}
-            <a
-              href={`mailto:${siteConfig.contact.email}`}
-              className="text-orange-400 hover:underline"
-            >
-              {siteConfig.contact.email}
-            </a>
-            .
-          </p>
+          {supportEmail ? (
+            <p>
+              Questions? Reach out at{" "}
+              <a
+                href={`mailto:${supportEmail}`}
+                className="text-orange-400 hover:underline"
+              >
+                {supportEmail}
+              </a>
+              .
+            </p>
+          ) : null}
         </article>
       </div>
     </div>

@@ -1,10 +1,13 @@
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 
 export const metadata = {
   title: `Cookies Policy | ${siteConfig.name}`,
 }
 
 export default function CookiesPage() {
+  const supportEmail = getSupportEmail()
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
       <div className="mx-auto max-w-3xl px-6 py-20">
@@ -48,11 +51,15 @@ export default function CookiesPage() {
             Disabling essential cookies may prevent you from signing in or
             accessing purchased content.
           </p>
-          <h2>Contact</h2>
-          <p>
-            Questions about this policy? Email us at{" "}
-            <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a>.
-          </p>
+          {supportEmail ? (
+            <>
+              <h2>Contact</h2>
+              <p>
+                Questions about this policy? Email us at{" "}
+                <a href={`mailto:${supportEmail}`}>{supportEmail}</a>.
+              </p>
+            </>
+          ) : null}
         </article>
       </div>
     </div>

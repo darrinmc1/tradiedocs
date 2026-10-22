@@ -18,13 +18,11 @@ export default function sitemap() {
     { url: `${base}/updates`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/products`, lastModified: new Date(), priority: 0.8 },
     { url: `${base}/about`, lastModified: new Date(), priority: 0.6 },
-    { url: `${base}/tools`, lastModified: new Date(), priority: 0.3 },
-    { url: `${base}/downloads`, lastModified: new Date(), priority: 0.3 },
     { url: `${base}/privacy`, lastModified: new Date(), priority: 0.3 },
     { url: `${base}/terms`, lastModified: new Date(), priority: 0.3 },
   ]
 
-  const lessonPages = ALL_MODULES.map((mod) => ({
+  const lessonPages = ALL_MODULES.filter((mod) => mod.status === "published").map((mod) => ({
     url: `${base}/lessons/${mod.id}`,
     lastModified: new Date(mod.lastUpdated),
     priority: 0.8,

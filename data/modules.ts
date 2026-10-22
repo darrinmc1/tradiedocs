@@ -24,7 +24,7 @@ export interface Module {
 
 const modules: Module[] = [
   {
-    id: "about",
+    id: "trade-business-paperwork",
     title: "What Paperwork a Trade Business Usually Needs",
     description:
       "A practical map of the documents most Australian sole traders and small crews are asked for — and which of those topics this site covers in writing today.",
@@ -34,7 +34,7 @@ const modules: Module[] = [
 
 This lesson is a map, not a shopping list. The documents you need depend on the work, the site, whether you employ anyone, and the state or territory you are in. Treat it as a starting inventory. Confirm current rules with your state Work Health and Safety (WHS) regulator, your licensing body, and the [Australian Taxation Office](https://www.ato.gov.au).
 
-TradieDocs publishes **written lessons** on these topics. Downloadable template packs are **Coming Soon** — there is no file to download and checkout is not live. This page does not sell anything and is not legal advice.
+TradieDocs publishes **written lessons** on these topics. This page is general information, not legal advice.
 
 ### The usual document groups
 
@@ -67,11 +67,11 @@ Licensing is state-based. Electrical and plumbing work is licensed in every juri
 
 Do not treat a website lesson as a substitute for the regulator page. Use the licensing and compliance lessons here to know **what to ask**, then confirm the current form, fee, and threshold with the body that issues the licence or collects the tax.
 
-### What is live on TradieDocs today
+### What is on TradieDocs today
 
-**Live now:** written lessons on SWMS, quoting, invoicing, variations, licensing, insurance, tax basics, toolbox talks, and inspections. You can read them without an account.
+**Written lessons** on SWMS, quoting, invoicing, variations, licensing, insurance, tax basics, toolbox talks, and inspections. You can read them without an account.
 
-**Coming Soon:** the SWMS Template Pack, Quote + Invoice Pack, and Full Compliance Bundle. Those packs are priced for when checkout opens. There is no downloadable zip or Word file on this site yet. If a page offers a Notify me form, that is a waitlist — not a purchase.
+**Template packs:** the SWMS Template Pack, Quote + Invoice Pack, and Full Compliance Bundle are listed on the [Products](/products) page. They are **Coming Soon**: there is no downloadable file yet.
 
 ### How to use these lessons
 
@@ -85,7 +85,7 @@ If you only do one thing after this page, list the documents you were asked for 
     durationMinutes: 10,
     learningOutcomes: [
       "Name the four document groups most trade businesses are asked for",
-      "Tell the difference between a live written lesson and a Coming Soon template pack",
+      "Know which paperwork topics have a written lesson on this site",
       "Know where to confirm WHS, licensing, and tax rules before relying on a lesson",
     ],
     tags: ["paperwork", "swms", "quoting", "compliance", "orientation"],
@@ -94,7 +94,7 @@ If you only do one thing after this page, list the documents you were asked for 
     status: "published",
   },
   {
-    id: "products",
+    id: "describing-your-work-accurately",
     title: "Describing Your Work Accurately",
     description:
       "How to write quotes, warranties, and job descriptions that stay specific and supportable — without superlatives you cannot prove.",
@@ -181,7 +181,7 @@ Template packs that would hold this wording for you are **Coming Soon**. Until t
     status: "published",
   },
   {
-    id: "updates",
+    id: "keeping-compliance-documents-current",
     title: "Keeping Compliance Documents Current",
     description:
       "When to review a SWMS, licence, insurance certificate, or induction record so the folder on site matches the work being done.",
@@ -270,7 +270,7 @@ When a regulator publishes a rule change, use the official page — not a memory
     status: "published",
   },
   {
-    id: "blog",
+    id: "writing-clear-client-documents",
     title: "Writing Clear Client-Facing Documents",
     description:
       "How to write quotes, variations, and site notes in plain professional language that a client, builder, or insurer can act on.",
@@ -1078,7 +1078,7 @@ Related: [The Anatomy of a Quote That Wins Jobs](/lessons/anatomy-of-a-winning-q
 
 Work that is finished but not invoiced is an unpaid loan. This lesson covers tax-invoice basics, payment terms, and a measured follow-up sequence. It is not debt-collection advice and it is not tax advice. Confirm invoice rules with the [ATO](https://www.ato.gov.au). Construction payment claims may also sit under your state's security of payment legislation — those timeframes are strict if you use them.
 
-Invoice templates are **Coming Soon**. There is no file download on this page.
+Invoice templates are **Coming Soon**.
 
 ### Tax invoice contents (GST-registered)
 
@@ -1214,7 +1214,7 @@ Many commercial and residential building contracts say that variations must be i
 - Keep a running variation register on larger jobs (number, date, status, amount)
 - Do not start a habit of "we'll sort it at the end"
 
-Related: [Writing Clear Client-Facing Documents](/lessons/blog) and [Getting Paid: Invoice Terms](/lessons/getting-paid-invoice-terms).`,
+Related: [Writing Clear Client-Facing Documents](/lessons/writing-clear-client-documents) and [Getting Paid: Invoice Terms](/lessons/getting-paid-invoice-terms).`,
     duration: "10 min",
     durationMinutes: 10,
     learningOutcomes: [
@@ -1363,7 +1363,7 @@ Send a new certificate when you renew mid-project. An expired certificate is a g
 
 Do not sign a subcontract that requires covers you do not have. Either buy the cover, renegotiate the clause, or decline the job.
 
-Related: [Keeping Compliance Documents Current](/lessons/updates). This site does not sell insurance. Pack files that include a checklist of certificates to take to site are **Coming Soon**.`,
+Related: [Keeping Compliance Documents Current](/lessons/keeping-compliance-documents-current). This site does not sell insurance. Pack files that include a checklist of certificates to take to site are **Coming Soon**.`,
     duration: "11 min",
     durationMinutes: 11,
     learningOutcomes: [
@@ -1627,7 +1627,7 @@ Keep a site folder (physical or digital) that matches today's work:
 - Current insurance certificates
 - Plant and isolation permits in use
 
-The best time to organise that folder is before anyone asks. Related: [Keeping Compliance Documents Current](/lessons/updates) and [Toolbox Talks](/lessons/toolbox-talks-5-minute-templates).
+The best time to organise that folder is before anyone asks. Related: [Keeping Compliance Documents Current](/lessons/keeping-compliance-documents-current) and [Toolbox Talks](/lessons/toolbox-talks-5-minute-templates).
 
 Regulator pages: [Safe Work Australia](https://www.safeworkaustralia.gov.au) for model material, then your state or territory inspectorate for the rules that apply on the site.
 

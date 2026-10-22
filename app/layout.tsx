@@ -2,7 +2,9 @@ import type { Metadata } from "next"
 import { Inter, Outfit } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
+import GAAnalytics from "./components/Analytics"
 import { siteConfig } from "@/config/site.config"
+import { getSupportEmail } from "@/lib/support-email"
 import { WaitlistPopup } from "@/components/waitlist-popup"
 import { FeedbackWidget } from "@/components/feedback-widget"
 import { Analytics } from "@vercel/analytics/react"
@@ -39,6 +41,10 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
   },
+  alternates: {
+    // "./" resolves against each page's path, so every route gets its own canonical.
+    canonical: "./",
+  },
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
@@ -46,6 +52,21 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "TradieDocs — compliance paperwork for Australian tradies",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og.png"],
   },
   metadataBase: new URL(siteUrl),
 }
@@ -55,6 +76,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const supportEmail = getSupportEmail()
+  const organization: Record<string, unknown> = {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: siteConfig.name,
+    url: siteUrl,
+    description: siteConfig.description,
+    sameAs: [siteConfig.contact.github],
+  }
+  if (supportEmail) organization.email = supportEmail
+
   return (
     <html lang="en" className="dark">
       <body
@@ -72,15 +104,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                {
-                  "@type": "Organization",
-                  "@id": `${siteUrl}/#organization`,
-                  name: siteConfig.name,
-                  url: siteUrl,
-                  description: siteConfig.description,
-                  email: siteConfig.contact.email,
-                  sameAs: [siteConfig.contact.github],
-                },
+                organization,
                 {
                   "@type": "WebSite",
                   "@id": `${siteUrl}/#website`,
@@ -93,6 +117,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <GAAnalytics />
       </body>
     </html>
   )

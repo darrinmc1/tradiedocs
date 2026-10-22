@@ -18,7 +18,7 @@ const launchUpdate: WeeklyUpdate = {
   id: "launch-tradiedocs",
   title: "TradieDocs Is Live — Written Lessons First",
   description:
-    "Free written lessons on SWMS, quoting, and compliance are live. Template packs are priced and Coming Soon — no file download and no checkout yet.",
+    "Free written lessons on SWMS, quoting, and compliance are live. Template packs are listed and Coming Soon.",
   content: `## TradieDocs is live — written lessons first
 
 TradieDocs publishes practical, written guides for Australian sole traders and small crews. The aim is usable paperwork education. It is not legal, tax, or WHS advice.
@@ -39,27 +39,21 @@ No account is required to read them. Open [Lessons](/lessons).
 
 ### What is Coming Soon
 
-These packs are listed with planned one-time prices. **Checkout is not live. There is no downloadable zip or Word file yet.** Use Notify me on a pack page if you want an email when a pack is available.
+These packs are listed with planned one-time prices. **There is no downloadable pack file yet.** Use Notify me on a pack page if you want an email when a pack is available.
 
-- **SWMS Template Pack** — planned $79 — starting-point SWMS files for common trades (must still be made site-specific)
-- **Quote + Invoice Pack** — planned $49 — quote, tax invoice, and variation starters
-- **Full Compliance Bundle** — planned $119 — both packs plus extra forms when those files exist
+- **SWMS Template Pack** — planned AU$79 — starting-point SWMS files for common trades (must still be made site-specific)
+- **Quote + Invoice Pack** — planned AU$49 — quote, tax invoice, and variation starters
+- **Full Compliance Bundle** — planned AU$119 — both packs plus extra forms when those files exist
 
-Do not treat a product page as a completed purchase or a completed download.
-
-### What we will not claim
-
-- We will not count unpublished drafts as live lessons
-- We will not describe a pack as downloadable until a file exists
-- We will not present these pages as legal advice or as a substitute for your state regulator
-
-### What is next (when files exist)
+### What is next
 
 - Trade-specific SWMS starters
 - Form packs for toolbox talks, inductions, and incident records
 - Checkout for the priced packs above
 
-Prices shown on product pages are planned one-time amounts for when checkout opens. They are not a live offer today.`,
+### Launch notes
+
+Early supporters will hear about launch pricing first.`,
   date: "2026-07-01",
   tags: ["launch", "announcement", "coming-soon"],
   category: "Announcement",
