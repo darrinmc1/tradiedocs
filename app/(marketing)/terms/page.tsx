@@ -1,8 +1,6 @@
 import { siteConfig } from "@/config/site.config"
 import { RefundPolicy } from "@/components/refund-policy"
 import { getSupportEmail } from "@/lib/support-email"
-import { ALL_PRODUCTS } from "@/data/products"
-import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
 export const metadata = {
   title: `Terms of Service | ${siteConfig.name}`,
@@ -10,8 +8,6 @@ export const metadata = {
 
 export default function TermsPage() {
   const supportEmail = getSupportEmail()
-  const packsOnSale =
-    stripeCheckoutVisible() && ALL_PRODUCTS.some((product) => product.available)
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
@@ -29,18 +25,11 @@ export default function TermsPage() {
             Redistribution of our content is prohibited.
           </p>
           <h2>Payments and Refunds</h2>
-          {packsOnSale ? (
-            <p>
-              Paid template packs are one-time purchases in Australian dollars.
-              The amount and the merchant of record are shown before you pay.
-            </p>
-          ) : (
-            <p>
-              Paid template packs are not available for purchase yet. There is no
-              live checkout. Join a product waitlist if you want to be notified
-              when a pack can be bought.
-            </p>
-          )}
+          <p>
+            Paid template packs are not available for purchase yet. There is no
+            live checkout. Join a product waitlist if you want to be notified
+            when a pack can be bought.
+          </p>
           <RefundPolicy />
           {supportEmail ? (
             <>

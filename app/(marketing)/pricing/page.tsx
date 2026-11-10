@@ -5,11 +5,7 @@ import { BuyButton } from "@/components/buy-button"
 import { Disclaimer } from "@/components/disclaimer"
 import { formatPackPrice } from "@/lib/currency"
 import { REFUND_POLICY } from "@/lib/refund-policy"
-import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 import { Check } from "lucide-react"
-
-const checkoutEnabled = stripeCheckoutVisible()
-const packsOnSale = checkoutEnabled && ALL_PRODUCTS.some((product) => product.available)
 
 export const metadata = {
   title: `Pricing | ${siteConfig.name}`,
@@ -24,15 +20,11 @@ const faqs = [
   },
   {
     q: "Can I buy a pack today?",
-    a: packsOnSale
-      ? "Yes. Each pack on sale is a one-time payment in AUD. After checkout, the download is on your account page."
-      : "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
+    a: "Not yet. Checkout is not live and there is no downloadable file. Use Notify me on a pack to join the waitlist.",
   },
   {
     q: "Is this a subscription?",
-    a: checkoutEnabled
-      ? "No. Each pack is a one-off payment — no recurring fee."
-      : "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
+    a: "No. When checkout opens, each pack is planned as a one-off payment — no recurring fee.",
   },
   {
     q: "What if I only need one or two templates?",
@@ -53,9 +45,7 @@ export default function PricingPage() {
             <span className="gradient-text-cyan">Simple, one-time pack prices</span>
           </h1>
           <p className="text-lg text-slate-400">
-            {packsOnSale
-              ? "Same catalogue as the products page. Each pack is a one-time payment in AUD."
-              : "Same catalogue as the products page. Checkout is coming soon — no live purchase and no file download yet."}
+            Same catalogue as the products page. Checkout is coming soon — no live purchase and no file download yet.
           </p>
         </div>
       </section>
@@ -82,7 +72,6 @@ export default function PricingPage() {
                 ))}
               </ul>
               <BuyButton
-                sku={product.lookupKey}
                 price={product.price}
                 available={product.available}
                 source={`product-waitlist-${product.id}`}

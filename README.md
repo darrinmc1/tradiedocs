@@ -1,6 +1,6 @@
 # Empire Site Template
 
-Reusable Next.js 14 template for content + commerce sites. Dark glassmorphism theme, Clerk auth, Stripe payments, Supabase entitlements, Mailchimp waitlist, Resend transactional email.
+Reusable Next.js 14 template for content sites. Dark glassmorphism theme, Clerk auth, Supabase entitlements, Mailchimp waitlist, Resend transactional email.
 
 ## Stamp-Out Checklist
 
@@ -26,8 +26,6 @@ Copy `.env.example` to `.env.local` and fill in all values:
 
 - [ ] `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` / `CLERK_SECRET_KEY`
 - [ ] `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` / `SUPABASE_SERVICE_ROLE_KEY`
-- [ ] `STRIPE_ENABLED=false` / `NEXT_PUBLIC_STRIPE_ENABLED=false` (both must be the string `true` before any charge)
-- [ ] `STRIPE_SECRET_KEY` (TTPN test) / `STRIPE_WEBHOOK_SECRET` / `STRIPE_SITE_KEY`
 - [ ] `NEXT_PUBLIC_SUPPORT_EMAIL` (leave blank to show no address)
 - [ ] `MAILCHIMP_API_KEY` / `MAILCHIMP_LIST_ID` / `MAILCHIMP_DC`
 - [ ] `RESEND_API_KEY` / `FROM_EMAIL` / `ADMIN_EMAIL`
@@ -60,21 +58,14 @@ Copy `.env.example` to `.env.local` and fill in all values:
   ```
 - [ ] Create a `downloads` storage bucket (private) for product files
 
-### 4. Stripe Setup
-
-- [ ] In the TTPN Stripe account (test mode), create AUD Prices with lookup keys `tradiedocs_swms_once_aud79`, `tradiedocs_quote_invoice_once_aud49`, and `tradiedocs_compliance_bundle_once_aud119`. Do not paste Price IDs into the app, and do not delete the retired sandbox Prices. Leave each product's `available` flag false until its pack file is a real download.
-- [ ] Leave `STRIPE_ENABLED` and `NEXT_PUBLIC_STRIPE_ENABLED` as `false` until a Preview check passes
-- [ ] Set up a webhook endpoint pointing to `https://yourdomain.com/api/stripe/webhook`
-- [ ] Subscribe to `checkout.session.completed`
-
-### 5. Mailchimp / Waitlist Popup
+### 4. Mailchimp / Waitlist Popup
 
 - [ ] In `components/waitlist-popup.tsx`:
   - Replace `MAILCHIMP_ACTION_URL` placeholder with your Mailchimp form action URL
   - Replace `HONEYPOT_FIELD_NAME` placeholder with your audience's honeypot field name
   - Both values come from Mailchimp > Audience > Signup forms > Embedded forms
 
-### 6. Content
+### 5. Content
 
 - [ ] Add lessons in `data/modules.ts`
 - [ ] Add updates in `data/updates.ts`
@@ -82,19 +73,18 @@ Copy `.env.example` to `.env.local` and fill in all values:
 - [ ] Upload downloadable files to Supabase storage `downloads` bucket
 - [ ] Update `data/products.ts` `downloadPath` to match storage paths
 
-### 7. Pages
+### 6. Pages
 
 - [ ] Update `app/(marketing)/about/page.tsx` with real content
 - [ ] Update `app/(marketing)/privacy/page.tsx` with real privacy policy
 - [ ] Update `app/(marketing)/terms/page.tsx` with real terms of service
 
-### 8. Deploy
+### 7. Deploy
 
 - [ ] `pnpm install && pnpm build` — must pass clean
 - [ ] Deploy to Vercel (or preferred host)
 - [ ] Set all env vars in hosting dashboard
-- [ ] Verify Stripe webhook endpoint is live
-- [ ] Test full purchase flow: browse → checkout → webhook → entitlement → download
+- [ ] Confirm product and pricing pages show Coming soon and the waitlist form
 
 ## Development
 
@@ -108,7 +98,6 @@ pnpm dev
 - **Framework**: Next.js 14 (App Router)
 - **Auth**: Clerk
 - **Database**: Supabase (entitlements + subscribers)
-- **Payments**: Stripe Checkout
 - **Email**: Resend (transactional), Mailchimp (list management)
 - **Styling**: Tailwind CSS + shadcn/ui components
 - **Fonts**: Inter + Outfit

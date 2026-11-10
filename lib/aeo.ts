@@ -11,7 +11,6 @@ import { ALL_UPDATES } from "@/data/updates"
 import { formatPackPrice } from "@/lib/currency"
 import { REFUND_POLICY } from "@/lib/refund-policy"
 import { getSupportEmail } from "@/lib/support-email"
-import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
 const siteUrl = () =>
   process.env.NEXT_PUBLIC_SITE_DOMAIN
@@ -74,11 +73,8 @@ export function buildLlmTxt(): string {
   ).join("\n")
   const supportEmail = getSupportEmail()
   const contactLine = supportEmail ? `Contact: ${supportEmail}\n` : ""
-  const packsOnSale =
-    stripeCheckoutVisible() && ALL_PRODUCTS.some((product) => product.available)
-  const checkoutLine = packsOnSale
-    ? "Checkout is available for the one-time AUD packs marked available below."
-    : "Checkout is not live. The pack prices below are not currently for sale."
+  const checkoutLine =
+    "Checkout is not live. The pack prices below are not currently for sale."
 
   return `# ${siteConfig.name}
 

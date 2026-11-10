@@ -3,41 +3,26 @@ import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record-disc
 import { RefundPolicy } from "@/components/refund-policy"
 import { PACK_LEGAL_NOTICE } from "@/data/products"
 import { formatPackPrice } from "@/lib/currency"
-import { stripeCheckoutVisible } from "@/lib/stripe-flags"
 
 export function BuyButton({
-  sku,
   price,
   available,
   source,
   layout = "detail",
 }: {
-  /** Allowlisted catalogue sku. The server maps this to a Stripe lookup key. */
-  sku: string
   price: number
-  /** Real pack file exists. Missing files stay on Coming soon even if Stripe is on. */
+  /** Real pack file exists. Missing files stay on Coming soon. */
   available: boolean
   source: string
   layout?: "detail" | "card"
 }) {
-  const enabled = stripeCheckoutVisible() && available
   const priceLabel = formatPackPrice(price)
   const buttonClass =
     layout === "card"
       ? "w-full rounded-xl py-3 text-sm font-semibold text-white bg-gradient-to-r from-orange-500 to-amber-600"
       : "px-8 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-orange-500 to-amber-600 shadow-lg shadow-orange-500/25"
 
-  const control = enabled ? (
-    <form action="/api/checkout" method="POST">
-      <input type="hidden" name="sku" value={sku} />
-      <button
-        type="submit"
-        className={`${buttonClass} hover:from-orange-400 hover:to-amber-500 transition-all`}
-      >
-        {`Buy now — ${priceLabel}`}
-      </button>
-    </form>
-  ) : (
+  const control = (
     <button
       type="button"
       disabled
@@ -61,7 +46,7 @@ export function BuyButton({
         {legalNotice}
         {disclosure}
         <RefundPolicy className="text-xs leading-relaxed text-slate-500" />
-        {!enabled && <NewsletterForm source={source} buttonLabel="Notify me" />}
+        <NewsletterForm source={source} buttonLabel="Notify me" />
       </div>
     )
   }
@@ -80,16 +65,14 @@ export function BuyButton({
           <RefundPolicy className="text-xs leading-relaxed text-slate-500" />
         </div>
       </div>
-      {!enabled && (
-        <div>
-          <p className="text-sm text-slate-400 mb-3">
-            {available
-              ? "Checkout is not live yet. Leave your email and we'll notify you when this pack is available to buy."
-              : "The downloadable file for this pack is not ready yet. Leave your email and we'll notify you when it can be bought."}
-          </p>
-          <NewsletterForm source={source} buttonLabel="Notify me" />
-        </div>
-      )}
+      <div>
+        <p className="text-sm text-slate-400 mb-3">
+          {available
+            ? "Checkout is not live yet. Leave your email and we'll notify you when this pack is available to buy."
+            : "The downloadable file for this pack is not ready yet. Leave your email and we'll notify you when it can be bought."}
+        </p>
+        <NewsletterForm source={source} buttonLabel="Notify me" />
+      </div>
     </div>
   )
 }
