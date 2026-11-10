@@ -13,14 +13,11 @@ export interface Product {
   description: string
   content: string
   price: number
-  /**
-   * Stripe Price lookup_key. Checkout resolves this on the server.
-   * Never send a Price ID from the browser.
-   */
+  /** Catalogue key for this pack. */
   lookupKey: string
   /**
    * False when the pack file is missing or only a placeholder.
-   * Buy stays on "Coming soon" until this is true, even if Stripe is enabled.
+   * The buy control stays on "Coming soon" until this is true.
    */
   available: boolean
   features: string[]
@@ -176,23 +173,4 @@ export const PRODUCT_MAP = Object.fromEntries(
 
 export function getProductById(id: string): Product | undefined {
   return PRODUCT_MAP[id]
-}
-
-// Retired sandbox Price IDs. Checkout no longer sends these.
-// Do not delete the Prices in Stripe; they are retired only in this app.
-// swms-pack: price_1U4JsxPVyAgWnzPr9hwzd20r
-// quote-invoice-pack: price_1U4JsyPVyAgWnzPrnk8G5Jbo
-// compliance-bundle: price_1U4Jt0PVyAgWnzPrXAEWTDFH
-
-/**
- * Map a client sku to a catalogue product.
- * Accepts the lookup key (preferred) or the product id.
- * Rejects raw Stripe Price IDs (`price_…`).
- */
-export function resolveCheckoutProduct(sku: string): Product | undefined {
-  const key = sku.trim()
-  if (!key || key.startsWith("price_")) return undefined
-  return ALL_PRODUCTS.find(
-    (product) => product.lookupKey === key || product.id === key
-  )
 }

@@ -1,6 +1,3 @@
-/** Stripe ISO currency for TradieDocs one-off packs. */
-export const STRIPE_CURRENCY = "aud"
-
 /** Display code used in config, metadata, and llms.txt. */
 export const CURRENCY_CODE = "AUD"
 
